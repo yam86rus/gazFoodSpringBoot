@@ -24,11 +24,14 @@
             <th>Контакты</th>
         </tr>
         <tr th:each="vacancy : ${allVacancies}">
+            <td th:utext="${vacancy.id}"></td>
             <td th:utext="${vacancy.vacancy}"></td>
             <td th:utext="${vacancy.description}"></td>
             <td th:utext="${vacancy.requirements}"></td>
             <td th:utext="${vacancy.conditions}"></td>
             <td th:utext="${vacancy.contacts}"></td>
+            <td><a th:href="@{'/updateVacancy'+'?vacancyId='+${vacancy.id}}">Изменить</a></td>
+            <td><a th:href="@{'/deleteVacancy'+'?vacancyId='+${vacancy.id}}">Удалить</a></td>
         </tr>
 
     </table>

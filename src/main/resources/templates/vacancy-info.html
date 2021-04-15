@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>vacancy info</title>
 </head>
 <body>
-<h1>Vacancy info</h1>
+<h1>Информация о вакансии</h1>
+<div>
+    <form action="#" th:action="@{/saveVacancy}" th:object="${vacancy}" method="post">
+        <table>
+            <tr>
+                <td>Название вакансии</td>
+                <td><input type="text" th:field="*{vacancy}"></td>
+            </tr>
+            <tr>
+                <td>Описание</td>
+                <td><input type="text" th:field="*{description}"></td>
+            </tr>
+            <tr>
+                <td>Требования</td>
+                <td><input type="text" th:field="*{requirements}"></td>
+            </tr>
+            <tr>
+                <td>Условия</td>
+                <td><input type="text" th:field="*{conditions}"></td>
+            </tr>
+            <tr>
+                <td>Контакты</td>
+                <td><input type="text" th:field="*{contacts}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Сохранить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

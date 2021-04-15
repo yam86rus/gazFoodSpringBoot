@@ -5,10 +5,13 @@
     <title>employee info</title>
 </head>
 <body>
-<h1>Добавить нового сотрудника</h1>
+<h1>Изменение данных сотрудника</h1>
 <div>
     <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="post">
         <table>
+            <tr>
+                <td><input type="hidden" th:field="*{id}" id="blogId" ></td>
+            </tr>
             <tr>
                 <td>Фамилия</td>
                 <td><input type="text" th:field="*{surname}"></td>

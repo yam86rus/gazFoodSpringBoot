@@ -38,6 +38,8 @@
             <td th:utext="${employee.phoneGaz}"></td>
             <td th:utext="${employee.phoneMobile}"></td>
             <td th:utext="${employee.email}"></td>
+            <td><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
+            <td><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
         </tr>
 
     </table>

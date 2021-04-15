@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -43,6 +45,14 @@ public class VacancyController {
         model.addAttribute("vacancy", vacancy);
         return "vacancy-info";
     }
+
+//    @RequestMapping("/updateVacancy/{id}")
+//    public ModelAndView updateVacancy(@PathVariable(name = "id") int id) {
+//        ModelAndView mav = new ModelAndView("vacancy-info");
+//        Vacancy vacancy = vacancyService.getVacancy(id);
+//        mav.addObject("vacancy", vacancy);
+//        return mav;
+//    }
 
     @RequestMapping("/deleteVacancy")
     public String deleteVacancy(@RequestParam("vacancyId") int id) {

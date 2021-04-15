@@ -37,11 +37,11 @@ public class EmployeeController {
         return "redirect:employees";
     }
 
-    @RequestMapping("/updateEmployee")
+    @RequestMapping(value = "/updateEmployee")
     public String updateEmployee(@RequestParam("empId") int id, Model model){
         Employee employee = employeeService.getEmployee(id);
         model.addAttribute("employee", employee);
-        return "employee-info";
+        return "employee-update";
     }
 
     @RequestMapping("/deleteEmployee")
