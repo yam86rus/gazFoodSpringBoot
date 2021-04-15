@@ -1,8 +1,7 @@
-package com.gazFood.service;
+package com.gazfood.gazfoodspringboot.service;
 
-
-import com.gazFood.dao.VacancyDAO;
-import com.gazFood.entity.Vacancy;
+import com.gazfood.gazfoodspringboot.dao.VacancyDAO;
+import com.gazfood.gazfoodspringboot.entity.Vacancy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.gazfood.gazfoodspringboot.controllers;
+package com.gazfood.gazfoodspringboot.controllers.rest;
 
 
 import com.gazfood.gazfoodspringboot.entity.Employee;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class MyRESTController {
+public class EmployeeRESTController {
 
     @Autowired
     private EmployeeService employeeService;

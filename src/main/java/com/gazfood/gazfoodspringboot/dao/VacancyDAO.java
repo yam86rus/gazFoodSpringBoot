@@ -1,8 +1,6 @@
-package com.gazFood.dao;
+package com.gazfood.gazfoodspringboot.dao;
 
-
-import com.gazFood.entity.Vacancy;
-
+import com.gazfood.gazfoodspringboot.entity.Vacancy;
 import java.util.List;
 
 public interface VacancyDAO {

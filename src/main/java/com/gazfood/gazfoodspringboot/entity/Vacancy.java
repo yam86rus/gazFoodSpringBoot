@@ -1,4 +1,4 @@
-package com.gazFood.entity;
+package com.gazfood.gazfoodspringboot.entity;
 
 import javax.persistence.*;
 

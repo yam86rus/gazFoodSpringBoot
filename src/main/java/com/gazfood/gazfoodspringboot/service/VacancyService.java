@@ -1,7 +1,8 @@
-package com.gazFood.service;
+package com.gazfood.gazfoodspringboot.service;
 
 
-import com.gazFood.entity.Vacancy;
+
+import com.gazfood.gazfoodspringboot.entity.Vacancy;
 
 import java.util.List;
 

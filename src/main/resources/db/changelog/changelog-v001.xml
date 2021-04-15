@@ -6,13 +6,62 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
     <changeSet id="1" author="Yakushev">
-        <createTable tableName="newUsers">
-            <column name="id"  type="bigint(20)" autoIncrement="true">
+
+        <createTable tableName="employees">
+            <column name="id" type="bigint(20)" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="name" type="varchar(255)"></column>
-            <column name="surname" type="varchar(255)"></column>
+            <column name="name" type="varchar(15)"></column>
+            <column name="surname" type="varchar(25)"></column>
+            <column name="patronymic" type="varchar(25)"></column>
+            <column name="position" type="varchar(100)"></column>
+            <column name="department" type="varchar(50)"></column>
+            <column name="city" type="varchar(25)"></column>
+            <column name="phoneGaz" type="varchar(25)"></column>
+            <column name="phoneMobile" type="varchar(15)"></column>
+            <column name="email" type="varchar(50)"></column>
         </createTable>
+
+        <insert tableName="employees">
+            <column name="name" value="Максим"/>
+            <column name="surname" value="Якушев"/>
+            <column name="patronymic" value="Юрьевич"/>
+            <column name="position" value="Программист"/>
+            <column name="department" value="ИТ"/>
+            <column name="city" value="Сургут"/>
+            <column name="phoneGaz" value="53547"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="yam86rus@gmail.com"/>
+        </insert>
+
+        <createTable tableName="vacancies">
+            <column name="id" type="bigint(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="vacancy" type="varchar(200)"></column>
+            <column name="description" type="varchar(2048)"></column>
+            <column name="requirements" type="varchar(2048)"></column>
+            <column name="conditions" type="varchar(2048)"></column>
+            <column name="contacts" type="varchar(300)"></column>
+        </createTable>
+
+        <insert tableName="vacancies">
+            <column name="vacancy" value="Повар"/>
+            <column name="description" value="Приготовление блюд, полуфабрикатов и кулинарных изделий.
+            Соблюдение стандартов организации.
+            Порционирование блюд, обслуживание гостей на раздаче.
+            Участие в составлении меню, и заявок на сырье"/>
+            <column name="requirements" value="Наличие профессионального образования.
+            Опыт работы от 3-х лет.
+            Умение работать со сборниками рецептур.
+            Наличие медицинской книжки"/>
+            <column name="conditions" value="Полный рабочий день, график 5/2.
+            Соц. пакет.
+            Конкурентоспособная заработная плата, обсуждается на собеседовании"/>
+            <column name="contacts" value="+ 7 (3462) 75-34-48
+            kadr@gaztorg.org.ru"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>
