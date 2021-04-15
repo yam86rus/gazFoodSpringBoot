@@ -62,6 +62,20 @@
             kadr@gaztorg.org.ru"/>
         </insert>
 
+        <createTable tableName="cities">
+            <column name="id" type="bigint(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="city" type="varchar(200)"></column>
+        </createTable>
+
+        <insert tableName="cities">
+            <column name="city" value="Сургут"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city" value="Ноябрьск"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>

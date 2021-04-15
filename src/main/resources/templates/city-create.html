@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>city create</title>
+</head>
+<body>
+<h1>Добавить город</h1>
+<div>
+    <form action="#" th:action="@{/saveCity}" th:object="${city}" method="post">
+        <table>
+            <tr>
+                <td>Название города</td>
+                <td><input type="text" th:field="*{city}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Сохранить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

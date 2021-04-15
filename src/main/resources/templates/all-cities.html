@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/materialize.css}"/>
+
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>all cities</h1>
+<ul>
+    <li>
+        <a href="/">главная</a>
+    </li>
+</ul>
+<br>
+<div class="container">
+    <table class="highlight">
+        <tr>
+            <th>Название города</th>
+            <th>Операции</th>
+        </tr>
+        <tr th:each="city : ${allCities}">
+            <td th:utext="${city.city}"></td>
+            <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>
+            <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>
+        </tr>
+
+    </table>
+</div>
+<br>
+<input class="waves-effect waves-light btn-small" type="button" value="добавить"
+       onclick="window.location.href = 'addNewCity'">
+</body>
+</html>
+

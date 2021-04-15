@@ -22,9 +22,9 @@
             <th>Требования</th>
             <th>Условия</th>
             <th>Контакты</th>
+            <th>Операции</th>
         </tr>
         <tr th:each="vacancy : ${allVacancies}">
-            <td th:utext="${vacancy.id}"></td>
             <td th:utext="${vacancy.vacancy}"></td>
             <td th:utext="${vacancy.description}"></td>
             <td th:utext="${vacancy.requirements}"></td>

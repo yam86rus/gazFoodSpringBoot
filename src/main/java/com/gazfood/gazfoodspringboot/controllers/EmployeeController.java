@@ -28,7 +28,7 @@ public class EmployeeController {
     public String addNewEmployee(Model model) {
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
-        return "employee-info";
+        return "employee-create";
 
     }
     @RequestMapping("/saveEmployee")
