@@ -19,6 +19,9 @@ public class Employee {
     @Column(name = "patronymic")
     private String patronymic;
 
+    @Column(name = "birthday")
+    private String birthday;
+
     @Column(name = "position")
     private String position;
 
@@ -40,10 +43,11 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String surname, String patronymic, String position, String department, String city, String phoneGaz, String phoneMobile, String email) {
+    public Employee(String name, String surname, String patronymic, String birthday, String position, String department, String city, String phoneGaz, String phoneMobile, String email) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
+        this.birthday = birthday;
         this.position = position;
         this.department = department;
         this.city = city;
@@ -126,6 +130,14 @@ public class Employee {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public void setEmail(String email) {
