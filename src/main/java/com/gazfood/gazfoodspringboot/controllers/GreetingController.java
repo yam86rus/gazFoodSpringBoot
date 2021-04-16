@@ -11,4 +11,9 @@ public class GreetingController {
         return "main";
     }
 
+    @GetMapping("/restapi")
+    public String restapi(){
+        return "restapi";
+    }
+
 }

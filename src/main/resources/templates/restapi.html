@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<!--<link rel="stylesheet" th:href="@{/css/materialize.css}"/>-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
-<!--<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>-->
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <title>REST API</title>
 </head>
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <body>
@@ -14,12 +12,16 @@
     <div th:replace="sidebar :: sidebar"></div>
 
     <div class="main_content">
-        <div class="header">Корпоративный портал</div>
+        <div class="header">REST API</div>
         <div class="info">
-            <div>Добро пожаловать на корпоративный портал.</div>
+            <ul>
+                <li>API</li>
+                <li><a href="/api/employees">api/employees</a></li>
+                <li><a href="/api/vacancies">api/vacancies</a></li>
+                <li><a href="/api/cities">api/cities</a></li>
+            </ul>
         </div>
     </div>
 </div>
 </body>
-<script th:src="@{/js/test.js}"></script>
 </html>

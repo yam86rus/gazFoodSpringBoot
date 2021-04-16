@@ -1,52 +1,56 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" th:href="@{/css/materialize.css}"/>
+<link rel="stylesheet" th:href="@{/css/navbar.css}"/>
 
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <body>
-<h1>all employees</h1>
-<ul>
-    <li>
-        <a href="/">главная</a>
-    </li>
-</ul>
-<br>
-<div class="container">
-    <table class="highlight">
-        <tr>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Должность</th>
-            <th>Отдел</th>
-            <th>Город</th>
-            <th>Телефон газовый</th>
-            <th>Телефон сотовый</th>
-            <th>e-mail</th>
-            <th>Операции</th>
-        </tr>
-        <tr th:each="employee : ${allEmps}">
-            <td th:utext="${employee.surname}"></td>
-            <td th:utext="${employee.name}"></td>
-            <td th:utext="${employee.patronymic}"></td>
-            <td th:utext="${employee.position}"></td>
-            <td th:utext="${employee.department}"></td>
-            <td th:utext="${employee.city}"></td>
-            <td th:utext="${employee.phoneGaz}"></td>
-            <td th:utext="${employee.phoneMobile}"></td>
-            <td th:utext="${employee.email}"></td>
-            <td><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
-            <td><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
-        </tr>
 
-    </table>
+<div class="wrapper">
+    <!--    Подключаем sidebar-->
+    <div th:replace="sidebar :: sidebar"></div>
+
+    <div class="main_content">
+        <div class="header">Сотрудники</div>
+        <div class="info">
+            <div class="container">
+                <table class="highlight">
+                    <tr>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Отчество</th>
+                        <th>Должность</th>
+                        <th>Отдел</th>
+                        <th>Город</th>
+                        <th>Телефон газовый</th>
+                        <th>Телефон сотовый</th>
+                        <th>e-mail</th>
+                        <th>Операции</th>
+                    </tr>
+                    <tr th:each="employee : ${allEmps}">
+                        <td th:utext="${employee.surname}"></td>
+                        <td th:utext="${employee.name}"></td>
+                        <td th:utext="${employee.patronymic}"></td>
+                        <td th:utext="${employee.position}"></td>
+                        <td th:utext="${employee.department}"></td>
+                        <td th:utext="${employee.city}"></td>
+                        <td th:utext="${employee.phoneGaz}"></td>
+                        <td th:utext="${employee.phoneMobile}"></td>
+                        <td th:utext="${employee.email}"></td>
+                        <td><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
+                        <td><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <input class="waves-effect waves-light btn-small" type="button" value="добавить"
+                   onclick="window.location.href = 'addNewEmployee'">
+        </div>
+    </div>
 </div>
-<br>
-<input class="waves-effect waves-light btn-small" type="button" value="добавить"
-       onclick="window.location.href = 'addNewEmployee'">
 </body>
 </html>
 
