@@ -28,8 +28,9 @@ public class Employee {
     @Column(name = "department")
     private String department;
 
-    @Column (name = "city")
-    private String city;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "city_id")
+    private City empCity;
 
     @Column(name = "phoneGaz")
     private String phoneGaz;
@@ -43,14 +44,14 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String surname, String patronymic, String birthday, String position, String department, String city, String phoneGaz, String phoneMobile, String email) {
+    public Employee(String name, String surname, String patronymic, String birthday, String position, String department, City empCity, String phoneGaz, String phoneMobile, String email) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.birthday = birthday;
         this.position = position;
         this.department = department;
-        this.city = city;
+        this.empCity = empCity;
         this.phoneGaz = phoneGaz;
         this.phoneMobile = phoneMobile;
         this.email = email;
@@ -88,6 +89,14 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -104,12 +113,12 @@ public class Employee {
         this.department = department;
     }
 
-    public String getCity() {
-        return city;
+    public City getEmpCity() {
+        return empCity;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setEmpCity(City empCity) {
+        this.empCity = empCity;
     }
 
     public String getPhoneGaz() {
@@ -130,14 +139,6 @@ public class Employee {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
     }
 
     public void setEmail(String email) {

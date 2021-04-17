@@ -7,8 +7,23 @@
 
     <changeSet id="1" author="Yakushev">
 
+        <createTable tableName="cities">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="city" type="varchar(200)"></column>
+        </createTable>
+
+        <insert tableName="cities">
+            <column name="city" value="Сургут"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city" value="Ноябрьск"/>
+        </insert>
+
+
         <createTable tableName="employees">
-            <column name="id" type="bigint(20)" autoIncrement="true">
+            <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
             <column name="name" type="varchar(15)"></column>
@@ -17,7 +32,9 @@
             <column name="birthday" type="varchar(25)"></column>
             <column name="position" type="varchar(100)"></column>
             <column name="department" type="varchar(50)"></column>
-            <column name="city" type="varchar(25)"></column>
+            <column name="city_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_employee_city" references="cities(id)"/>
+            </column>
             <column name="phoneGaz" type="varchar(25)"></column>
             <column name="phoneMobile" type="varchar(15)"></column>
             <column name="email" type="varchar(50)"></column>
@@ -30,14 +47,14 @@
             <column name="birthday" value="27.03.1985"/>
             <column name="position" value="Программист"/>
             <column name="department" value="ИТ"/>
-            <column name="city" value="Сургут"/>
+            <column name="city_id"  valueNumeric="1"/>
             <column name="phoneGaz" value="53547"/>
             <column name="phoneMobile" value="922-222-22-22"/>
             <column name="email" value="yam86rus@gmail.com"/>
         </insert>
 
         <createTable tableName="vacancies">
-            <column name="id" type="bigint(20)" autoIncrement="true">
+            <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
             <column name="vacancy" type="varchar(200)"></column>
@@ -64,19 +81,6 @@
             kadr@gaztorg.org.ru"/>
         </insert>
 
-        <createTable tableName="cities">
-            <column name="id" type="bigint(20)" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"></constraints>
-            </column>
-            <column name="city" type="varchar(200)"></column>
-        </createTable>
-
-        <insert tableName="cities">
-            <column name="city" value="Сургут"/>
-        </insert>
-        <insert tableName="cities">
-            <column name="city" value="Ноябрьск"/>
-        </insert>
 
     </changeSet>
 

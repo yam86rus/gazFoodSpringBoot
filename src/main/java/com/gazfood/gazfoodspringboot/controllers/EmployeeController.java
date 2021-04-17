@@ -1,6 +1,8 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
+import com.gazfood.gazfoodspringboot.entity.City;
 import com.gazfood.gazfoodspringboot.entity.Employee;
+import com.gazfood.gazfoodspringboot.service.CityService;
 import com.gazfood.gazfoodspringboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,9 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private CityService cityService;
+
     @GetMapping("/employees")
     public String showEmployeePage(Model model) {
         List<Employee> allEmployees = employeeService.getAllEmployees();
@@ -28,6 +33,10 @@ public class EmployeeController {
     public String addNewEmployee(Model model) {
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
+
+        List<City> listCities = cityService.getAllCities();
+        model.addAttribute("listCities",listCities);
+
         return "employee-create";
 
     }
@@ -41,6 +50,9 @@ public class EmployeeController {
     public String updateEmployee(@RequestParam("empId") int id, Model model){
         Employee employee = employeeService.getEmployee(id);
         model.addAttribute("employee", employee);
+
+        List<City> listCities = cityService.getAllCities();
+        model.addAttribute("listCities",listCities);
         return "employee-update";
     }
 
