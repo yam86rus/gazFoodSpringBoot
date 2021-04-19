@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td>Город</td>
-                <td><select th:field="*{empCity.city}" required>
+                <td><select th:field="*{city.id}" required>
                     <th:block th:each="city: ${listCities}">
                         <option th:text="${city.city}" th:value="${city.id}"/>
                     </th:block>

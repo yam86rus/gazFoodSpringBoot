@@ -11,7 +11,9 @@
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="city" type="varchar(200)"></column>
+            <column name="city" type="varchar(200)">
+                <constraints nullable="false" unique="true"/>
+            </column>
         </createTable>
 
         <insert tableName="cities">
@@ -33,12 +35,19 @@
             <column name="position" type="varchar(100)"></column>
             <column name="department" type="varchar(50)"></column>
             <column name="city_id" type="int">
-                <constraints nullable="false" foreignKeyName="fk_employee_city" references="cities(id)"/>
+                <constraints nullable="false"/>
             </column>
             <column name="phoneGaz" type="varchar(25)"></column>
             <column name="phoneMobile" type="varchar(15)"></column>
             <column name="email" type="varchar(50)"></column>
         </createTable>
+
+        <addForeignKeyConstraint baseTableName="employees"
+                                 baseColumnNames="city_id"
+                                 referencedTableName="cities"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_employees_city_id"
+        />
 
         <insert tableName="employees">
             <column name="name" value="Максим"/>
@@ -47,7 +56,7 @@
             <column name="birthday" value="27.03.1985"/>
             <column name="position" value="Программист"/>
             <column name="department" value="ИТ"/>
-            <column name="city_id"  valueNumeric="1"/>
+            <column name="city_id" valueNumeric="1"/>
             <column name="phoneGaz" value="53547"/>
             <column name="phoneMobile" value="922-222-22-22"/>
             <column name="email" value="yam86rus@gmail.com"/>

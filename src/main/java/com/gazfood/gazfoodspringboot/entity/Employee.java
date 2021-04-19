@@ -2,6 +2,8 @@ package com.gazfood.gazfoodspringboot.entity;
 
 import javax.persistence.*;
 
+import com.gazfood.gazfoodspringboot.entity.City;
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -28,9 +30,9 @@ public class Employee {
     @Column(name = "department")
     private String department;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "city_id")
-    private City empCity;
+    private City city;
 
     @Column(name = "phoneGaz")
     private String phoneGaz;
@@ -40,22 +42,6 @@ public class Employee {
 
     @Column(name = "email")
     private String email;
-
-    public Employee() {
-    }
-
-    public Employee(String name, String surname, String patronymic, String birthday, String position, String department, City empCity, String phoneGaz, String phoneMobile, String email) {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        this.birthday = birthday;
-        this.position = position;
-        this.department = department;
-        this.empCity = empCity;
-        this.phoneGaz = phoneGaz;
-        this.phoneMobile = phoneMobile;
-        this.email = email;
-    }
 
     public int getId() {
         return id;
@@ -113,12 +99,12 @@ public class Employee {
         this.department = department;
     }
 
-    public City getEmpCity() {
-        return empCity;
+    public City getCity() {
+        return city;
     }
 
-    public void setEmpCity(City empCity) {
-        this.empCity = empCity;
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public String getPhoneGaz() {
@@ -143,5 +129,25 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Employee() {
+    }
+
+    public Employee(String name, String surname, String patronymic, String birthday, String position, String department, City city, String phoneGaz, String phoneMobile, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.birthday = birthday;
+        this.position = position;
+        this.department = department;
+        this.city = city;
+        this.phoneGaz = phoneGaz;
+        this.phoneMobile = phoneMobile;
+        this.email = email;
+    }
+
+    public Employee(int id) {
+        this.id = id;
     }
 }
