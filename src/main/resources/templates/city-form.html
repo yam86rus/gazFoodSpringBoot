@@ -2,15 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>vacancy info</title>
+    <title>city form</title>
 </head>
 <body>
-<h1>Обновить информацию о городе</h1>
+<div th:if="${city.id == null}">
+    <h1>Добавить город</h1>
+</div>
+<div th:unless="${city.id == null}">
+    <h1>Редактировать город</h1>
+</div>
 <div>
-    <form action="#" th:action="@{/saveCity}" th:object="${city}" method="post">
+    <form th:action="@{/saveCity}" th:object="${city}" method="post">
         <table>
             <tr>
-                <td><input type="hidden" th:field="*{id}" id="blogId" ></td>
+                <td><input type="hidden" th:field="*{id}"></td>
             </tr>
             <tr>
                 <td>Название города</td>

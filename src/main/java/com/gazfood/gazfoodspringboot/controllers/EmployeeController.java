@@ -37,7 +37,7 @@ public class EmployeeController {
         List<City> listCities = cityService.getAllCities();
         model.addAttribute("listCities",listCities);
 
-        return "employee-create";
+        return "employee-form";
 
     }
     @RequestMapping("/saveEmployee")
@@ -53,7 +53,7 @@ public class EmployeeController {
 
         List<City> listCities = cityService.getAllCities();
         model.addAttribute("listCities",listCities);
-        return "employee-update";
+        return "employee-form";
     }
 
     @RequestMapping("/deleteEmployee")

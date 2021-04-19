@@ -28,7 +28,7 @@ public class VacancyController {
     public String addNewVacancy(Model model) {
         Vacancy vacancy = new Vacancy();
         model.addAttribute("vacancy", vacancy);
-        return "vacancy-create";
+        return "vacancy-form";
     }
 
     @RequestMapping("/saveVacancy")
@@ -41,7 +41,7 @@ public class VacancyController {
     public String updateVacancy(@RequestParam("vacancyId") int id, Model model) {
         Vacancy vacancy = vacancyService.getVacancy(id);
         model.addAttribute("vacancy", vacancy);
-        return "vacancy-update";
+        return "vacancy-form";
     }
 
     @RequestMapping("/deleteVacancy")

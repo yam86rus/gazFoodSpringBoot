@@ -2,13 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>vacancy info</title>
+    <title>vacancy form</title>
 </head>
 <body>
-<h1>Добавить вакансию</h1>
+<div th:if="${vacancy.id == 0}">
+    <h1>Добавить новую вакансию</h1>
+</div>
+<div th:unless="${vacancy.id == 0}">
+    <h1>Редактировать вакансию</h1>
+</div>
 <div>
-    <form action="#" th:action="@{/saveVacancy}" th:object="${vacancy}" method="post">
+    <form th:action="@{/saveVacancy}" th:object="${vacancy}" method="post">
         <table>
+            <tr>
+                <td><input type="hidden" th:field="*{id}"></td>
+            </tr>
             <tr>
                 <td>Название вакансии</td>
                 <td><input type="text" th:field="*{vacancy}"></td>

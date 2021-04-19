@@ -2,15 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>employee info</title>
+    <title>employee form</title>
 </head>
 <body>
-<h1>Изменение данных сотрудника</h1>
+<div th:if="${employee.id == null}">
+    <h1>Добавить нового сотрудника</h1>
+</div>
+<div th:unless="${employee.id == null}">
+    <h1>Редактирование сотрудника</h1>
+</div>
 <div>
-    <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+    <form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
         <table>
             <tr>
-                <td><input type="hidden" th:field="*{id}" id="blogId" ></td>
+                <td><input type="hidden" th:field="*{id}" id="blogId"></td>
             </tr>
             <tr>
                 <td>Фамилия</td>

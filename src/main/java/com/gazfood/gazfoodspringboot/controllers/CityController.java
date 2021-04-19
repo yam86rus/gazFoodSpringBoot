@@ -1,7 +1,6 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
 import com.gazfood.gazfoodspringboot.entity.City;
-import com.gazfood.gazfoodspringboot.entity.Employee;
 import com.gazfood.gazfoodspringboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +28,7 @@ public class CityController {
     public String addNewCity(Model model) {
         City city = new City();
         model.addAttribute("city", city);
-        return "city-create";
+        return "city-form";
 
     }
     @RequestMapping("/saveCity")
@@ -42,7 +41,7 @@ public class CityController {
     public String updateEmployee(@RequestParam("cityId") int id, Model model){
         City city = cityService.getCity(id);
         model.addAttribute("city", city);
-        return "city-update";
+        return "city-form";
     }
 
     @RequestMapping("/deleteCity")

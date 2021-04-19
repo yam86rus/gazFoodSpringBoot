@@ -36,6 +36,7 @@ public class Vacancy {
         this.contacts = contacts;
     }
 
+
     public int getId() {
         return id;
     }
