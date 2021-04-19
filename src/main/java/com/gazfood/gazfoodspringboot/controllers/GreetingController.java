@@ -8,7 +8,7 @@ public class GreetingController {
 
     @GetMapping("")
     public String main() {
-        return "main";
+        return "index";
     }
 
     @GetMapping("/restapi")
