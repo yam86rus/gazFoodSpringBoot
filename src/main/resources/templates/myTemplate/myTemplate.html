@@ -1,0 +1,275 @@
+<!-- спасибо за шаблон Code Resource -->
+<!--https://youtu.be/OJEQaVT45XA-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">-->
+<!--    <title>Admin</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}"/>-->
+<!--    <link rel="stylesheet"-->
+<!--          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<input type="checkbox" id="nav-toggle">-->
+<!--&lt;!&ndash;    Подключаем sidebar&ndash;&gt;-->
+<!--<div th:replace="sidebar :: sidebar"></div>-->
+
+<!--<div class="main-content">-->
+<!--    <header>-->
+<!--        <h2>-->
+<!--            <label for="nav-toggle">-->
+<!--                <span class="las la-bars"></span>-->
+<!--            </label>-->
+<!--            Рабочий стол-->
+<!--        </h2>-->
+<!--        <div class="search-wrapper">-->
+<!--            <span class="las la-search"></span>-->
+<!--            <input type="search" placeholder="Поиск"/>-->
+<!--        </div>-->
+<!--        <div class="user-wrapper">-->
+<!--            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>-->
+<!--            &lt;!&ndash;            <img th:src="@{img/myImage.jpg}" alt=""/>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <link rel="stylesheet" th:href="@{/css/navbar.css}"/>&ndash;&gt;-->
+<!--            <div>-->
+<!--                <h4>-->
+<!--                    Максим Якушев-->
+<!--                </h4>-->
+<!--                <small>Super admin</small>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
+<!--    <main>-->
+<!--        <div class="cards">-->
+<!--            <div class="cards-single">-->
+<!--                <div>-->
+<!--                    <h1>54</h1>-->
+<!--                    <span>Сотрудники</span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span class="las la-users"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="cards-single">-->
+<!--                <div>-->
+<!--                    <h1>79</h1>-->
+<!--                    <span>Кассы</span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span class="las la-clipboard-list"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="cards-single">-->
+<!--                <div>-->
+<!--                    <h1>124</h1>-->
+<!--                    <span>Заказы</span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span class="las la-shopping-bag"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="cards-single">-->
+<!--                <div>-->
+<!--                    <h1>$6k</h1>-->
+<!--                    <span>Поступления</span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span class="lab la-google-wallet"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="recent-grid">-->
+<!--            <div class="projects">-->
+<!--                <div class="card">-->
+<!--                    <div class="card-header">-->
+<!--                        <h3>Recent Projects</h3>-->
+<!--                        <button>See all<span class="las la-arrow-right"></span></button>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <div class="table-responsive">-->
+<!--                            <table width="100%">-->
+<!--                                <thead>-->
+<!--                                <tr>-->
+<!--                                    <td>Project Title</td>-->
+<!--                                    <td>Department</td>-->
+<!--                                    <td>Status</td>-->
+<!--                                </tr>-->
+<!--                                </thead>-->
+<!--                                <tbody>-->
+<!--                                <tr>-->
+<!--                                    <td>UI/UX Design</td>-->
+<!--                                    <td>UI Team</td>-->
+<!--                                    <td><span class="status purple"></span>-->
+<!--                                        review-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>Web development</td>-->
+<!--                                    <td>Frontend</td>-->
+<!--                                    <td>-->
+<!--                                        <span class="status pink"></span>-->
+<!--                                        in progress-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>Ushop app</td>-->
+<!--                                    <td>Mobile Team</td>-->
+<!--                                    <td>-->
+<!--                                        <span class="status orange"></span>-->
+<!--                                        pending-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>UI/UX Design</td>-->
+<!--                                    <td>UI Team</td>-->
+<!--                                    <td><span class="status purple"></span>-->
+<!--                                        review-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>Web development</td>-->
+<!--                                    <td>Frontend</td>-->
+<!--                                    <td>-->
+<!--                                        <span class="status pink"></span>-->
+<!--                                        in progress-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>Ushop app</td>-->
+<!--                                    <td>Mobile Team</td>-->
+<!--                                    <td>-->
+<!--                                        <span class="status orange"></span>-->
+<!--                                        pending-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                </tbody>-->
+<!--                            </table>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--            <div class="customers">-->
+<!--                <div class="card">-->
+<!--                    <div class="card-header">-->
+<!--                        <h3>New customer</h3>-->
+<!--                        <button>See all <span class="las la-arrow-right"></span></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="customer">-->
+<!--                        <div class="info">-->
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
+<!--                            <div>-->
+<!--                                <h4>Lewis S. Cunningham</h4>-->
+<!--                                <small>CEO Expert</small>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact">-->
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </main>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
