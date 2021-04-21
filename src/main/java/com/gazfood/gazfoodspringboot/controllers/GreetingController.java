@@ -17,7 +17,7 @@ public class GreetingController {
     @GetMapping("")
     public String main(Model model) {
         int employeesCount = employeeService.getAllEmployees().size();
-        model.addAttribute("employeesCount", employeesCount);
+        model.addAttribute("employeeCount", employeesCount);
         return "index";
     }
 

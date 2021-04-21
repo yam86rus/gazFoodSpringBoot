@@ -28,8 +28,6 @@
         </div>
         <div class="user-wrapper">
             <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
-            <!--            <img th:src="@{img/myImage.jpg}" alt=""/>-->
-            <!--            <link rel="stylesheet" th:href="@{/css/navbar.css}"/>-->
             <div>
                 <h4>
                     Максим Якушев
@@ -40,33 +38,16 @@
     </header>
     <main>
         <div class="cards">
-            <div class="cards-single" id="id_employee">
-                    <div>
-                        <h1 th:utext="${employeesCount}"></h1>
-                        <span>Сотрудники</span>
-                    </div>
-                    <div>
-                        <span class=" las la-users"></span>
-                    </div>
-            </div>
-            <div class="cards-single">
-                <div>
-                    <h1>79</h1>
-                    <span>Кассы</span>
-                </div>
-                <div>
-                    <span class="las la-clipboard-list"></span>
-                </div>
-            </div>
-            <div class="cards-single">
-                <div>
-                    <h1>124</h1>
-                    <span>Заказы</span>
-                </div>
-                <div>
-                    <span class="las la-shopping-bag"></span>
-                </div>
-            </div>
+
+            <!--    Подключаем card-employee-->
+            <div th:replace="card-employees :: card-employees"></div>
+
+            <!--    Подключаем card-casses-->
+            <div th:replace="card-casses :: card-casses"></div>
+
+            <!--    Подключаем card-orders-->
+            <div th:replace="card-orders :: card-orders"></div>
+
             <div class="cards-single">
                 <div>
                     <h1>$6k</h1>
