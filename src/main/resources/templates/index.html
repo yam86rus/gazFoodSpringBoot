@@ -48,81 +48,76 @@
             <!--    Подключаем card-orders-->
             <div th:replace="card-orders :: card-orders"></div>
 
-            <div class="cards-single">
-                <div>
-                    <h1>$6k</h1>
-                    <span>Поступления</span>
-                </div>
-                <div>
-                    <span class="lab la-google-wallet"></span>
-                </div>
-            </div>
+            <!--    Подключаем card-users-->
+            <div th:replace="card-users :: card-users"></div>
+
         </div>
 
         <div class="recent-grid">
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Recent Projects</h3>
-                        <button>See all<span class="las la-arrow-right"></span></button>
+                        <h3>Договора и оплаты</h3>
+                        <button>Посмотреть все<span class="las la-arrow-right"></span></button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
                                 <tr>
-                                    <td>Project Title</td>
-                                    <td>Department</td>
-                                    <td>Status</td>
+                                    <td>Контрагент</td>
+                                    <td>Договор</td>
+                                    <td>Статус</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>UI/UX Design</td>
-                                    <td>UI Team</td>
+                                    <td>Югрател</td>
+                                    <td>Интернет</td>
                                     <td><span class="status purple"></span>
-                                        review
+                                        Передать оригиналы
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Web development</td>
-                                    <td>Frontend</td>
+                                    <td>Газтелеком</td>
+                                    <td>Симкарта</td>
                                     <td>
                                         <span class="status pink"></span>
-                                        in progress
+                                        сформировать счет на оплату
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ushop app</td>
-                                    <td>Mobile Team</td>
+                                    <td>Какой-то контрагент</td>
+                                    <td>передать оригиналы</td>
                                     <td>
                                         <span class="status orange"></span>
-                                        pending
+                                        передать оригиналы
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>UI/UX Design</td>
-                                    <td>UI Team</td>
+                                    <td>Югрател</td>
+                                    <td>Интернет</td>
                                     <td><span class="status purple"></span>
-                                        review
+                                        отправить счета
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Web development</td>
-                                    <td>Frontend</td>
+                                    <td>Газтелеком</td>
+                                    <td>Симкарта</td>
                                     <td>
                                         <span class="status pink"></span>
-                                        in progress
+                                        сформировать счет на оплату
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ushop app</td>
-                                    <td>Mobile Team</td>
+                                    <td>Какой-то контрагент</td>
+                                    <td>передать оригиналы</td>
                                     <td>
                                         <span class="status orange"></span>
-                                        pending
+                                        передать оригиналы
                                     </td>
                                 </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -133,8 +128,8 @@
             <div class="customers">
                 <div class="card">
                     <div class="card-header">
-                        <h3>New customer</h3>
-                        <button>See all <span class="las la-arrow-right"></span></button>
+                        <h3>Новые сотрудники</h3>
+                        <button>Посмотреть все <span class="las la-arrow-right"></span></button>
                     </div>
                 </div>
                 <div class="card-body">

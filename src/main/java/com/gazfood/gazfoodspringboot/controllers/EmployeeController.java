@@ -61,4 +61,15 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
         return "redirect:employees";
     }
+
+    @RequestMapping(value = "/detailsEmployee")
+    public String detailsEmployee(@RequestParam("empId") int id, Model model){
+        Employee employee = employeeService.getEmployee(id);
+        model.addAttribute("employee", employee);
+
+        List<City> listCities = cityService.getAllCities();
+        model.addAttribute("listCities",listCities);
+        return "employee-form";
+    }
+//    detailsEmployee
 }

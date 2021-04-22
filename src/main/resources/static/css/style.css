@@ -255,6 +255,14 @@ main {
     font-size: .8rem;
     padding: .5rem 1rem;
     border: 1px solid var(--main-color);
+    cursor: pointer;
+}
+.card-header button:hover {
+    background: #1f8be0;
+}
+
+.card-header button:focus{
+    outline: none;
 }
 
 table {
@@ -284,10 +292,10 @@ td .status {
     margin-right: 1rem;
 }
 
-tr td:last-child {
-    display: flex;
-    align-items: center;
-}
+/*tr td:last-child {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
 
 .status.purple {
     background: rebeccapurple;

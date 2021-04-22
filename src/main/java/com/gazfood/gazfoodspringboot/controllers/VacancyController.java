@@ -49,4 +49,11 @@ public class VacancyController {
         vacancyService.deleteVacancy(id);
         return "redirect:vacancies";
     }
+
+    @RequestMapping("/detailsVacancy")
+    public String detailsVacancy(@RequestParam("vacancyId") int id, Model model) {
+        Vacancy vacancy = vacancyService.getVacancy(id);
+        model.addAttribute("vacancy", vacancy);
+        return "vacancy-form";
+    }
 }

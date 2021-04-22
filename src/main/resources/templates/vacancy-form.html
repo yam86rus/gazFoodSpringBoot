@@ -2,48 +2,100 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>vacancy form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Вакансии</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
 </head>
 <body>
-<div th:if="${vacancy.id == 0}">
-    <h1>Добавить новую вакансию</h1>
-</div>
-<div th:unless="${vacancy.id == 0}">
-    <h1>Редактировать вакансию</h1>
-</div>
-<div>
-    <form th:action="@{/saveVacancy}" th:object="${vacancy}" method="post">
-        <table>
-            <tr>
-                <td><input type="hidden" th:field="*{id}"></td>
-            </tr>
-            <tr>
-                <td>Название вакансии</td>
-                <td><input type="text" th:field="*{vacancy}"></td>
-            </tr>
-            <tr>
-                <td>Описание</td>
-                <td><input type="text" th:field="*{description}"></td>
-            </tr>
-            <tr>
-                <td>Требования</td>
-                <td><input type="text" th:field="*{requirements}"></td>
-            </tr>
-            <tr>
-                <td>Условия</td>
-                <td><input type="text" th:field="*{conditions}"></td>
-            </tr>
-            <tr>
-                <td>Контакты</td>
-                <td><input type="text" th:field="*{contacts}"></td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit">Сохранить</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Информация о вакансиях
+        </h2>
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Поиск"/>
+        </div>
+        <div class="user-wrapper">
+            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
+            <div>
+                <h4>
+                    Максим Якушев
+                </h4>
+                <small>Super admin</small>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateVacancy'}">
+                <h1>Редактирование вакансии</h1>
+            </td>
+        </div>
+
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewVacancy'}">
+                <h1>Создание вакансии</h1>
+            </td>
+        </div>
+
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}">
+                <h1>Информация о вакансии</h1>
+            </td>
+        </div>
+
+        <div>
+            <form th:action="@{/saveVacancy}" th:object="${vacancy}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}" id="blogId"></td>
+                    </tr>
+                    <tr>
+                        <td>Название вакансии</td>
+                        <td><input type="text" th:field="*{vacancy}"
+                                   th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Описание</td>
+                        <td><input type="text" th:field="*{description}"
+                                   th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Требования</td>
+                        <td><input type="text" th:field="*{requirements}"
+                                   th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Условия</td>
+                        <td><input type="text" th:field="*{conditions}"
+                                   th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Контакты</td>
+                        <td><input type="text" th:field="*{contacts}"
+                                   th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
+                    </tr>
+                    <tr>
+                        <td th:if="${#httpServletRequest.getRequestURI() == '/updateVacancy'} or ${#httpServletRequest.getRequestURI() == '/addNewVacancy'}">
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
 </div>
 </body>
 </html>

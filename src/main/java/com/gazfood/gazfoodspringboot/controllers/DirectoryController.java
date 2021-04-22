@@ -19,6 +19,7 @@ public class DirectoryController {
     @Autowired
     private VacancyService vacancyService;
 
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
         model.addAttribute("cityCount",cityService.getAllCities().size());

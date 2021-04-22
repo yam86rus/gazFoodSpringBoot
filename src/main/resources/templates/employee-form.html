@@ -2,72 +2,122 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>employee form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Меню</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
 </head>
 <body>
-<div th:if="${employee.id == null}">
-    <h1>Добавить нового сотрудника</h1>
-</div>
-<div th:unless="${employee.id == null}">
-    <h1>Редактирование сотрудника</h1>
-</div>
-<div>
-    <form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
-        <table>
-            <tr>
-                <td><input type="hidden" th:field="*{id}" id="blogId"></td>
-            </tr>
-            <tr>
-                <td>Фамилия</td>
-                <td><input type="text" th:field="*{surname}"></td>
-            </tr>
-            <tr>
-                <td>Имя</td>
-                <td><input type="text" th:field="*{name}"></td>
-            </tr>
-            <tr>
-                <td>Отчество</td>
-                <td><input type="text" th:field="*{patronymic}"></td>
-            </tr>
-            <tr>
-                <td>Дата рождения</td>
-                <td><input type="text" th:field="*{birthday}"></td>
-            </tr>
-            <tr>
-                <td>Должность</td>
-                <td><input type="text" th:field="*{position}"></td>
-            </tr>
-            <tr>
-                <td>Отдел</td>
-                <td><input type="text" th:field="*{department}"></td>
-            </tr>
-            <tr>
-                <td>Город</td>
-                <td><select th:field="*{city.id}" required>
-                    <th:block th:each="city: ${listCities}">
-                        <option th:text="${city.city}" th:value="${city.id}"/>
-                    </th:block>
-                </select></td>
-            </tr>
-            <tr>
-                <td>Телефон газовый</td>
-                <td><input type="text" th:field="*{phoneGaz}"></td>
-            </tr>
-            <tr>
-                <td>Телефон мобильный</td>
-                <td><input type="text" th:field="*{phoneMobile}"></td>
-            </tr>
-            <tr>
-                <td>e-mail</td>
-                <td><input type="text" th:field="*{email}"></td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit">Сохранить</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Информация о сотруднике
+        </h2>
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Поиск"/>
+        </div>
+        <div class="user-wrapper">
+            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
+            <div>
+                <h4>
+                    Максим Якушев
+                </h4>
+                <small>Super admin</small>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateEmployee'}">
+                <h1>Редактирование сотрудника</h1>
+            </td>
+        </div>
+
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewEmployee'}">
+                <h1>Создание сотрудника</h1>
+            </td>
+        </div>
+
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}">
+                <h1>Информация о сотруднике</h1>
+            </td>
+        </div>
+
+        <div>
+            <form th:action="@{/saveEmployee}" th:object="${employee}" method="post" >
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}" id="blogId"></td>
+                    </tr>
+                    <tr>
+                        <td>Фамилия</td>
+                        <td><input type="text" th:field="*{surname}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Имя</td>
+                        <td><input type="text" th:field="*{name}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Отчество</td>
+                        <td><input type="text" th:field="*{patronymic}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Дата рождения</td>
+                        <td><input type="text" th:field="*{birthday}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Должность</td>
+                        <td><input type="text" th:field="*{position}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Отдел</td>
+                        <td><input type="text" th:field="*{department}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Город</td>
+                        <td><select th:field="*{city.id}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}">
+                            <th:block th:each="city: ${listCities}">
+                                <option th:text="${city.city}" th:value="${city.id}"/>
+                            </th:block>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Телефон газовый</td>
+                        <td><input type="text" th:field="*{phoneGaz}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Телефон мобильный</td>
+                        <td><input type="text" th:field="*{phoneMobile}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+                    <tr>
+                        <td>e-mail</td>
+                        <td><input type="text" th:field="*{email}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}"></td>
+                    </tr>
+
+                    <tr>
+                        <td th:if="${#httpServletRequest.getRequestURI() == '/updateEmployee'} or ${#httpServletRequest.getRequestURI() == '/addNewEmployee'}">
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </form>
+        </div>
+    </main>
 </div>
 </body>
 </html>

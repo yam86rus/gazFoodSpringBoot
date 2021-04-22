@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <title>Admin</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+<!--    <link rel="stylesheet" th:href="@{/css/table.css}"/>-->
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
@@ -37,57 +38,43 @@
         </div>
     </header>
     <main>
-        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
-            <div class="projects">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Список сотрудников</h3>
-                        <button onclick="window.location.href = 'addNewEmployee'">Добавить</button>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table width="100%">
-                                <thead>
-                                <tr>
-                                    <td>Фамилия</td>
-                                    <td>Имя</td>
-                                    <td>Отчество</td>
-                                    <td>Должность</td>
-                                    <td>Отдел</td>
-                                    <td>Город</td>
-                                    <td>Телефон газовый</td>
-                                    <td>Телефон сотовый</td>
-                                    <td>e-mail</td>
-                                    <td></td>
-                                    <td>Операции</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="employee : ${allEmps}">
-                                    <td th:utext="${employee.surname}"></td>
-                                    <td th:utext="${employee.name}"></td>
-                                    <td th:utext="${employee.patronymic}"></td>
-                                    <td th:utext="${employee.position}"></td>
-                                    <td th:utext="${employee.department}"></td>
-                                    <td th:utext="${employee.city.city}"></td>
-                                    <td th:utext="${employee.phoneGaz}"></td>
-                                    <td th:utext="${employee.phoneMobile}"></td>
-                                    <td th:utext="${employee.email}"></td>
-                                    <td><span class="status purple"/><a
-                                            th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
-                                    <td><span class="status orange"/><a
-                                            th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+                    <div class="projects">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Список сотрудников</h3>
+                                <button onclick="window.location.href = 'addNewEmployee'">Добавить</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table width="100%">
+                                        <thead>
+                                        <tr>
+                                            <td>ФИО</td>
+                                            <td>Должность</td>
+                                            <td>Отдел</td>
+                                            <td></td>
+                                            <td colspan="2">Операции</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="employee : ${allEmps}">
+                                            <td th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></td>
+                                            <td th:utext="${employee.position}"></td>
+                                            <td th:utext="${employee.department}"></td>
+                                            <td><a th:href="@{'/detailsEmployee'+'?empId='+${employee.id}}">Подбробнее</a></td>
+                                            <td><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
+                                            <td><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
 
 
-
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </main>
 </div>
 </body>

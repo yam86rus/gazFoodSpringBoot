@@ -1,41 +1,72 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" th:href="@{/css/navbar.css}"/>
-
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Все города</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
-<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
 
-<div class="wrapper">
-    <!--    Подключаем sidebar-->
-    <div th:replace="sidebar :: sidebar"></div>
-
-    <div class="main_content">
-        <div class="header">Города</div>
-        <div class="info">
-            <div class="container">
-                <table class="highlight">
-                    <tr>
-                        <th>Название города</th>
-                        <th>Операции</th>
-                    </tr>
-                    <tr th:each="city : ${allCities}">
-                        <td th:utext="${city.city}"></td>
-                        <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>
-                        <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>
-                    </tr>
-
-                </table>
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Все города
+        </h2>
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Поиск"/>
+        </div>
+        <div class="user-wrapper">
+            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
+            <div>
+                <h4>
+                    Максим Якушев
+                </h4>
+                <small>Super admin</small>
             </div>
-            <br>
-            <input class="waves-effect waves-light btn-small" type="button" value="добавить"
-                   onclick="window.location.href = 'addNewCity'">
-    </div>
+        </div>
+    </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Список городов</h3>
+                        <button onclick="window.location.href = 'addNewCity'">Добавить</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <td>Название города</td>
+                                    <td colspan="2">Операции</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="city : ${allCities}">
+                                    <td th:utext="${city.city}"></td>
+                                    <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
-
 </body>
 </html>
 
