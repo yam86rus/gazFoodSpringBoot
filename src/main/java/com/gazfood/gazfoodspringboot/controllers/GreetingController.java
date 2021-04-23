@@ -1,13 +1,10 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
-import com.gazfood.gazfoodspringboot.entity.Employee;
 import com.gazfood.gazfoodspringboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Controller
 public class GreetingController {
@@ -16,7 +13,7 @@ public class GreetingController {
 
     @GetMapping("")
     public String main(Model model) {
-        int employeesCount = employeeService.getAllEmployees().size();
+        int employeesCount = employeeService.count();
         model.addAttribute("employeeCount", employeesCount);
         return "index";
     }

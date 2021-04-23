@@ -71,5 +71,5 @@ public class EmployeeController {
         model.addAttribute("listCities",listCities);
         return "employee-form";
     }
-//    detailsEmployee
+
 }

@@ -7,9 +7,9 @@ import java.util.List;
 public interface CityDAO {
     List<City> getAllCities();
 
-    public void saveCity(City city);
+    void saveCity(City city);
 
-    public City getCity(int id);
+    City getCity(int id);
 
-    public void deleteCity(int id);
+    void deleteCity(int id);
 }

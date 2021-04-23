@@ -33,4 +33,15 @@ public class EmployeeRESTController {
         return employee;
     }
 
+    @GetMapping("/employees/name/{name}")
+    public List<Employee> showAllEmployeesByName(@PathVariable String name) {
+        List<Employee> employees = employeeService.findAllByName(name);
+        return employees;
+    }
+
+    @GetMapping("employees/countAll")
+    public int showCountEmployees() {
+        int result = employeeService.count();
+        return result;
+    }
 }
