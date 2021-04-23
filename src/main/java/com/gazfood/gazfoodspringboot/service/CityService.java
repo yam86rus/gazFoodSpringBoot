@@ -12,4 +12,6 @@ public interface CityService {
     public City getCity(int id);
 
     public void deleteCity(int id);
+
+    public long getCountCities();
 }

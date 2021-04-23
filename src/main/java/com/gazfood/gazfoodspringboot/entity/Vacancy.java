@@ -7,11 +7,11 @@ import javax.persistence.*;
 public class Vacancy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "vacancy")
-    private String vacancy;
+    @Column(name = "vacancy_name")
+    private String vacancyName;
 
     @Column(name = "description")
     private String description;
@@ -28,14 +28,13 @@ public class Vacancy {
     public Vacancy() {
     }
 
-    public Vacancy(String vacancy, String description, String requirements, String conditions, String contacts) {
-        this.vacancy = vacancy;
+    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts) {
+        this.vacancyName = vacancyName;
         this.description = description;
         this.requirements = requirements;
         this.conditions = conditions;
         this.contacts = contacts;
     }
-
 
     public int getId() {
         return id;
@@ -45,12 +44,12 @@ public class Vacancy {
         this.id = id;
     }
 
-    public String getVacancy() {
-        return vacancy;
+    public String getVacancyName() {
+        return vacancyName;
     }
 
-    public void setVacancy(String vacancy) {
-        this.vacancy = vacancy;
+    public void setVacancyName(String vacancyName) {
+        this.vacancyName = vacancyName;
     }
 
     public String getDescription() {

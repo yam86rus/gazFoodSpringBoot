@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-    <title>Вакансии</title>
+    <title>Кассовые узлы</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
-    <!--    <link rel="stylesheet" th:href="@{/css/table.css}"/>-->
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
@@ -21,7 +20,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Вакансии
+            Кассовые узлы
         </h2>
         <div class="search-wrapper">
             <span class="las la-search"></span>
@@ -42,29 +41,35 @@
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Список вакансий</h3>
-                        <button onclick="window.location.href = 'addNewVacancy'">Добавить</button>
+                        <h3>Список касс</h3>
+                        <button onclick="window.location.href = 'addNewCity'">Добавить</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Название вакансии</th>
-                                    <th>Описание</th>
-                                    <th>Требования</th>
-                                    <th></th>
-                                    <th colspan="2">Операции</th>
+                                    <td>Название кассы</td>
+                                    <td>Prefix</td>
+                                    <td>Ammy Admin</td>
+                                    <td>Any Desk</td>
+                                    <td>Имя компьютера</td>
+                                    <td>Последняя дата обновления</td>
+                                    <td>Поле для заметок</td>
+                                    <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="vacancy : ${allVacancies}">
-                                    <td th:utext="${vacancy.vacancyName}"></td>
-                                    <td th:utext="${vacancy.description}"></td>
-                                    <td th:utext="${vacancy.requirements}"></td>
-                                    <td><a th:href="@{'/detailsVacancy'+'?vacancyId='+${vacancy.id}}">Подробнее</a></td>
-                                    <td><a th:href="@{'/updateVacancy'+'?vacancyId='+${vacancy.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteVacancy'+'?vacancyId='+${vacancy.id}}">Удалить</a></td>
+                                <tr th:each="cassa : ${allCasses}">
+                                    <td th:utext="${cassa.cassaName}"></td>
+                                    <td th:utext="${cassa.prefix}"></td>
+                                    <td th:utext="${cassa.ammyAdmin}"></td>
+                                    <td th:utext="${cassa.annyDesk}"></td>
+                                    <td th:utext="${cassa.computerName}"></td>
+                                    <td th:utext="${cassa.dataUpdate}"></td>
+                                    <td th:utext="${cassa.temp}"></td>
+                                    <td><a th:href="@{'/updateCassa'+'?cassaId='+${cassa.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deleteCassa'+'?cassaId='+${cassa.id}}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -77,4 +82,3 @@
 </div>
 </body>
 </html>
-

@@ -7,10 +7,10 @@ import javax.persistence.*;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name="cityName")
+    @Column(name = "cityName")
     private String cityName;
 
     public City(int id, String cityName) {

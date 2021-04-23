@@ -1,39 +1,46 @@
 package com.gazfood.gazfoodspringboot.service;
 
-import com.gazfood.gazfoodspringboot.dao.VacancyDAO;
+
+import com.gazfood.gazfoodspringboot.dao.VacancyRepository;
 import com.gazfood.gazfoodspringboot.entity.Vacancy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VacancyServiceImpl implements VacancyService{
     @Autowired
-    private VacancyDAO vacancyDAO;
+    private VacancyRepository vacancyRepository;
 
     @Override
-    @Transactional
     public List<Vacancy> getAllVacancies() {
-        return vacancyDAO.getAllVacancies();
+        return vacancyRepository.findAll();
     }
 
     @Override
-    @Transactional
     public void saveVacancy(Vacancy vacancy) {
-        vacancyDAO.saveVacancy(vacancy);
+        vacancyRepository.save(vacancy);
     }
 
     @Override
-    @Transactional
     public Vacancy getVacancy(int id) {
-        return vacancyDAO.getVacancy(id);
+        Vacancy vacancy = null;
+        Optional<Vacancy> optional = vacancyRepository.findById(id);
+        if (optional.isPresent()){
+            vacancy = optional.get();
+        }
+        return vacancy;
     }
 
     @Override
-    @Transactional
     public void deleteVacancy(int id) {
-        vacancyDAO.deleteVacancy(id);
+        vacancyRepository.deleteById(id);
+    }
+
+    @Override
+    public long getCountVacancies() {
+        return vacancyRepository.count();
     }
 }

@@ -40,8 +40,8 @@ public class EmployeeRESTController {
     }
 
     @GetMapping("employees/countAll")
-    public int showCountEmployees() {
-        int result = employeeService.count();
+    public long showCountEmployees() {
+        long result = employeeService.getCountEmployees();
         return result;
     }
 }

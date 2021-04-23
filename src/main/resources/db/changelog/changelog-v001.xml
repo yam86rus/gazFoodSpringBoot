@@ -66,7 +66,7 @@
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="vacancy" type="varchar(200)"></column>
+            <column name="vacancy_name" type="varchar(200)"></column>
             <column name="description" type="varchar(2048)"></column>
             <column name="requirements" type="varchar(2048)"></column>
             <column name="conditions" type="varchar(2048)"></column>
@@ -74,7 +74,7 @@
         </createTable>
 
         <insert tableName="vacancies">
-            <column name="vacancy" value="Повар"/>
+            <column name="vacancy_name" value="Повар"/>
             <column name="description" value="Приготовление блюд, полуфабрикатов и кулинарных изделий.
             Соблюдение стандартов организации.
             Порционирование блюд, обслуживание гостей на раздаче.
@@ -88,6 +88,63 @@
             Конкурентоспособная заработная плата, обсуждается на собеседовании"/>
             <column name="contacts" value="+ 7 (3462) 75-34-48
             kadr@gaztorg.org.ru"/>
+        </insert>
+
+        <createTable tableName="casses">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="cassa_name" type="varchar(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="prefix" type="varchar(15)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="ammy_admin" type="varchar(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="any_desk" type="varchar(9)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="computer_name" type="varchar(25)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="cassa_address" type="varchar(150)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="data_update" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="temp" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="fn_deadline_data" type="varchar(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="kpp" type="varchar(9)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="rnkkt" type="varchar(19)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="fn_number" type="varchar(16)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <insert tableName="casses">
+            <column name="cassa_name" value="Кассовый узел №1"/>
+            <column name="prefix" value="kass-uzel1"/>
+            <column name="ammy_admin" value="1234567890"/>
+            <column name="any_desk" value="123456789"/>
+            <column name="computer_name" value="pc-001"/>
+            <column name="cassa_address" value="Сургут, Индустриальная, 47"/>
+            <column name="data_update" value="23.04.2021"/>
+            <column name="temp" value="---"/>
+            <column name="fn_deadline_data" value="31.12.2021"/>
+            <column name="kpp" value="123456789"/>
+            <column name="rnkkt" value="1234567890123456789"/>
+            <column name="fn_number" value="123"/>
         </insert>
 
 

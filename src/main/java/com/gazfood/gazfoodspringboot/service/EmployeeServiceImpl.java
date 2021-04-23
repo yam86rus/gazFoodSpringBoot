@@ -46,10 +46,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public int count() {
-        int result = (int) employeeRepository.count();
-        return result;
+    public long getCountEmployees() {
+        return employeeRepository.count();
     }
+
 
 
 }

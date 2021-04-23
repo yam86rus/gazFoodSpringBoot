@@ -1,5 +1,6 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
+import com.gazfood.gazfoodspringboot.service.CassaService;
 import com.gazfood.gazfoodspringboot.service.CityService;
 import com.gazfood.gazfoodspringboot.service.EmployeeService;
 import com.gazfood.gazfoodspringboot.service.VacancyService;
@@ -19,12 +20,15 @@ public class DirectoryController {
     @Autowired
     private VacancyService vacancyService;
 
+    @Autowired
+    private CassaService cassaService;
 
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
-        model.addAttribute("cityCount",cityService.getAllCities().size());
-        model.addAttribute("employeeCount",employeeService.getAllEmployees().size());
-        model.addAttribute("vacancyCount",vacancyService.getAllVacancies().size());
+        model.addAttribute("cityCount",cityService.getCountCities());
+        model.addAttribute("employeeCount",employeeService.getCountEmployees());
+        model.addAttribute("vacancyCount",vacancyService.getCountVacancies());
+        model.addAttribute("cassaCount",cassaService.getCountCasses());
         return "all-directories";
     }
 }
