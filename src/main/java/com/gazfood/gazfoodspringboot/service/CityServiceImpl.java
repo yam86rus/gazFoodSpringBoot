@@ -1,39 +1,41 @@
 package com.gazfood.gazfoodspringboot.service;
 
-import com.gazfood.gazfoodspringboot.dao.CityDAO;
+
+import com.gazfood.gazfoodspringboot.dao.CityRepository;
 import com.gazfood.gazfoodspringboot.entity.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class CityServiceImpl implements CityService{
+public class CityServiceImpl implements CityService {
     @Autowired
-    private CityDAO cityDAO;
+    private CityRepository cityRepository;
 
     @Override
-    @Transactional
     public List<City> getAllCities() {
-        return cityDAO.getAllCities();
+        return cityRepository.findAll();
     }
 
     @Override
-    @Transactional
     public void saveCity(City city) {
-        cityDAO.saveCity(city);
+        cityRepository.save(city);
     }
 
     @Override
-    @Transactional
     public City getCity(int id) {
-        return cityDAO.getCity(id);
+        City city = null;
+        Optional<City> optional = cityRepository.findById(id);
+        if (optional.isPresent()) {
+            city = optional.get();
+        }
+        return city;
     }
 
     @Override
-    @Transactional
     public void deleteCity(int id) {
-        cityDAO.deleteCity(id);
+        cityRepository.deleteById(id);
     }
 }

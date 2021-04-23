@@ -54,7 +54,7 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="city : ${allCities}">
-                                    <td th:utext="${city.city}"></td>
+                                    <td th:utext="${city.cityName}"></td>
                                     <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>
                                     <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>
                                 </tr>

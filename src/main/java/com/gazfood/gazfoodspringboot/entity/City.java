@@ -10,8 +10,16 @@ public class City {
     @Column(name="id")
     private int id;
 
-    @Column(name="city")
-    private String city;
+    @Column(name="cityName")
+    private String cityName;
+
+    public City(int id, String cityName) {
+        this.id = id;
+        this.cityName = cityName;
+    }
+
+    public City() {
+    }
 
     public int getId() {
         return id;
@@ -21,18 +29,11 @@ public class City {
         this.id = id;
     }
 
-    public String getCity() {
-        return city;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public City(String city) {
-        this.city = city;
-    }
-
-    public City() {
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }
