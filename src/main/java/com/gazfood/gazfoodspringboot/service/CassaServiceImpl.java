@@ -21,6 +21,13 @@ public class CassaServiceImpl implements CassaService {
     }
 
     @Override
+    public List<Cassa> getAllCassesOrder() {
+        List<Cassa> getAllCasses = cassaRepository.findAllByOrderByCassaName();
+        return getAllCasses;
+    }
+
+
+    @Override
     public void saveCassa(Cassa cassa) {
         cassaRepository.save(cassa);
     }

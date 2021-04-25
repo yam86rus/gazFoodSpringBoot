@@ -95,40 +95,40 @@
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
             <column name="cassa_name" type="varchar(100)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="prefix" type="varchar(15)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="ammy_admin" type="varchar(10)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="any_desk" type="varchar(9)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="computer_name" type="varchar(25)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="cassa_address" type="varchar(150)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="data_update" type="varchar(50)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="temp" type="varchar(50)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="fn_deadline_data" type="varchar(10)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="kpp" type="varchar(9)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="rnkkt" type="varchar(19)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
             <column name="fn_number" type="varchar(16)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="false"/>
             </column>
         </createTable>
 
@@ -145,6 +145,47 @@
             <column name="kpp" value="123456789"/>
             <column name="rnkkt" value="1234567890123456789"/>
             <column name="fn_number" value="123"/>
+        </insert>
+
+        <createTable tableName="partners">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="partner_name" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="partner_inn" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="partner_kpp" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="partner_adress" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="personal_manager" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="manager_mobile_phone" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="manager_city_phone" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="manager_email" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="partners">
+            <column name="partner_name" value="ПАО МегаФон"/>
+            <column name="partner_inn" value="7812014560"/>
+            <column name="partner_kpp" value="997750001"/>
+            <column name="partner_adress" value="Сургут, 30 лет Победы, 32"/>
+            <column name="personal_manager" value="Василий"/>
+            <column name="manager_mobile_phone" value="9223334455"/>
+            <column name="manager_city_phone" value="8(3462)112233"/>
+            <column name="manager_email" value="best-manager@megafonsurgut.ru"/>
         </insert>
 
 

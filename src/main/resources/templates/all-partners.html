@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-    <title>Кассовые узлы</title>
+    <title>Все контрагенты</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
 </head>
 <body>
 <input type="checkbox" id="nav-toggle">
@@ -20,7 +19,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Кассовые узлы
+            Все контрагенты
         </h2>
         <div class="search-wrapper">
             <span class="las la-search"></span>
@@ -41,35 +40,37 @@
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Список кассовых узлов</h3>
-                        <button onclick="window.location.href = 'addNewCassa'">Добавить</button>
+                        <h3>Список контрагентов</h3>
+                        <button onclick="window.location.href = 'addNewPartner'">Добавить</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
                                 <tr>
-                                    <td>Название кассы</td>
-                                    <td>Prefix</td>
-                                    <td>Ammy Admin</td>
-                                    <td>Any Desk</td>
-                                    <td>Имя компьютера</td>
-                                    <td>Последняя дата обновления</td>
-                                    <td>Дата окончания ФН</td>
+                                    <td>Контрагент</td>
+                                    <td>ИНН</td>
+                                    <td>КПП</td>
+                                    <td>Адрес</td>
+                                    <td>Персональных менеджер</td>
+                                    <td>Сотовый</td>
+                                    <td>Городской</td>
+                                    <td>e-mail</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="cassa : ${allCasses}">
-                                    <td th:utext="${cassa.cassaName}"></td>
-                                    <td th:utext="${cassa.prefix}"></td>
-                                    <td th:utext="${cassa.ammyAdmin}"></td>
-                                    <td th:utext="${cassa.annyDesk}"></td>
-                                    <td th:utext="${cassa.computerName}"></td>
-                                    <td th:utext="${cassa.dataUpdate}"></td>
-                                    <td th:utext="${cassa.fnDeadlineData}"></td>
-                                    <td><a th:href="@{'/updateCassa'+'?cassaId='+${cassa.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteCassa'+'?cassaId='+${cassa.id}}">Удалить</a></td>
+                                <tr th:each="partner : ${allPartners}">
+                                    <td th:utext="${partner.partnerName}"></td>
+                                    <td th:utext="${partner.partnerInn}"></td>
+                                    <td th:utext="${partner.partnerKpp}"></td>
+                                    <td th:utext="${partner.partnerAdress}"></td>
+                                    <td th:utext="${partner.personalManager}"></td>
+                                    <td th:utext="${partner.managerMobilePhone}"></td>
+                                    <td th:utext="${partner.mangerCityPhone}"></td>
+                                    <td th:utext="${partner.managerEmail}"></td>
+                                    <td><a th:href="@{'/updatePartner'+'?partnerId='+${partner.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deletePartner'+'?partnerId='+${partner.id}}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -82,3 +83,4 @@
 </div>
 </body>
 </html>
+

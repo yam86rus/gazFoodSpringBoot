@@ -21,7 +21,7 @@ public class CassaController {
 
     @GetMapping("/casses")
     private String showCassaPage(Model model) {
-        List<Cassa> allCasses = cassaService.getAllCasses();
+        List<Cassa> allCasses = cassaService.getAllCassesOrder();
         model.addAttribute("allCasses", allCasses);
         return "all-casses";
     }

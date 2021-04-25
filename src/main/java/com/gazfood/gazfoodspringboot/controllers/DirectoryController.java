@@ -1,9 +1,6 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
-import com.gazfood.gazfoodspringboot.service.CassaService;
-import com.gazfood.gazfoodspringboot.service.CityService;
-import com.gazfood.gazfoodspringboot.service.EmployeeService;
-import com.gazfood.gazfoodspringboot.service.VacancyService;
+import com.gazfood.gazfoodspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +20,16 @@ public class DirectoryController {
     @Autowired
     private CassaService cassaService;
 
+    @Autowired
+    private PartnerService partnerService;
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
         model.addAttribute("cityCount",cityService.getCountCities());
         model.addAttribute("employeeCount",employeeService.getCountEmployees());
         model.addAttribute("vacancyCount",vacancyService.getCountVacancies());
         model.addAttribute("cassaCount",cassaService.getCountCasses());
+        model.addAttribute("partnerCount",partnerService.getCountPartners());
         return "all-directories";
     }
 }
