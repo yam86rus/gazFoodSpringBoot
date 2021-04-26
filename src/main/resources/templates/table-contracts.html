@@ -1,0 +1,28 @@
+<!--<div class="cards-single" th:fragment="table-contracts" th:onclick="|window.location.href='/contracts'|">-->
+<!--    <div>-->
+<!--        <h1 th:utext="${partnerCount}"></h1>-->
+<!--        <span>Контрагенты</span>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <span class=" las la-users"></span>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="table-responsive" th:fragment="table-contracts">
+    <table width="100%">
+        <thead>
+        <tr>
+            <td>Контрагент</td>
+            <td>Договор</td>
+            <td>Статус</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract : ${firstTenContracts}">
+            <td th:utext="${contract.partner.partnerName}"></td>
+            <td th:utext="${contract.contractName}"></td>
+            <td th:utext="${contract.status.statusName}"><span class="status purple"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

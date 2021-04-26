@@ -210,6 +210,48 @@
             <column name="status_name" value="Подписать акт сверки"/>
         </insert>
 
+        <createTable tableName="contracts">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="contract_name" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="contract_number" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="contract_data" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="contract_partner_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="contract_status_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="contracts"
+                                 baseColumnNames="contract_partner_id"
+                                 referencedTableName="partners"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_contracts_partner_id"
+        />
+
+        <addForeignKeyConstraint baseTableName="contracts"
+                                 baseColumnNames="contract_status_id"
+                                 referencedTableName="statuses"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_contracts_status_id"
+        />
+
+        <insert tableName="contracts">
+            <column name="contract_name" value="Договор на мобильную связь"/>
+            <column name="contract_number" value="24/14-МФД20"/>
+            <column name="contract_data" value="01.02.2020"/>
+            <column name="contract_partner_id" value="1"/>
+            <column name="contract_status_id" value="1"/>
+        </insert>
 
     </changeSet>
 

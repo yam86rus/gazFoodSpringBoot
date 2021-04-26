@@ -58,69 +58,12 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Договора и оплаты</h3>
-                        <button>Посмотреть все<span class="las la-arrow-right"></span></button>
+                        <button onclick="window.location.href = 'contracts'">Посмотреть все<span class="las la-arrow-right"></span></button>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table width="100%">
-                                <thead>
-                                <tr>
-                                    <td>Контрагент</td>
-                                    <td>Договор</td>
-                                    <td>Статус</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Югрател</td>
-                                    <td>Интернет</td>
-                                    <td><span class="status purple"></span>
-                                        Передать оригиналы
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Газтелеком</td>
-                                    <td>Симкарта</td>
-                                    <td>
-                                        <span class="status pink"></span>
-                                        сформировать счет на оплату
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Какой-то контрагент</td>
-                                    <td>передать оригиналы</td>
-                                    <td>
-                                        <span class="status orange"></span>
-                                        передать оригиналы
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Югрател</td>
-                                    <td>Интернет</td>
-                                    <td><span class="status purple"></span>
-                                        отправить счета
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Газтелеком</td>
-                                    <td>Симкарта</td>
-                                    <td>
-                                        <span class="status pink"></span>
-                                        сформировать счет на оплату
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Какой-то контрагент</td>
-                                    <td>передать оригиналы</td>
-                                    <td>
-                                        <span class="status orange"></span>
-                                        передать оригиналы
-                                    </td>
-                                </tr>
+                        <!--    Подключаем table-contracts-->
+                        <div th:replace="table-contracts :: table-contracts"></div>
 
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
 

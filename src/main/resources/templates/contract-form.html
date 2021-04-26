@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Город</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Информация о договоре
+        </h2>
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Поиск"/>
+        </div>
+        <div class="user-wrapper">
+            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
+            <div>
+                <h4>
+                    Максим Якушев
+                </h4>
+                <small>Super admin</small>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateCity'}">
+                <h1>Редактирование договора</h1>
+            </td>
+        </div>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewCity'}">
+                <h1>Создание договора</h1>
+            </td>
+        </div>
+        <div>
+            <form th:action="@{/saveContract}" th:object="${contract}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}" id="blogId"></td>
+                    </tr>
+                    <tr>
+                        <td>Название договора</td>
+                        <td><input type="text" th:field="*{contractName}"></td>
+                    </tr>
+                    <tr>
+                        <td>Номер договора</td>
+                        <td><input type="text" th:field="*{contractNumber}"></td>
+                    </tr>
+                    <tr>
+                        <td>Дата договора</td>
+                        <td><input type="text" th:field="*{contractData}"></td>
+                    </tr>
+                    <tr>
+                        <td>Контрагент</td>
+                        <td><select th:field="*{partner.id}">
+                            <th:block th:each="partner: ${listPartners}">
+                                <option th:text="${partner.partnerName}" th:value="${partner.id}"/>
+                            </th:block>
+                        </select></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>Статус</td>
+                        <td><select th:field="*{status.id}">
+                            <th:block th:each="status: ${listStatuses}">
+                                <option th:text="${status.statusName}" th:value="${status.id}"/>
+                            </th:block>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
