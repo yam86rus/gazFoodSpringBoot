@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-    <title>Справочники</title>
+    <title>Статусы</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -20,7 +20,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Справочники
+            Информация о статусе
         </h2>
         <div class="search-wrapper">
             <span class="las la-search"></span>
@@ -36,34 +36,36 @@
             </div>
         </div>
     </header>
-
     <main>
-        <div class="cards">
-            <!--    Подключаем card-cities-->
-            <div th:replace="card-cities :: card-cities"></div>
-
-            <!--    Подключаем card-employees-->
-            <div th:replace="card-employees :: card-employees"></div>
-
-            <!--    Подключаем card-vacancies-->
-            <div th:replace="card-vacancies :: card-vacancies"></div>
-
-            <!--    Подключаем card-vacancies-->
-            <div th:replace="card-users :: card-users"></div>
-
-            <!--    Подключаем card-casses-->
-            <div th:replace="card-casses :: card-casses"></div>
-
-            <!--    Подключаем card-partners-->
-            <div th:replace="card-partners :: card-partners"></div>
-
-            <!--    Подключаем card-partners-->
-            <div th:replace="card-statuses :: card-statuses"></div>
-
-
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateStatus'}">
+                <h1>Редактирование статуса</h1>
+            </td>
+        </div>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewStatus'}">
+                <h1>Создание статуса</h1>
+            </td>
+        </div>
+        <div>
+            <form th:action="@{/saveStatus}" th:object="${status}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}" id="blogId"></td>
+                    </tr>
+                    <tr>
+                        <td>Название статуса</td>
+                        <td><input type="text" th:field="*{statusName}"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </main>
-
 </div>
 </body>
 </html>
