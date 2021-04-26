@@ -56,6 +56,7 @@
                                     <td>Имя компьютера</td>
                                     <td>Последняя дата обновления</td>
                                     <td>Дата окончания ФН</td>
+                                    <td>sim</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
@@ -68,6 +69,7 @@
                                     <td th:utext="${cassa.computerName}"></td>
                                     <td th:utext="${cassa.dataUpdate}"></td>
                                     <td th:utext="${cassa.fnDeadlineData}"></td>
+                                    <td th:utext="${cassa.mobileNumber}"></td>
                                     <td><a th:href="@{'/updateCassa'+'?cassaId='+${cassa.id}}">Изменить</a></td>
                                     <td><a th:href="@{'/deleteCassa'+'?cassaId='+${cassa.id}}">Удалить</a></td>
                                 </tr>

@@ -46,6 +46,28 @@ public class Cassa {
     @Column(name="fn_number")
     private String fnNumber;
 
+    @Column(name = "mob_number")
+    private String mobileNumber;
+
+    @Column(name = "icc_number")
+    private String iccNumber;
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getIccNumber() {
+        return iccNumber;
+    }
+
+    public void setIccNumber(String iccNumber) {
+        this.iccNumber = iccNumber;
+    }
+
     public int getId() {
         return id;
     }
@@ -153,7 +175,7 @@ public class Cassa {
     public Cassa() {
     }
 
-    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, String fnDeadlineData, String kpp, String rnkkt, String fnNumber) {
+    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, String fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber) {
         this.cassaName = cassaName;
         this.prefix = prefix;
         this.ammyAdmin = ammyAdmin;
@@ -166,5 +188,7 @@ public class Cassa {
         this.kpp = kpp;
         this.rnkkt = rnkkt;
         this.fnNumber = fnNumber;
+        this.mobileNumber = mobileNumber;
+        this.iccNumber = iccNumber;
     }
 }
