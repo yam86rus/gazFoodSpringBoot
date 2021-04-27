@@ -2,6 +2,8 @@ package com.gazfood.gazfoodspringboot.controllers;
 
 
 import com.gazfood.gazfoodspringboot.entity.Cassa;
+import com.gazfood.gazfoodspringboot.entity.City;
+import com.gazfood.gazfoodspringboot.entity.Employee;
 import com.gazfood.gazfoodspringboot.service.CassaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,6 +52,15 @@ public class CassaController {
     public String deleteCassa(@RequestParam("cassaId") int id) {
         cassaService.deleteCassa(id);
         return "redirect:casses";
+    }
+
+
+    @RequestMapping("/detailsCassa")
+    public String detailsCassa(@RequestParam("cassaId") int id,Model model){
+        Cassa cassa = cassaService.getCassa(id);
+        model.addAttribute("cassa",cassa);
+
+        return "cassa-form";
     }
 
 }

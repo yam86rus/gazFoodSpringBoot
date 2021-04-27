@@ -52,20 +52,28 @@ public class Cassa {
     @Column(name = "icc_number")
     private String iccNumber;
 
-    public String getMobileNumber() {
-        return mobileNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    public Cassa() {
     }
 
-    public void setMobileNumber(String mobileNumber) {
+    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, String fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber) {
+        this.cassaName = cassaName;
+        this.prefix = prefix;
+        this.ammyAdmin = ammyAdmin;
+        this.annyDesk = annyDesk;
+        this.computerName = computerName;
+        this.cassaAdres = cassaAdres;
+        this.dataUpdate = dataUpdate;
+        this.temp = temp;
+        this.fnDeadlineData = fnDeadlineData;
+        this.kpp = kpp;
+        this.rnkkt = rnkkt;
+        this.fnNumber = fnNumber;
         this.mobileNumber = mobileNumber;
-    }
-
-    public String getIccNumber() {
-        return iccNumber;
-    }
-
-    public void setIccNumber(String iccNumber) {
         this.iccNumber = iccNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getId() {
@@ -172,23 +180,27 @@ public class Cassa {
         this.fnNumber = fnNumber;
     }
 
-    public Cassa() {
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, String fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber) {
-        this.cassaName = cassaName;
-        this.prefix = prefix;
-        this.ammyAdmin = ammyAdmin;
-        this.annyDesk = annyDesk;
-        this.computerName = computerName;
-        this.cassaAdres = cassaAdres;
-        this.dataUpdate = dataUpdate;
-        this.temp = temp;
-        this.fnDeadlineData = fnDeadlineData;
-        this.kpp = kpp;
-        this.rnkkt = rnkkt;
-        this.fnNumber = fnNumber;
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
+    }
+
+    public String getIccNumber() {
+        return iccNumber;
+    }
+
+    public void setIccNumber(String iccNumber) {
         this.iccNumber = iccNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

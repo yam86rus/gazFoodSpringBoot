@@ -136,6 +136,9 @@
             <column name="icc_number" type="varchar(20)">
                 <constraints nullable="true" unique="false"/>
             </column>
+            <column name="phone_number" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
         </createTable>
 
         <insert tableName="casses">
@@ -153,6 +156,7 @@
             <column name="fn_number" value="123"/>
             <column name="mob_number" value="9223334455"/>
             <column name="icc_number" value="89701111111111111"/>
+            <column name="phone_number" value="53547"/>
         </insert>
 
         <createTable tableName="partners">
