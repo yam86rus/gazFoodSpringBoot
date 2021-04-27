@@ -22,6 +22,9 @@
         <insert tableName="cities">
             <column name="cityName" value="Ноябрьск"/>
         </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Тюмень"/>
+        </insert>
 
 
         <createTable tableName="employees">
@@ -74,7 +77,17 @@
             <column name="contract_type" type="varchar(3)"></column>
             <column name="experience" type="varchar(3)"></column>
             <column name="vacancy_hours" type="varchar(3)"></column>
+            <column name="city_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salary" type="int"></column>
         </createTable>
+        <addForeignKeyConstraint baseTableName="vacancies"
+                                 baseColumnNames="city_id"
+                                 referencedTableName="cities"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_vacancies_city_id"
+        />
 
         <insert tableName="vacancies">
             <column name="vacancy_name" value="Повар"/>
@@ -94,6 +107,8 @@
             <column name="contract_type" value="e1"/>
             <column name="experience" value="e1"/>
             <column name="vacancy_hours" value="e1"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="salary" value="50000"/>
 
         </insert>
 

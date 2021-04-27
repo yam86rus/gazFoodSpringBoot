@@ -41,6 +41,28 @@ public class Vacancy {
     @Enumerated(EnumType.STRING)
     private VacancyHours vacancyHours;
 
+    @Column(name = "salary")
+    private int salary;
+
+    @ManyToOne
+    @JoinColumn(name="city_id")
+    private City city;
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public Vacancy() {
     }
@@ -61,7 +83,7 @@ public class Vacancy {
         this.vacancyHours = vacancyHours;
     }
 
-    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts, ContractType element, Experience experience, VacancyHours vacancyHours) {
+    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts, ContractType element, Experience experience, VacancyHours vacancyHours, int salary, City city) {
         this.vacancyName = vacancyName;
         this.description = description;
         this.requirements = requirements;
@@ -70,6 +92,8 @@ public class Vacancy {
         this.element = element;
         this.experience = experience;
         this.vacancyHours = vacancyHours;
+        this.salary = salary;
+        this.city = city;
     }
 
     public ContractType getElement() {

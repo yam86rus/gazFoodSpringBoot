@@ -1,6 +1,8 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
+import com.gazfood.gazfoodspringboot.entity.City;
 import com.gazfood.gazfoodspringboot.entity.Vacancy;
+import com.gazfood.gazfoodspringboot.service.CityService;
 import com.gazfood.gazfoodspringboot.service.VacancyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ public class VacancyController {
     @Autowired
     private VacancyService vacancyService;
 
+    @Autowired
+    private CityService cityService;
+
     @RequestMapping("/vacancies")
     public String showAllVacancies (Model model) {
         List<Vacancy> allVacancies = vacancyService.getAllVacancies();
@@ -28,6 +33,10 @@ public class VacancyController {
     public String addNewVacancy(Model model) {
         Vacancy vacancy = new Vacancy();
         model.addAttribute("vacancy", vacancy);
+
+        List<City> listCities = cityService.getAllCities();
+        model.addAttribute("listCities",listCities);
+
         return "vacancy-form";
     }
 
@@ -41,6 +50,9 @@ public class VacancyController {
     public String updateVacancy(@RequestParam("vacancyId") int id, Model model) {
         Vacancy vacancy = vacancyService.getVacancy(id);
         model.addAttribute("vacancy", vacancy);
+
+        List<City> listCities = cityService.getAllCities();
+        model.addAttribute("listCities",listCities);
         return "vacancy-form";
     }
 
@@ -54,6 +66,8 @@ public class VacancyController {
     public String detailsVacancy(@RequestParam("vacancyId") int id, Model model) {
         Vacancy vacancy = vacancyService.getVacancy(id);
         model.addAttribute("vacancy", vacancy);
+        List<City> listCities = cityService.getAllCities();
+        model.addAttribute("listCities",listCities);
         return "vacancy-form";
     }
 }

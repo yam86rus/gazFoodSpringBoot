@@ -88,6 +88,11 @@
                                    th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
                     </tr>
                     <tr>
+                        <td>Зарплата</td>
+                        <td><input type="number" th:field="*{salary}"
+                                   th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
+                    </tr>
+                    <tr>
                         <td>Тип занятости</td>
                         <td>
                             <select name="color" th:field="*{element}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}">
@@ -113,6 +118,14 @@
                                         th:value="${experience}" th:text="${experience.label}"></option>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Город</td>
+                        <td><select th:field="*{city.id}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}">
+                            <th:block th:each="city: ${listCities}">
+                                <option th:text="${city.cityName}" th:value="${city.id}"/>
+                            </th:block>
+                        </select></td>
                     </tr>
 
                     <tr>
