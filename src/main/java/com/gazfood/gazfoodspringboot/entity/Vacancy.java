@@ -1,6 +1,8 @@
 package com.gazfood.gazfoodspringboot.entity;
 
 import com.gazfood.gazfoodspringboot.enums.ContractType;
+import com.gazfood.gazfoodspringboot.enums.Experience;
+import com.gazfood.gazfoodspringboot.enums.VacancyHours;
 
 import javax.persistence.*;
 
@@ -26,24 +28,48 @@ public class Vacancy {
 
     @Column(name = "contacts")
     private String contacts;
-//
-//    @Enumerated(EnumType.ORDINAL)
-//    private WorkTime workTime;
 
     @Column(name = "contract_type")
     @Enumerated(EnumType.STRING)
     private ContractType element;
 
+    @Column(name = "experience")
+    @Enumerated(EnumType.STRING)
+    private Experience experience;
+
+    @Column(name = "vacancy_hours")
+    @Enumerated(EnumType.STRING)
+    private VacancyHours vacancyHours;
+
+
     public Vacancy() {
     }
 
-    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts, ContractType element) {
+    public Experience getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Experience experience) {
+        this.experience = experience;
+    }
+
+    public VacancyHours getVacancyHours() {
+        return vacancyHours;
+    }
+
+    public void setVacancyHours(VacancyHours vacancyHours) {
+        this.vacancyHours = vacancyHours;
+    }
+
+    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts, ContractType element, Experience experience, VacancyHours vacancyHours) {
         this.vacancyName = vacancyName;
         this.description = description;
         this.requirements = requirements;
         this.conditions = conditions;
         this.contacts = contacts;
         this.element = element;
+        this.experience = experience;
+        this.vacancyHours = vacancyHours;
     }
 
     public ContractType getElement() {

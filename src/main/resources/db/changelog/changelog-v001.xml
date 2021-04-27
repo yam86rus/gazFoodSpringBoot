@@ -71,7 +71,9 @@
             <column name="requirements" type="varchar(2048)"></column>
             <column name="conditions" type="varchar(2048)"></column>
             <column name="contacts" type="varchar(300)"></column>
-            <column name="contract_type" type="varchar(2)"></column>
+            <column name="contract_type" type="varchar(3)"></column>
+            <column name="experience" type="varchar(3)"></column>
+            <column name="vacancy_hours" type="varchar(3)"></column>
         </createTable>
 
         <insert tableName="vacancies">
@@ -90,6 +92,8 @@
             <column name="contacts" value="+ 7 (3462) 75-34-48
             kadr@gaztorg.org.ru"/>
             <column name="contract_type" value="e1"/>
+            <column name="experience" value="e1"/>
+            <column name="vacancy_hours" value="e1"/>
 
         </insert>
 

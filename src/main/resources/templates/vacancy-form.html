@@ -96,6 +96,24 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <td>График работы</td>
+                        <td>
+                            <select name="color" th:field="*{vacancyHours}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}">
+                                <option th:each="vacancyHours : ${T(com.gazfood.gazfoodspringboot.enums.VacancyHours).values()}"
+                                        th:value="${vacancyHours}" th:text="${vacancyHours.label}"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Опыт работы</td>
+                        <td>
+                            <select name="color" th:field="*{experience}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}">
+                                <option th:each="experience : ${T(com.gazfood.gazfoodspringboot.enums.Experience).values()}"
+                                        th:value="${experience}" th:text="${experience.label}"></option>
+                            </select>
+                        </td>
+                    </tr>
 
                     <tr>
                         <td th:if="${#httpServletRequest.getRequestURI() == '/updateVacancy'} or ${#httpServletRequest.getRequestURI() == '/addNewVacancy'}">
