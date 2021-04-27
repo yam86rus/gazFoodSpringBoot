@@ -1,5 +1,7 @@
 package com.gazfood.gazfoodspringboot.entity;
 
+import com.gazfood.gazfoodspringboot.enums.ContractType;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,16 +26,32 @@ public class Vacancy {
 
     @Column(name = "contacts")
     private String contacts;
+//
+//    @Enumerated(EnumType.ORDINAL)
+//    private WorkTime workTime;
+
+    @Column(name = "contract_type")
+    @Enumerated(EnumType.STRING)
+    private ContractType element;
 
     public Vacancy() {
     }
 
-    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts) {
+    public Vacancy(String vacancyName, String description, String requirements, String conditions, String contacts, ContractType element) {
         this.vacancyName = vacancyName;
         this.description = description;
         this.requirements = requirements;
         this.conditions = conditions;
         this.contacts = contacts;
+        this.element = element;
+    }
+
+    public ContractType getElement() {
+        return element;
+    }
+
+    public void setElement(ContractType element) {
+        this.element = element;
     }
 
     public int getId() {

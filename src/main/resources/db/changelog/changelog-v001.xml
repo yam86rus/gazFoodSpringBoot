@@ -71,6 +71,7 @@
             <column name="requirements" type="varchar(2048)"></column>
             <column name="conditions" type="varchar(2048)"></column>
             <column name="contacts" type="varchar(300)"></column>
+            <column name="contract_type" type="varchar(2)"></column>
         </createTable>
 
         <insert tableName="vacancies">
@@ -88,6 +89,8 @@
             Конкурентоспособная заработная плата, обсуждается на собеседовании"/>
             <column name="contacts" value="+ 7 (3462) 75-34-48
             kadr@gaztorg.org.ru"/>
+            <column name="contract_type" value="e1"/>
+
         </insert>
 
         <createTable tableName="casses">

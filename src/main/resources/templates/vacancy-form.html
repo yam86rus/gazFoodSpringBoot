@@ -88,6 +88,16 @@
                                    th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}"></td>
                     </tr>
                     <tr>
+                        <td>Тип занятости</td>
+                        <td>
+                            <select name="color" th:field="*{element}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsVacancy'}">
+                                <option th:each="workTime : ${T(com.gazfood.gazfoodspringboot.enums.ContractType).values()}"
+                                        th:value="${workTime}" th:text="${workTime.label}"></option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
                         <td th:if="${#httpServletRequest.getRequestURI() == '/updateVacancy'} or ${#httpServletRequest.getRequestURI() == '/addNewVacancy'}">
                             <button type="submit">Сохранить</button>
                         </td>
