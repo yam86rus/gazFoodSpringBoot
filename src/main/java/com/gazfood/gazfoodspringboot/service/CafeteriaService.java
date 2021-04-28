@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface CafeteriaService {
     List<Cafeteria> getAllCafeterias();
+
     void saveCafeteria(Cafeteria cafeteria);
+
     Cafeteria getCafeteria(int id);
+
     void deleteCafeteria(int id);
+
     long getCountCafeterias();
 }

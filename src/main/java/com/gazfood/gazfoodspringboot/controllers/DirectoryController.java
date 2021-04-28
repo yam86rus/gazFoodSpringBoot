@@ -29,18 +29,23 @@ public class DirectoryController {
     @Autowired
     private ContractService contractService;
 
-    @Autowired CafeteriaService cafeteriaService;
+    @Autowired
+    private CafeteriaService cafeteriaService;
+
+    @Autowired
+    private DishService dishService;
 
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
-        model.addAttribute("cityCount",cityService.getCountCities());
-        model.addAttribute("employeeCount",employeeService.getCountEmployees());
-        model.addAttribute("vacancyCount",vacancyService.getCountVacancies());
-        model.addAttribute("cassaCount",cassaService.getCountCasses());
-        model.addAttribute("partnerCount",partnerService.getCountPartners());
-        model.addAttribute("statusCount",statusService.getCountStatuses());
-        model.addAttribute("contractCount",contractService.getCountContracts());
-        model.addAttribute("cafeteriaCount",cafeteriaService.getCountCafeterias());
+        model.addAttribute("cityCount", cityService.getCountCities());
+        model.addAttribute("employeeCount", employeeService.getCountEmployees());
+        model.addAttribute("vacancyCount", vacancyService.getCountVacancies());
+        model.addAttribute("cassaCount", cassaService.getCountCasses());
+        model.addAttribute("partnerCount", partnerService.getCountPartners());
+        model.addAttribute("statusCount", statusService.getCountStatuses());
+        model.addAttribute("contractCount", contractService.getCountContracts());
+        model.addAttribute("cafeteriaCount", cafeteriaService.getCountCafeterias());
+        model.addAttribute("dishCount",dishService.getCountDishes());
         return "all-directories";
     }
 }

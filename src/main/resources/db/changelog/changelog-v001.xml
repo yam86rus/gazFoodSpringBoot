@@ -308,6 +308,35 @@
             <column name="phone" value="8(3462)5-50-48"/>
         </insert>
 
+        <createTable tableName="dishes">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="structure" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="weight" type="DOUBLE">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="category" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="dishes">
+            <column name="name" value="Вареники  с творожным фаршем (полуфабрикат)"/>
+            <column name="structure" value="Тесто на основе пшеничной муки, начинка с творожным фаршем"/>
+            <column name="weight" valueNumeric="250.50"/>
+            <column name="price" valueNumeric="123.456"/>
+            <column name="category" value="Пельмени/вареники"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>
