@@ -29,6 +29,8 @@ public class DirectoryController {
     @Autowired
     private ContractService contractService;
 
+    @Autowired CafeteriaService cafeteriaService;
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
         model.addAttribute("cityCount",cityService.getCountCities());
@@ -38,6 +40,7 @@ public class DirectoryController {
         model.addAttribute("partnerCount",partnerService.getCountPartners());
         model.addAttribute("statusCount",statusService.getCountStatuses());
         model.addAttribute("contractCount",contractService.getCountContracts());
+        model.addAttribute("cafeteriaCount",cafeteriaService.getCountCafeterias());
         return "all-directories";
     }
 }

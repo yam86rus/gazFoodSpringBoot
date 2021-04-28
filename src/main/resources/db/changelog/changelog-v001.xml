@@ -287,6 +287,27 @@
             <column name="contract_status_id" value="1"/>
         </insert>
 
+        <createTable tableName="cafeterias">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="address" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="phone" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="cafeterias">
+            <column name="name" value="Столовая №6"/>
+            <column name="address" value="Сургут, ХМАО, ул. Индустриальная, д. 47"/>
+            <column name="phone" value="8(3462)5-50-48"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>

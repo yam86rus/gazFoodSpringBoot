@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Столовые</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Информация о столовой
+        </h2>
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Поиск"/>
+        </div>
+        <div class="user-wrapper">
+            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
+            <div>
+                <h4>
+                    Максим Якушев
+                </h4>
+                <small>Super admin</small>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateCafeteria'}">
+                <h1>Редактирование столовой</h1>
+            </td>
+        </div>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewCafeteria'}">
+                <h1>Создание столовой</h1>
+            </td>
+        </div>
+        <div>
+            <form th:action="@{/saveCafeteria}" th:object="${cafeteria}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}" id="blogId"></td>
+                    </tr>
+                    <tr>
+                        <td>Название столовой</td>
+                        <td><input type="text" th:field="*{name}"></td>
+                    </tr>
+                    <tr>
+                        <td>Адрес</td>
+                        <td><input type="text" th:field="*{address}"></td>
+                    </tr>
+                    <tr>
+                        <td>Телефон</td>
+                        <td><input type="text" th:field="*{phone}"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>

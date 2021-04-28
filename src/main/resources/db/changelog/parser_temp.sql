@@ -1,6 +1,7 @@
 DELETE FROM test_db.employees WHERE id = 1;
 DELETE FROM test_db.casses WHERE id=1;
 DELETE FROM test_db.vacancies where id=1;
+DELETE FROM test_db.cafeterias where id=1;
 
 # Подгружаем сотрудников
 insert into `test_db`.employees (`name`,`city_id`,`surname`,`patronymic`,`position`,`department`,`phoneGaz`,`phoneMobile`)
@@ -16,5 +17,10 @@ from `my_db`.`cassa`;
 insert into `test_db`.vacancies (`vacancy_name`,`description`,`requirements`,`conditions`,`contacts`,`experience`,`vacancy_hours`,`contract_type`,`city_id`,`salary`)
 select `vacancy`,`description`,`requirements`,`conditions`,`contacts`,"e1","e1","e1",1,10000
 from `my_db`.`vacancies`;
+
+# Подгружаем столовые
+insert into `test_db`.cafeterias (`name`,`address`,`phone`)
+select `name`,`address`,`phone`
+from `my_db`.`cafeterias`
 
 
