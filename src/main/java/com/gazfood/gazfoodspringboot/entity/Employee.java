@@ -1,8 +1,10 @@
 package com.gazfood.gazfoodspringboot.entity;
 
-import javax.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import com.gazfood.gazfoodspringboot.entity.City;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "employees")
@@ -22,7 +24,8 @@ public class Employee {
     private String patronymic;
 
     @Column(name = "birthday")
-    private String birthday;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthday;
 
     @Column(name = "position")
     private String position;
@@ -42,6 +45,22 @@ public class Employee {
 
     @Column(name = "email")
     private String email;
+
+    public Employee() {
+    }
+
+    public Employee(String name, String surname, String patronymic, LocalDate birthday, String position, String department, City city, String phoneGaz, String phoneMobile, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.birthday = birthday;
+        this.position = position;
+        this.department = department;
+        this.city = city;
+        this.phoneGaz = phoneGaz;
+        this.phoneMobile = phoneMobile;
+        this.email = email;
+    }
 
     public int getId() {
         return id;
@@ -75,11 +94,11 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -129,25 +148,5 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Employee() {
-    }
-
-    public Employee(String name, String surname, String patronymic, String birthday, String position, String department, City city, String phoneGaz, String phoneMobile, String email) {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        this.birthday = birthday;
-        this.position = position;
-        this.department = department;
-        this.city = city;
-        this.phoneGaz = phoneGaz;
-        this.phoneMobile = phoneMobile;
-        this.email = email;
-    }
-
-    public Employee(int id) {
-        this.id = id;
     }
 }
