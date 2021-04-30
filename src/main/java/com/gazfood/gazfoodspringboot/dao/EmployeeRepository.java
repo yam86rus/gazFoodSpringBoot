@@ -12,7 +12,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     long count();
 
-    @Query(value = "SELECT * FROM prod_db.employees WHERE MONTH(birthday)= :m ORDER BY DAY(birthday)", nativeQuery = true)
+    @Query(value = "SELECT * FROM employees WHERE MONTH(birthday)= :m ORDER BY DAY(birthday)", nativeQuery = true)
     List<Employee> findAllBirthday(@Param("m") int month);
 
 

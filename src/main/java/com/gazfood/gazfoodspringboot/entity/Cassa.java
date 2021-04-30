@@ -1,6 +1,9 @@
 package com.gazfood.gazfoodspringboot.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "casses")
@@ -35,7 +38,8 @@ public class Cassa {
     private String temp;
 
     @Column(name = "fn_deadline_data")
-    private String fnDeadlineData;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fnDeadlineData;
 
     @Column(name = "kpp")
     private String kpp;
@@ -58,7 +62,7 @@ public class Cassa {
     public Cassa() {
     }
 
-    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, String fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber) {
+    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, LocalDate fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber) {
         this.cassaName = cassaName;
         this.prefix = prefix;
         this.ammyAdmin = ammyAdmin;
@@ -148,11 +152,11 @@ public class Cassa {
         this.temp = temp;
     }
 
-    public String getFnDeadlineData() {
+    public LocalDate getFnDeadlineData() {
         return fnDeadlineData;
     }
 
-    public void setFnDeadlineData(String fnDeadlineData) {
+    public void setFnDeadlineData(LocalDate fnDeadlineData) {
         this.fnDeadlineData = fnDeadlineData;
     }
 

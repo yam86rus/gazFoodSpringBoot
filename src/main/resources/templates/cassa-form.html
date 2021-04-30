@@ -92,7 +92,7 @@
                     </tr>
                     <tr>
                         <td>Дата окончания ФН</td>
-                        <td><input type="text" th:field="*{fnDeadlineData}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                        <td><input type="date" th:value="*{fnDeadlineData}" th:field="*{fnDeadlineData}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
                     </tr>
                     <tr>
                         <td>КПП</td>

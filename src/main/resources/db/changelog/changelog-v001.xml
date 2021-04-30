@@ -25,6 +25,13 @@
         <insert tableName="cities">
             <column name="cityName" value="Тюмень"/>
         </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Тобольск"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Ишим"/>
+        </insert>
+
 
 
         <createTable tableName="employees">
@@ -140,7 +147,7 @@
             <column name="temp" type="varchar(50)">
                 <constraints nullable="false" unique="false"/>
             </column>
-            <column name="fn_deadline_data" type="varchar(10)">
+            <column name="fn_deadline_data" type="date">
                 <constraints nullable="true" unique="false"/>
             </column>
             <column name="kpp" type="varchar(9)">
@@ -172,7 +179,7 @@
             <column name="cassa_address" value="Сургут, Индустриальная, 47"/>
             <column name="data_update" value="23.04.2021"/>
             <column name="temp" value="---"/>
-            <column name="fn_deadline_data" value="31.12.2021"/>
+            <column name="fn_deadline_data" value="2021-01-01"/>
             <column name="kpp" value="123456789"/>
             <column name="rnkkt" value="1234567890123456789"/>
             <column name="fn_number" value="123"/>
@@ -330,10 +337,10 @@
         </createTable>
 
         <insert tableName="dishes">
-            <column name="name" value="Вареники  с творожным фаршем (полуфабрикат)"/>
+            <column name="name" value="Вареники с творожным фаршем (полуфабрикат)"/>
             <column name="structure" value="Тесто на основе пшеничной муки, начинка с творожным фаршем"/>
             <column name="weight" valueNumeric="250.50"/>
-            <column name="price" valueNumeric="123.456"/>
+            <column name="price" valueNumeric="123.45"/>
             <column name="category" value="Пельмени/вареники"/>
         </insert>
 
