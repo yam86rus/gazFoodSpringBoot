@@ -8,6 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 @Controller
 public class GreetingController {
     @Autowired
@@ -24,8 +29,14 @@ public class GreetingController {
         model.addAttribute("employeeCount", employeeService.getCountEmployees());
         model.addAttribute("cassaCount",cassaService.getCountCasses());
         model.addAttribute("firstTenContracts",contractService.getFirstTenContracts());
+
+        LocalDate todaydate = LocalDate.now();
+
+        model.addAttribute("allBirthdaysInMonth",employeeService.findAllBirthday(todaydate.getMonthValue()));
+
         return "index";
     }
+
 
     @GetMapping("/restapi")
     public String restapi() {

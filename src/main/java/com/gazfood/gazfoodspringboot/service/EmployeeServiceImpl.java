@@ -50,6 +50,11 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepository.count();
     }
 
+    @Override
+    public List<Employee> findAllBirthday(int month) {
+        List<Employee> allBirthday = employeeRepository.findAllBirthday(month);
+        return allBirthday;
+    }
 
 
 }

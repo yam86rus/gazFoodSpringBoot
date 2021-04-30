@@ -71,114 +71,26 @@
             <div class="customers">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Новые сотрудники</h3>
-                        <button>Посмотреть все <span class="las la-arrow-right"></span></button>
+                        <h3>Дни рождения сотрудников</h3>
+<!--                        <button>Посмотреть все <span class="las la-arrow-right"></span></button>-->
                     </div>
                 </div>
                 <div class="card-body">
 
-                    <div class="customer">
+                    <div class="customer" th:each="employee : ${allBirthdaysInMonth}">
                         <div class="info">
                             <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
                             <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
+                                <h4 th:utext="${employee.surname} +' '+ ${employee.name}"></h4>
+                                <small th:utext="${employee.position}"></small>
                             </div>
                         </div>
                         <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
-                        </div>
-                    </div>
-
-                    <div class="customer">
-                        <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
-                            <div>
-                                <h4>Lewis S. Cunningham</h4>
-                                <small>CEO Expert</small>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <span class="las la-user-circle"></span>
-                            <span class="las la-comment"></span>
-                            <span class="las la-phone"></span>
+<!--                            <span th:utext="${employee.birthday.toString().substring(8)} + ' -е ' + ${employee.birthday.getMonth()}"></span>-->
+                            <span th:text="${#temporals.format(employee.birthday, 'dd MMMM', new java.util.Locale('ru'))}"></span>
+<!--                            <span class="las la-user-circle"></span>-->
+<!--                            <span class="las la-comment"></span>-->
+<!--                            <span class="las la-phone"></span>-->
                         </div>
                     </div>
 
