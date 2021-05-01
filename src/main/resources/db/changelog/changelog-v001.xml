@@ -33,7 +33,6 @@
         </insert>
 
 
-
         <createTable tableName="employees">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
@@ -342,6 +341,31 @@
             <column name="weight" valueNumeric="250.50"/>
             <column name="price" valueNumeric="123.45"/>
             <column name="category" value="Пельмени/вареники"/>
+        </insert>
+
+        <createTable tableName="dishes_categories">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <insert tableName="dishes_categories">
+            <column name="name" value="Первые блюда"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Вторые блюда"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Салаты"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Напитки"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Пироги"/>
         </insert>
 
     </changeSet>

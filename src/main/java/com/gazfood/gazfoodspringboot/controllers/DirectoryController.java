@@ -35,6 +35,9 @@ public class DirectoryController {
     @Autowired
     private DishService dishService;
 
+    @Autowired
+    private DishCategoryService dishCategoryService;
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
         model.addAttribute("cityCount", cityService.getCountCities());
@@ -46,6 +49,7 @@ public class DirectoryController {
         model.addAttribute("contractCount", contractService.getCountContracts());
         model.addAttribute("cafeteriaCount", cafeteriaService.getCountCafeterias());
         model.addAttribute("dishCount",dishService.getCountDishes());
+        model.addAttribute("dishCategoriesCount",dishCategoryService.getCountDishCategories());
         return "all-directories";
     }
 }
