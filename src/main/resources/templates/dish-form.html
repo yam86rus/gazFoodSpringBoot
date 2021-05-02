@@ -71,7 +71,13 @@
                     </tr>
                     <tr>
                         <td>Категория</td>
-                        <td><input type="text" th:field="*{category}"></td>
+                        <td>
+                            <select th:field="*{dishCategory.id}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}">
+                                <th:block th:each="dishCategory: ${listDishCategories}">
+                                    <option th:text="${dishCategory.category}" th:value="${dishCategory.id}"/>
+                                </th:block>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>

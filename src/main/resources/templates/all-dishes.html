@@ -62,7 +62,7 @@
                                     <td th:utext="${dish.structure}"></td>
                                     <td th:utext="${dish.weight}"></td>
                                     <td th:utext="${dish.price}"></td>
-                                    <td th:utext="${dish.category}"></td>
+                                    <td th:utext="${dish.dishCategory.category}">
                                     <td><a th:href="@{'/updateDish'+'?dishId='+${dish.id}}">Изменить</a></td>
                                     <td><a th:href="@{'/deleteDish'+'?dishId='+${dish.id}}">Удалить</a></td>
                                 </tr>

@@ -278,12 +278,7 @@
                                  constraintName="fk_contracts_partner_id"
         />
 
-        <addForeignKeyConstraint baseTableName="contracts"
-                                 baseColumnNames="contract_status_id"
-                                 referencedTableName="statuses"
-                                 referencedColumnNames="id"
-                                 constraintName="fk_contracts_status_id"
-        />
+
 
         <insert tableName="contracts">
             <column name="contract_name" value="Договор на мобильную связь"/>
@@ -314,34 +309,6 @@
             <column name="phone" value="8(3462)5-50-48"/>
         </insert>
 
-        <createTable tableName="dishes">
-            <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"></constraints>
-            </column>
-            <column name="name" type="varchar(200)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="structure" type="varchar(200)">
-                <constraints nullable="false" unique="false"/>
-            </column>
-            <column name="weight" type="DOUBLE">
-                <constraints nullable="false" unique="false"/>
-            </column>
-            <column name="price" type="DOUBLE">
-                <constraints nullable="false" unique="false"/>
-            </column>
-            <column name="category" type="varchar(100)">
-                <constraints nullable="false" unique="false"/>
-            </column>
-        </createTable>
-
-        <insert tableName="dishes">
-            <column name="name" value="Вареники с творожным фаршем (полуфабрикат)"/>
-            <column name="structure" value="Тесто на основе пшеничной муки, начинка с творожным фаршем"/>
-            <column name="weight" valueNumeric="250.50"/>
-            <column name="price" valueNumeric="123.45"/>
-            <column name="category" value="Пельмени/вареники"/>
-        </insert>
 
         <createTable tableName="dishes_categories">
             <column name="id" type="int" autoIncrement="true">
@@ -367,6 +334,44 @@
         <insert tableName="dishes_categories">
             <column name="name" value="Пироги"/>
         </insert>
+
+        <createTable tableName="dishes">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="structure" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="weight" type="DOUBLE">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="dishCategory_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="dishes"
+                                 baseColumnNames="dishCategory_id"
+                                 referencedTableName="dishes_categories"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_dishes_dishCategory_id"
+        />
+
+        <insert tableName="dishes">
+            <column name="name" value="Вареники с творожным фаршем (полуфабрикат)"/>
+            <column name="structure" value="Тесто на основе пшеничной муки, начинка с творожным фаршем"/>
+            <column name="weight" valueNumeric="250.50"/>
+            <column name="price" valueNumeric="123.45"/>
+            <column name="dishCategory_id" valueNumeric="1"/>
+        </insert>
+
+
 
     </changeSet>
 
