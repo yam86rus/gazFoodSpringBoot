@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="4" author="Yakushev">
+
+        <createTable tableName="casses">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="cassa_name" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="prefix" type="varchar(15)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="ammy_admin" type="varchar(10)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="any_desk" type="varchar(9)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="computer_name" type="varchar(25)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="cassa_address" type="varchar(150)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="data_update" type="varchar(50)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="temp" type="varchar(50)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="fn_deadline_data" type="date">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="kpp" type="varchar(9)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="rnkkt" type="varchar(19)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="fn_number" type="varchar(16)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="mob_number" type="varchar(10)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="icc_number" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="phone_number" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="casses">
+            <column name="cassa_name" value="Кассовый узел №1"/>
+            <column name="prefix" value="kass-uzel1"/>
+            <column name="ammy_admin" value="1234567890"/>
+            <column name="any_desk" value="123456789"/>
+            <column name="computer_name" value="pc-001"/>
+            <column name="cassa_address" value="Сургут, Индустриальная, 47"/>
+            <column name="data_update" value="23.04.2021"/>
+            <column name="temp" value="---"/>
+            <column name="fn_deadline_data" value="2021-01-01"/>
+            <column name="kpp" value="123456789"/>
+            <column name="rnkkt" value="1234567890123456789"/>
+            <column name="fn_number" value="123"/>
+            <column name="mob_number" value="9223334455"/>
+            <column name="icc_number" value="89701111111111111"/>
+            <column name="phone_number" value="53547"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

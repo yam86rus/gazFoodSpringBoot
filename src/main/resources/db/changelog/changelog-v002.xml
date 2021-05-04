@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="2" author="Yakushev">
+
+        <createTable tableName="employees">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="name" type="varchar(15)"></column>
+            <column name="surname" type="varchar(25)"></column>
+            <column name="patronymic" type="varchar(25)"></column>
+            <column name="birthday" type="date"></column>
+            <column name="position" type="varchar(100)"></column>
+            <column name="department" type="varchar(200)"></column>
+            <column name="city_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phoneGaz" type="varchar(25)"></column>
+            <column name="phoneMobile" type="varchar(15)"></column>
+            <column name="email" type="varchar(50)"></column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="employees"
+                                 baseColumnNames="city_id"
+                                 referencedTableName="cities"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_employees_city_id"
+        />
+
+        <insert tableName="employees">
+            <column name="name" value="Максим"/>
+            <column name="surname" value="Якушев"/>
+            <column name="patronymic" value="Юрьевич"/>
+            <column name="birthday" value="1985-03-27"/>
+            <column name="position" value="Программист"/>
+            <column name="department" value="ИТ"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="53547"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="yam86rus@gmail.com"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

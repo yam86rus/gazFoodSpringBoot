@@ -5,32 +5,30 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <changeSet id="1" author="Yakushev">
+    <changeSet id="6" author="Yakushev">
 
-        <createTable tableName="cities">
+        <createTable tableName="statuses">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="cityName" type="varchar(200)">
+            <column name="status_name" type="varchar(100)">
                 <constraints nullable="false" unique="true"/>
             </column>
         </createTable>
 
-        <insert tableName="cities">
-            <column name="cityName" value="Сургут"/>
+        <insert tableName="statuses">
+            <column name="status_name" value="Передать на оплату"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Ноябрьск"/>
+        <insert tableName="statuses">
+            <column name="status_name" value="Забрать оригиналы на оплату"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Тюмень"/>
+        <insert tableName="statuses">
+            <column name="status_name" value="Передать оригиналы на оплату"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Тобольск"/>
+        <insert tableName="statuses">
+            <column name="status_name" value="Подписать акт сверки"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Ишим"/>
-        </insert>
+
 
     </changeSet>
 
