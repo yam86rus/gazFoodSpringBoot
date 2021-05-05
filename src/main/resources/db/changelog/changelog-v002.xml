@@ -33,17 +33,71 @@
         />
 
         <insert tableName="employees">
-            <column name="name" value="Максим"/>
-            <column name="surname" value="Якушев"/>
-            <column name="patronymic" value="Юрьевич"/>
-            <column name="birthday" value="1985-03-27"/>
-            <column name="position" value="Программист"/>
-            <column name="department" value="ИТ"/>
+            <column name="name" value="Вячеслав"/>
+            <column name="surname" value="Ларионов"/>
+            <column name="patronymic" value="Михайлович"/>
+            <column name="birthday" value="1988-05-03"/>
+            <column name="position" value="Пекарь"/>
+            <column name="department" value="Отдел общественного питания"/>
             <column name="city_id" valueNumeric="1"/>
-            <column name="phoneGaz" value="53547"/>
+            <column name="phoneGaz" value="12345"/>
             <column name="phoneMobile" value="922-222-22-22"/>
-            <column name="email" value="yam86rus@gmail.com"/>
+            <column name="email" value="povar@company.com"/>
         </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Максим"/>
+            <column name="surname" value="Носов"/>
+            <column name="patronymic" value="Павлович"/>
+            <column name="birthday" value="1984-05-06"/>
+            <column name="position" value="Повар"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Илона"/>
+            <column name="surname" value="Лукина"/>
+            <column name="patronymic" value="Дмитриевна"/>
+            <column name="birthday" value="1985-05-12"/>
+            <column name="position" value="Кондитер"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Тимур"/>
+            <column name="surname" value="Васильев"/>
+            <column name="patronymic" value="Мэлсович"/>
+            <column name="birthday" value="1984-05-18"/>
+            <column name="position" value="Повар универсал"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Екатерина"/>
+            <column name="surname" value="Мухина"/>
+            <column name="patronymic" value="Наумовна"/>
+            <column name="birthday" value="1989-05-21"/>
+            <column name="position" value="Сушеф"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+
 
     </changeSet>
 
