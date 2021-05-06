@@ -9,15 +9,15 @@
         <dbms type="mysql"/>
     </preConditions>
 
-    <include file="db/changelog/changelog-v001.xml"></include>
-    <include file="db/changelog/changelog-v002.xml"></include>
-    <include file="db/changelog/changelog-v003.xml"></include>
-    <include file="db/changelog/changelog-v004.xml"></include>
-    <include file="db/changelog/changelog-v005.xml"></include>
-    <include file="db/changelog/changelog-v006.xml"></include>
-    <include file="db/changelog/changelog-v007.xml"></include>
-    <include file="db/changelog/changelog-v008.xml"></include>
-    <include file="db/changelog/changelog-v009.xml"></include>
-    <include file="db/changelog/changelog-v010.xml"></include>
+    <include file="db/changelog/changelog-v001.xml"></include> <!-- Справочник Города -->
+    <include file="db/changelog/changelog-v002.xml"></include> <!-- Справочник Сотрудники -->
+    <include file="db/changelog/changelog-v003.xml"></include> <!-- Справочник Вакансии -->
+    <include file="db/changelog/changelog-v004.xml"></include> <!-- Справочник Кассы -->
+    <include file="db/changelog/changelog-v005.xml"></include> <!-- Справочник Контрагенты -->
+    <include file="db/changelog/changelog-v006.xml"></include> <!-- Справочник Статусы -->
+    <include file="db/changelog/changelog-v007.xml"></include> <!-- Справочник Договора -->
+    <include file="db/changelog/changelog-v008.xml"></include> <!-- Справочник Столовые -->
+    <include file="db/changelog/changelog-v009.xml"></include> <!-- Справочник Категории блюд -->
+    <include file="db/changelog/changelog-v010.xml"></include> <!-- Справочник Блюда -->
 
 </databaseChangeLog>
