@@ -350,6 +350,16 @@ td .status {
     color: var(--main-color);
 }
 
+.step3 {
+    background-color:#FF9E73;
+}
+.step2 {
+    background-color:#FF7B40;
+}
+.step1 {
+    background-color:#FF4F00;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .sidebar {

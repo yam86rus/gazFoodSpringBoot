@@ -1,5 +1,4 @@
 table = document.querySelector('table');
-console.log(table);
 
 function generateRandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -82,4 +81,22 @@ function highlightDoubles(table) {
     });
 }
 
+function clear() {
+    var tds = document.getElementById('sortable').querySelectorAll('.content2');
+    for (var i = 0; i < tds.length; i++) {
+
+        if (tds[i].textContent <= 10 && tds[i].textContent >= 0) {
+            tds[i].className = "step1";
+        }
+        if (tds[i].textContent <= 20 && tds[i].textContent >= 11) {
+            tds[i].className = "step2";
+        }
+        if (tds[i].textContent <= 30 && tds[i].textContent >= 21) {
+            tds[i].className = "step3";
+        }
+    }
+}
+
+
 highlightDoubles(document.getElementById('sortable'));
+clear();
