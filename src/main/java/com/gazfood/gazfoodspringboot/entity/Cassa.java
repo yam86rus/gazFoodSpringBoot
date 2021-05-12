@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.concurrent.TimeUnit;
 
 @Entity
 @Table(name = "casses")
@@ -58,6 +59,15 @@ public class Cassa {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    public int getDaysToDeadLine(){
+        LocalDate today = LocalDate.now();
+        if (this.fnDeadlineData != null)
+        return (int) java.time.temporal.ChronoUnit.DAYS.between(today,this.fnDeadlineData);
+        else{
+            return 0;
+        }
+    }
 
     public Cassa() {
     }

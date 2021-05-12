@@ -2,8 +2,6 @@ package com.gazfood.gazfoodspringboot.controllers;
 
 
 import com.gazfood.gazfoodspringboot.entity.Cassa;
-import com.gazfood.gazfoodspringboot.entity.City;
-import com.gazfood.gazfoodspringboot.entity.Employee;
 import com.gazfood.gazfoodspringboot.service.CassaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 
 @Controller
 public class CassaController {
+
+
 
     @Autowired
     private CassaService cassaService;
@@ -25,6 +28,10 @@ public class CassaController {
     private String showCassaPage(Model model) {
         List<Cassa> allCasses = cassaService.getAllCassesOrder();
         model.addAttribute("allCasses", allCasses);
+
+        LocalDate todaydate = LocalDate.now();
+
+        model.addAttribute("todaydate", todaydate);
         return "all-casses";
     }
 
@@ -42,9 +49,9 @@ public class CassaController {
     }
 
     @RequestMapping("updateCassa")
-    public String updateCassa(@RequestParam("cassaId") int id,Model model) {
+    public String updateCassa(@RequestParam("cassaId") int id, Model model) {
         Cassa cassa = cassaService.getCassa(id);
-        model.addAttribute("cassa",cassa);
+        model.addAttribute("cassa", cassa);
         return "cassa-form";
     }
 
@@ -56,9 +63,9 @@ public class CassaController {
 
 
     @RequestMapping("/detailsCassa")
-    public String detailsCassa(@RequestParam("cassaId") int id,Model model){
+    public String detailsCassa(@RequestParam("cassaId") int id, Model model) {
         Cassa cassa = cassaService.getCassa(id);
-        model.addAttribute("cassa",cassa);
+        model.addAttribute("cassa", cassa);
 
         return "cassa-form";
     }
