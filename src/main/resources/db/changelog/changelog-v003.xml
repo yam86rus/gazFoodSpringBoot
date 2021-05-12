@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="3" author="Yakushev">
+
+        <createTable tableName="vacancies">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="vacancy_name" type="varchar(200)"></column>
+            <column name="description" type="varchar(2048)"></column>
+            <column name="requirements" type="varchar(2048)"></column>
+            <column name="conditions" type="varchar(2048)"></column>
+            <column name="contacts" type="varchar(300)"></column>
+            <column name="contract_type" type="varchar(3)"></column>
+            <column name="experience" type="varchar(3)"></column>
+            <column name="vacancy_hours" type="varchar(3)"></column>
+            <column name="city_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salary" type="int"></column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="vacancies"
+                                 baseColumnNames="city_id"
+                                 referencedTableName="cities"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_vacancies_city_id"
+        />
+
+        <insert tableName="vacancies">
+            <column name="vacancy_name" value="Повар"/>
+            <column name="description" value="Приготовление блюд, полуфабрикатов и кулинарных изделий.
+            Соблюдение стандартов организации.
+            Порционирование блюд, обслуживание гостей на раздаче.
+            Участие в составлении меню, и заявок на сырье"/>
+            <column name="requirements" value="Наличие профессионального образования.
+            Опыт работы от 3-х лет.
+            Умение работать со сборниками рецептур.
+            Наличие медицинской книжки"/>
+            <column name="conditions" value="Полный рабочий день, график 5/2.
+            Соц. пакет.
+            Конкурентоспособная заработная плата, обсуждается на собеседовании"/>
+            <column name="contacts" value="+ 7 (3462) 75-34-48
+            kadr@gaztorg.org.ru"/>
+            <column name="contract_type" value="e1"/>
+            <column name="experience" value="e1"/>
+            <column name="vacancy_hours" value="e1"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="salary" value="50000"/>
+
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

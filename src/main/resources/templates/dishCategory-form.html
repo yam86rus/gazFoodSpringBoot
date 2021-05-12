@@ -20,7 +20,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            REST API
+            Информация о категории блюда
         </h2>
         <div class="search-wrapper">
             <span class="las la-search"></span>
@@ -38,9 +38,32 @@
     </header>
     <main>
         <div>
-            <ul>
-                <li><a href="/swagger-ui.html" target="_blank">Swagger-ui</a></li>
-            </ul>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateDishCategory'}">
+                <h1>Редактирование категории блюда</h1>
+            </td>
+        </div>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewDishCategory'}">
+                <h1>Создание категории блюда</h1>
+            </td>
+        </div>
+        <div>
+            <form th:action="@{/saveDishCategory}" th:object="${dishCategory}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}" id="blogId"></td>
+                    </tr>
+                    <tr>
+                        <td>Категория блюда</td>
+                        <td><input type="text" th:field="*{category}"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </main>
 </div>

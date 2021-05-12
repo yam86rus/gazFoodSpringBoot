@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="5" author="Yakushev">
+
+        <createTable tableName="partners">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="partner_name" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="partner_inn" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="partner_kpp" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="partner_adress" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="personal_manager" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="manager_mobile_phone" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="manager_city_phone" type="varchar(20)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="manager_email" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="partners">
+            <column name="partner_name" value="ПАО МегаФон"/>
+            <column name="partner_inn" value="7812014560"/>
+            <column name="partner_kpp" value="997750001"/>
+            <column name="partner_adress" value="Сургут, 30 лет Победы, 32"/>
+            <column name="personal_manager" value="Василий"/>
+            <column name="manager_mobile_phone" value="9223334455"/>
+            <column name="manager_city_phone" value="8(3462)112233"/>
+            <column name="manager_email" value="best-manager@megafonsurgut.ru"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

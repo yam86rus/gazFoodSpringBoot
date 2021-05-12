@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
 </head>
 <body>
 <input type="checkbox" id="nav-toggle">
@@ -19,7 +20,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Все блюда
+            Категории блюд
         </h2>
         <div class="search-wrapper">
             <span class="las la-search"></span>
@@ -40,31 +41,23 @@
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Список блюд</h3>
-                        <button onclick="window.location.href = 'addNewDish'">Добавить</button>
+                        <h3>Список категорий блюд</h3>
+                        <button onclick="window.location.href = 'addNewDishCategory'">Добавить</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table width="100%">
+                            <table width="100%" id="sortable">
                                 <thead>
                                 <tr>
-                                    <td>Название блюда</td>
-                                    <td>Состав</td>
-                                    <td>Выход (гр.)</td>
-                                    <td>Цена</td>
-                                    <td>Категории</td>
+                                    <td>Категория</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="dish : ${allDishes}">
-                                    <td th:utext="${dish.name}"></td>
-                                    <td th:utext="${dish.structure}"></td>
-                                    <td th:utext="${dish.weight}"></td>
-                                    <td th:utext="${dish.price}"></td>
-                                    <td th:utext="${dish.dishCategory.category}">
-                                    <td><a th:href="@{'/updateDish'+'?dishId='+${dish.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteDish'+'?dishId='+${dish.id}}">Удалить</a></td>
+                                <tr th:each="dishCategory : ${allDishCategories}">
+                                    <td th:utext="${dishCategory.category}"></td>
+                                    <td><a th:href="@{'/updateDishCategory'+'?dishCategoryId='+${dishCategory.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deleteDishCategory'+'?dishCategoryId='+${dishCategory.id}}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -77,4 +70,3 @@
 </div>
 </body>
 </html>
-

@@ -5,31 +5,31 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <changeSet id="1" author="Yakushev">
+    <changeSet id="9" author="Yakushev">
 
-        <createTable tableName="cities">
+        <createTable tableName="dishes_categories">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="cityName" type="varchar(200)">
+            <column name="name" type="varchar(200)">
                 <constraints nullable="false" unique="true"/>
             </column>
         </createTable>
 
-        <insert tableName="cities">
-            <column name="cityName" value="Сургут"/>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Первые блюда"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Ноябрьск"/>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Вторые блюда"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Тюмень"/>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Салаты"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Тобольск"/>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Напитки"/>
         </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Ишим"/>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Пироги"/>
         </insert>
 
     </changeSet>
