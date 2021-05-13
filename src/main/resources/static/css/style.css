@@ -314,6 +314,10 @@ td .status {
     overflow-x: auto;
 }
 
+table thead td {
+    cursor: pointer;
+}
+
 .customer {
     display: flex;
     justify-content: space-between;

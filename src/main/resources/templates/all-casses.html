@@ -46,7 +46,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table width="100%" id="sortable">
+                            <table width="100%" id="sortable" class="table_sort">
                                 <thead>
                                 <tr>
                                     <td>Название кассы</td>
@@ -60,13 +60,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="cassa : ${allCasses}" >
+                                <tr th:each="cassa : ${allCasses}">
                                     <td th:utext="${cassa.cassaName}"></td>
                                     <td class="content" th:utext="${cassa.prefix}"></td>
                                     <td class="content" th:utext="${cassa.ammyAdmin}"></td>
                                     <td th:utext="${cassa.annyDesk}"></td>
                                     <td th:utext="${cassa.computerName}"></td>
-                                    <td class="content2" th:utext="${cassa.getDaysToDeadLine()}"></td>
+                                    <td class="content2" th:text="${cassa.getDaysToDeadLine()}"></td>
                                     <td th:utext="${cassa.fnDeadlineData}"></td>
                                     <td><a th:href="@{'/detailsCassa'+'?cassaId='+${cassa.id}}">Подробнее</a></td>
                                     <td><a th:href="@{'/updateCassa'+'?cassaId='+${cassa.id}}">Изменить</a></td>
@@ -82,7 +82,5 @@
     </main>
 </div>
 </body>
-<!--<script type="text/javascript" th:src="@{/js/all-cassa.js}"></script>-->
 <script th:src="@{/js/all-cassa.js}"></script>
-<script th:src="@{/js/date.js}"></script>
 </html>
