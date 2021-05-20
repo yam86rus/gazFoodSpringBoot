@@ -20,4 +20,7 @@
     <include file="db/changelog/changelog-v009.xml"></include> <!-- Справочник Категории блюд -->
     <include file="db/changelog/changelog-v010.xml"></include> <!-- Справочник Блюда -->
 
+    <!-- Заполняем тестовыми данными)-->
+<!--    <include file="db/changelog/changelog-v100.xml"></include> -->
+
 </databaseChangeLog>

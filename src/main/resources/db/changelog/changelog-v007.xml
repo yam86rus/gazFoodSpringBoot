@@ -35,13 +35,7 @@
                                  constraintName="fk_contracts_partner_id"
         />
 
-        <insert tableName="contracts">
-            <column name="contract_name" value="Договор на мобильную связь"/>
-            <column name="contract_number" value="24/14-МФД20"/>
-            <column name="contract_data" value="01.02.2020"/>
-            <column name="contract_partner_id" value="1"/>
-            <column name="contract_status_id" value="1"/>
-        </insert>
+
 
     </changeSet>
 

@@ -16,18 +16,7 @@
             </column>
         </createTable>
 
-        <insert tableName="statuses">
-            <column name="status_name" value="Передать на оплату"/>
-        </insert>
-        <insert tableName="statuses">
-            <column name="status_name" value="Забрать оригиналы на оплату"/>
-        </insert>
-        <insert tableName="statuses">
-            <column name="status_name" value="Передать оригиналы на оплату"/>
-        </insert>
-        <insert tableName="statuses">
-            <column name="status_name" value="Подписать акт сверки"/>
-        </insert>
+
 
 
     </changeSet>

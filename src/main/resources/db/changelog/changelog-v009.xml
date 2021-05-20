@@ -16,21 +16,7 @@
             </column>
         </createTable>
 
-        <insert tableName="dishes_categories">
-            <column name="name" value="Первые блюда"/>
-        </insert>
-        <insert tableName="dishes_categories">
-            <column name="name" value="Вторые блюда"/>
-        </insert>
-        <insert tableName="dishes_categories">
-            <column name="name" value="Салаты"/>
-        </insert>
-        <insert tableName="dishes_categories">
-            <column name="name" value="Напитки"/>
-        </insert>
-        <insert tableName="dishes_categories">
-            <column name="name" value="Пироги"/>
-        </insert>
+
 
     </changeSet>
 

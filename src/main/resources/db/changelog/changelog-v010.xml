@@ -35,13 +35,7 @@
                                  constraintName="fk_dishes_dishCategory_id"
         />
 
-        <insert tableName="dishes">
-            <column name="name" value="Вареники с творожным фаршем (полуфабрикат)"/>
-            <column name="structure" value="Тесто на основе пшеничной муки, начинка с творожным фаршем"/>
-            <column name="weight" valueNumeric="250.50"/>
-            <column name="price" valueNumeric="123.45"/>
-            <column name="dishCategory_id" valueNumeric="1"/>
-        </insert>
+
 
     </changeSet>
 

@@ -16,22 +16,6 @@
             </column>
         </createTable>
 
-        <insert tableName="cities">
-            <column name="cityName" value="Сургут"/>
-        </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Ноябрьск"/>
-        </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Тюмень"/>
-        </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Тобольск"/>
-        </insert>
-        <insert tableName="cities">
-            <column name="cityName" value="Ишим"/>
-        </insert>
-
     </changeSet>
 
 </databaseChangeLog>

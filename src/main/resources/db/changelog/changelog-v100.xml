@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="100" author="Yakushev">
+
+        <insert tableName="cities">
+            <column name="cityName" value="Сургут"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Ноябрьск"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Тюмень"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Тобольск"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="cityName" value="Ишим"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Вячеслав"/>
+            <column name="surname" value="Ларионов"/>
+            <column name="patronymic" value="Михайлович"/>
+            <column name="birthday" value="1988-05-03"/>
+            <column name="position" value="Пекарь"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Максим"/>
+            <column name="surname" value="Носов"/>
+            <column name="patronymic" value="Павлович"/>
+            <column name="birthday" value="1984-05-06"/>
+            <column name="position" value="Повар"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Илона"/>
+            <column name="surname" value="Лукина"/>
+            <column name="patronymic" value="Дмитриевна"/>
+            <column name="birthday" value="1985-05-12"/>
+            <column name="position" value="Кондитер"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Тимур"/>
+            <column name="surname" value="Васильев"/>
+            <column name="patronymic" value="Мэлсович"/>
+            <column name="birthday" value="1984-05-18"/>
+            <column name="position" value="Повар универсал"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="employees">
+            <column name="name" value="Екатерина"/>
+            <column name="surname" value="Мухина"/>
+            <column name="patronymic" value="Наумовна"/>
+            <column name="birthday" value="1989-05-21"/>
+            <column name="position" value="Сушеф"/>
+            <column name="department" value="Отдел общественного питания"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="phoneGaz" value="12345"/>
+            <column name="phoneMobile" value="922-222-22-22"/>
+            <column name="email" value="povar@company.com"/>
+        </insert>
+
+        <insert tableName="vacancies">
+            <column name="vacancy_name" value="Повар"/>
+            <column name="description" value="Приготовление блюд, полуфабрикатов и кулинарных изделий.
+            Соблюдение стандартов организации.
+            Порционирование блюд, обслуживание гостей на раздаче.
+            Участие в составлении меню, и заявок на сырье"/>
+            <column name="requirements" value="Наличие профессионального образования.
+            Опыт работы от 3-х лет.
+            Умение работать со сборниками рецептур.
+            Наличие медицинской книжки"/>
+            <column name="conditions" value="Полный рабочий день, график 5/2.
+            Соц. пакет.
+            Конкурентоспособная заработная плата, обсуждается на собеседовании"/>
+            <column name="contacts" value="+ 7 (3462) 75-34-48
+            kadr@gaztorg.org.ru"/>
+            <column name="contract_type" value="e1"/>
+            <column name="experience" value="e1"/>
+            <column name="vacancy_hours" value="e1"/>
+            <column name="city_id" valueNumeric="1"/>
+            <column name="salary" value="50000"/>
+        </insert>
+
+        <insert tableName="casses">
+            <column name="cassa_name" value="Кассовый узел №1"/>
+            <column name="prefix" value="kass-uzel1"/>
+            <column name="ammy_admin" value="1234567890"/>
+            <column name="any_desk" value="123456789"/>
+            <column name="computer_name" value="pc-001"/>
+            <column name="cassa_address" value="Сургут, Индустриальная, 47"/>
+            <column name="data_update" value="23.04.2021"/>
+            <column name="temp" value="---"/>
+            <column name="fn_deadline_data" value="2021-01-01"/>
+            <column name="kpp" value="123456789"/>
+            <column name="rnkkt" value="1234567890123456789"/>
+            <column name="fn_number" value="123"/>
+            <column name="mob_number" value="9223334455"/>
+            <column name="icc_number" value="89701111111111111"/>
+            <column name="phone_number" value="53547"/>
+        </insert>
+
+        <insert tableName="partners">
+            <column name="partner_name" value="ПАО МегаФон"/>
+            <column name="partner_inn" value="7812014560"/>
+            <column name="partner_kpp" value="997750001"/>
+            <column name="partner_adress" value="Сургут, 30 лет Победы, 32"/>
+            <column name="personal_manager" value="Василий"/>
+            <column name="manager_mobile_phone" value="9223334455"/>
+            <column name="manager_city_phone" value="8(3462)112233"/>
+            <column name="manager_email" value="best-manager@megafonsurgut.ru"/>
+        </insert>
+
+        <insert tableName="statuses">
+            <column name="status_name" value="Передать на оплату"/>
+        </insert>
+        <insert tableName="statuses">
+            <column name="status_name" value="Забрать оригиналы на оплату"/>
+        </insert>
+        <insert tableName="statuses">
+            <column name="status_name" value="Передать оригиналы на оплату"/>
+        </insert>
+        <insert tableName="statuses">
+            <column name="status_name" value="Подписать акт сверки"/>
+        </insert>
+
+        <insert tableName="contracts">
+            <column name="contract_name" value="Договор на мобильную связь"/>
+            <column name="contract_number" value="24/14-МФД20"/>
+            <column name="contract_data" value="01.02.2020"/>
+            <column name="contract_partner_id" value="1"/>
+            <column name="contract_status_id" value="1"/>
+        </insert>
+
+        <insert tableName="cafeterias">
+            <column name="name" value="Столовая №6"/>
+            <column name="address" value="Сургут, ХМАО, ул. Индустриальная, д. 47"/>
+            <column name="phone" value="8(3462)5-50-48"/>
+        </insert>
+
+        <insert tableName="dishes_categories">
+            <column name="name" value="Первые блюда"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Вторые блюда"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Салаты"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Напитки"/>
+        </insert>
+        <insert tableName="dishes_categories">
+            <column name="name" value="Пироги"/>
+        </insert>
+
+        <insert tableName="dishes">
+            <column name="name" value="Вареники с творожным фаршем (полуфабрикат)"/>
+            <column name="structure" value="Тесто на основе пшеничной муки, начинка с творожным фаршем"/>
+            <column name="weight" valueNumeric="250.50"/>
+            <column name="price" valueNumeric="123.45"/>
+            <column name="dishCategory_id" valueNumeric="1"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>
