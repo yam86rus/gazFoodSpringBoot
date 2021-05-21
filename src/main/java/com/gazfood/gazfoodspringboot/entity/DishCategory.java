@@ -34,6 +34,6 @@ public class DishCategory {
     }
 
     public void setCategory(String category) {
-        this.category = category;
+        this.category = category.trim();
     }
 }

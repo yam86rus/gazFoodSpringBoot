@@ -19,6 +19,7 @@
     <include file="db/changelog/changelog-v008.xml"></include> <!-- Справочник Столовые -->
     <include file="db/changelog/changelog-v009.xml"></include> <!-- Справочник Категории блюд -->
     <include file="db/changelog/changelog-v010.xml"></include> <!-- Справочник Блюда -->
+    <include file="db/changelog/changelog-v011.xml"></include> <!-- Периодический регистр Блюда_Цены -->
 
     <!-- Заполняем тестовыми данными)-->
 <!--    <include file="db/changelog/changelog-v100.xml"></include> -->

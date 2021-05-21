@@ -53,6 +53,12 @@
                     <span>Справочники</span>
                 </a>
             </li>
+            <li>
+                <a th:classappend="${#httpServletRequest.getRequestURI() == '/registers' ? 'active':''}" th:href="@{/registers}">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Регистры</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

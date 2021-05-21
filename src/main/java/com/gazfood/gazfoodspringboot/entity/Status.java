@@ -26,7 +26,7 @@ public class Status {
     }
 
     public void setStatusName(String statusName) {
-        this.statusName = statusName;
+        this.statusName = statusName.trim();
     }
 
     public Status() {

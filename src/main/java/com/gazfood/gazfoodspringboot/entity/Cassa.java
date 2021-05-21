@@ -103,7 +103,7 @@ public class Cassa {
     }
 
     public void setCassaName(String cassaName) {
-        this.cassaName = cassaName;
+        this.cassaName = cassaName.trim();
     }
 
     public String getPrefix() {

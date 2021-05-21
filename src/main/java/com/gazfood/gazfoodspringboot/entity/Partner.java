@@ -47,7 +47,7 @@ public class Partner {
     }
 
     public void setPartnerName(String partnerName) {
-        this.partnerName = partnerName;
+        this.partnerName = partnerName.trim();
     }
 
     public String getPartnerInn() {

@@ -40,7 +40,7 @@ public class Contract {
     }
 
     public void setContractName(String contractName) {
-        this.contractName = contractName;
+        this.contractName = contractName.trim();
     }
 
     public String getContractNumber() {

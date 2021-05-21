@@ -75,7 +75,7 @@ public class Employee {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.trim();
     }
 
     public String getSurname() {
@@ -83,7 +83,7 @@ public class Employee {
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        this.surname = surname.trim();
     }
 
     public String getPatronymic() {
@@ -91,7 +91,7 @@ public class Employee {
     }
 
     public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
+        this.patronymic = patronymic.trim();
     }
 
     public LocalDate getBirthday() {
@@ -107,7 +107,7 @@ public class Employee {
     }
 
     public void setPosition(String position) {
-        this.position = position;
+        this.position = position.trim();
     }
 
     public String getDepartment() {
@@ -115,7 +115,7 @@ public class Employee {
     }
 
     public void setDepartment(String department) {
-        this.department = department;
+        this.department = department.trim();
     }
 
     public City getCity() {
@@ -147,6 +147,6 @@ public class Employee {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email.trim();
     }
 }
