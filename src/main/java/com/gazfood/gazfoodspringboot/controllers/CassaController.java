@@ -2,6 +2,7 @@ package com.gazfood.gazfoodspringboot.controllers;
 
 
 import com.gazfood.gazfoodspringboot.entity.Cassa;
+import com.gazfood.gazfoodspringboot.exports.CassaExcelExporter;
 import com.gazfood.gazfoodspringboot.service.CassaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +39,23 @@ public class CassaController {
 
         model.addAttribute("todaydate", todaydate);
         return "all-casses";
+    }
+
+    @GetMapping("/casses/export/excel")
+    private void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=casses_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Cassa> listCasses = cassaService.getAllCassesOrder();;
+
+        CassaExcelExporter excelExporter = new CassaExcelExporter(listCasses);
+
+        excelExporter.export(response);
     }
 
     @RequestMapping("/addNewCassa")
