@@ -59,10 +59,10 @@
                                         </thead>
                                         <tbody>
                                         <tr th:each="employee : ${allEmps}">
-                                            <td th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></td>
+<!--                                            <td th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></td>-->
+                                            <td><a th:href="@{'/detailsEmployee'+'?empId='+${employee.id}}" th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></a></td>
                                             <td th:utext="${employee.position}"></td>
                                             <td th:utext="${employee.department}"></td>
-                                            <td><a th:href="@{'/detailsEmployee'+'?empId='+${employee.id}}">Подбробнее</a></td>
                                             <td><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
                                             <td><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
                                         </tr>

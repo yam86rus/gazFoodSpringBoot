@@ -1,6 +1,7 @@
 package com.gazfood.gazfoodspringboot.service;
 
 import com.gazfood.gazfoodspringboot.dao.RegisterDishRepository;
+import com.gazfood.gazfoodspringboot.entity.Partner;
 import com.gazfood.gazfoodspringboot.entity.RegisterDish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,15 @@ public class RegisterDishServiceImpl implements RegisterDishService{
         List<RegisterDish> allRegisterDishOrder = registerDishRepository.findAllByOrderByDishData();
         return allRegisterDishOrder;
     }
+
+    @Override
+    public long getCountRegistersDish() {
+        return registerDishRepository.count();
+    }
+
+    @Override
+    public void saveRegisterDish(RegisterDish registerDish) {
+        registerDishRepository.save(registerDish);
+    }
+
 }

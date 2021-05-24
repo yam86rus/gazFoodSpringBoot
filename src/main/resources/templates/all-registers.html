@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
 </head>
 <body>
 <input type="checkbox" id="nav-toggle">
@@ -19,7 +20,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Все регистры
+            Регистры
         </h2>
         <div class="search-wrapper">
             <span class="las la-search"></span>
@@ -36,43 +37,12 @@
         </div>
     </header>
     <main>
-        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
-            <div class="projects">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Список регистров</h3>
-                        <button onclick="window.location.href = 'addNewRegister'">Добавить</button>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table width="100%">
-                                <thead>
-                                <tr>
-                                    <td>Дата</td>
-                                    <td>ID блюда</td>
-                                    <td>Блюдо</td>
-                                    <td>Цена</td>
-                                    <td colspan="2">Операции</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="registerDish : ${allRegistersDish}">
-                                    <td th:utext="${registerDish.dishData}"></td>
-                                    <td th:utext="${registerDish.dish.id}"></td>
-                                    <td th:utext="${registerDish.dish.name}"></td>
-                                    <td th:utext="${registerDish.price}"></td>
-                                    <td><a th:href="@{'/updateRegisterDish'+'?registerDishId='+${registerDish.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteRegisterDish'+'?registerDishId='+${registerDish.id}}">Удалить</a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="cards">
+            <!--    Подключаем card-registerDishes-->
+            <div th:replace="card-registerDishes :: card-registerDishes"></div>
         </div>
     </main>
 </div>
 </body>
-</html>
 
+</html>
