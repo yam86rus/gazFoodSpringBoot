@@ -52,7 +52,6 @@
                                     <td>ID блюда</td>
                                     <td>Блюдо</td>
                                     <td>Цена</td>
-                                    <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -61,8 +60,6 @@
                                     <td th:utext="${registerDish.dish.id}"></td>
                                     <td th:utext="${registerDish.dish.name}"></td>
                                     <td th:utext="${registerDish.price}"></td>
-                                    <td><a th:href="@{'/updateRegisterDish'+'?registerDishId='+${registerDish.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteRegisterDish'+'?registerDishId='+${registerDish.id}}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>

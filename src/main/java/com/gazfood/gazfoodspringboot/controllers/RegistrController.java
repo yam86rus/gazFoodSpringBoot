@@ -46,7 +46,7 @@ public class RegistrController {
     }
 
     @RequestMapping("/saveRegistersDish")
-    public String saveRegisterDish(@ModelAttribute("cassa") RegisterDish registerDish) {
+    public String saveRegisterDish(RegisterDish registerDish) {
         registerDishService.saveRegisterDish(registerDish);
         return "redirect:registersDishes";
     }
