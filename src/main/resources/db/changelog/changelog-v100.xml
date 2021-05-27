@@ -190,6 +190,19 @@
             <column name="dishCategory_id" valueNumeric="1"/>
         </insert>
 
+        <insert tableName="price_categories">
+            <column name="name" value="Общий"/>
+            <column name="description" value="Общий для всех"/>
+        </insert>
+        <insert tableName="price_categories">
+            <column name="name" value="Трансгаз"/>
+            <column name="description" value="для трансгаза"/>
+        </insert>
+        <insert tableName="price_categories">
+            <column name="name" value="ГДР"/>
+            <column name="description" value="для ГДР"/>
+        </insert>
+
 
     </changeSet>
 
