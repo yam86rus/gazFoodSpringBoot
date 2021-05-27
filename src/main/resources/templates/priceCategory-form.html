@@ -55,11 +55,24 @@
                     </tr>
                     <tr>
                         <td>Название</td>
-                        <td><input type="text" th:field="*{name}"></td>
+                        <td><input type="text" th:field="*{name}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Описание</td>
                         <td><input type="text" th:field="*{description}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name error
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>

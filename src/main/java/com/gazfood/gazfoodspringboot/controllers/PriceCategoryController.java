@@ -6,8 +6,11 @@ import com.gazfood.gazfoodspringboot.service.PriceCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -36,7 +39,11 @@ public class PriceCategoryController {
     }
 
     @RequestMapping("/savePriceCategory")
-    public String savePriceCategory(PriceCategory priceCategory) {
+    public String savePriceCategory(@Valid PriceCategory priceCategory, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "priceCategory-form";
+        }
+
         priceCategoryService.savePriceCategory(priceCategory);
         return "redirect:priceCategories";
     }
