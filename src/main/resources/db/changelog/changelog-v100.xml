@@ -204,6 +204,14 @@
         </insert>
 
 
+        <insert tableName="menu_list">
+            <column name="name" value="Меню Газпром Трансгаз Сургут"/>
+            <column name="description" value="Стандартное меню"/>
+            <column name="priceCategory_id" valueNumeric="1"/>
+        </insert>
+
+
+
     </changeSet>
 
 </databaseChangeLog>
