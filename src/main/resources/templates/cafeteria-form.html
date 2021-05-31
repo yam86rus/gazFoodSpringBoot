@@ -66,6 +66,12 @@
                         <td><input type="text" th:field="*{phone}"></td>
                     </tr>
                     <tr>
+                        <td>Доступен для заказа?</td>
+                        <td><input type="checkbox" name="active" th:checked="${cafeteria.active}"/></td>
+                    </tr>
+
+
+                    <tr>
                         <td>
                             <button type="submit">Сохранить</button>
                         </td>

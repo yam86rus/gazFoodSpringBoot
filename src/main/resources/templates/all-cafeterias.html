@@ -45,20 +45,25 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table width="100%">
+                            <table width="100%" id="sortable" class="table_sort">
                                 <thead>
                                 <tr>
                                     <td>Название</td>
                                     <td>Адрес</td>
                                     <td>Телефон</td>
+                                    <td>Доступен для заказа?</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="cafeteria : ${allCafeterias}">
-                                    <td th:utext="${cafeteria.name}"></td>
-                                    <td th:utext="${cafeteria.address}"></td>
-                                    <td th:utext="${cafeteria.phone}"></td>
+                                    <td class="content" th:utext="${cafeteria.name}"></td>
+                                    <td class="content" th:utext="${cafeteria.address}"></td>
+                                    <td class="content" th:utext="${cafeteria.phone}"></td>
+                                    <td th:switch="${cafeteria.active}">
+                                        <p th:case="false">Нет</p>
+                                        <p th:case="true">Да</p>
+                                    </td>
                                     <td><a th:href="@{'/updateCafeteria'+'?cafeteriaId='+${cafeteria.id}}">Изменить</a></td>
                                     <td><a th:href="@{'/deleteCafeteria'+'?cafeteriaId='+${cafeteria.id}}">Удалить</a></td>
                                 </tr>
@@ -72,5 +77,6 @@
     </main>
 </div>
 </body>
+<script th:src="@{/js/all-cassa.js}"></script>
 </html>
 

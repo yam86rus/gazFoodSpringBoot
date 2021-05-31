@@ -20,13 +20,17 @@ public class Cafeteria {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "active")
+    private boolean active;
+
     public Cafeteria() {
     }
 
-    public Cafeteria(String name, String address, String phone) {
+    public Cafeteria(String name, String address, String phone, boolean active) {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.active = active;
     }
 
     public int getId() {
@@ -60,5 +64,13 @@ public class Cafeteria {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

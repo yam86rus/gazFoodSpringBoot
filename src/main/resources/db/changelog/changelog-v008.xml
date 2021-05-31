@@ -20,6 +20,9 @@
             <column name="phone" type="varchar(50)">
                 <constraints nullable="true" unique="false"/>
             </column>
+            <column name="active" type="BIT(1)">
+<!--                <constraints nullable="true" unique="false"/>-->
+            </column>
         </createTable>
 
 
