@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -50,6 +51,30 @@ public class MenuController {
         menuService.saveMenu(menu);
         return "redirect:menus";
     }
+
+    @RequestMapping("/updateMenu")
+    public String updateMenu(@RequestParam("menuId") int id, Model model){
+        Menu menu = menuService.getMenu(id);
+        model.addAttribute("menu",menu);
+
+        List<MenuList> listMenuList = menuListService.getAllMenuLists();
+        model.addAttribute("listMenuList", listMenuList);
+
+        List<Dish> listDishes = dishService.getAllDishes();
+        model.addAttribute("listDishes", listDishes);
+        return "menu-form";
+    }
+
+    @RequestMapping("/deleteMenu")
+    public String deleteMenu(@RequestParam("menuId") int id){
+        menuService.deleteMenu(id);
+        return "redirect:menus";
+    }
+
+
+
+
+
 
 
 }
