@@ -59,7 +59,6 @@
                                         </thead>
                                         <tbody>
                                         <tr th:each="employee : ${allEmps}">
-<!--                                            <td th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></td>-->
                                             <td><a th:href="@{'/detailsEmployee'+'?empId='+${employee.id}}" th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></a></td>
                                             <td th:utext="${employee.position}"></td>
                                             <td th:utext="${employee.department}"></td>
