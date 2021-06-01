@@ -219,6 +219,11 @@
             <column name="price" value="100.25"/>
         </insert>
 
+        <insert tableName="cafeteria_and_menu">
+            <column name="cafeteria_id" value="1"/>
+            <column name="menuList_id" value="1"/>
+        </insert>
+
 
 
     </changeSet>

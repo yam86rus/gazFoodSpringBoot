@@ -23,6 +23,7 @@
     <include file="db/changelog/changelog-v012.xml"></include> <!-- Справочник Категории цен (создание) -->
     <include file="db/changelog/changelog-v013.xml"></include> <!-- Справочник Список меню (создание) -->
     <include file="db/changelog/changelog-v014.xml"></include> <!-- Справочник Меню (создание) -->
+    <include file="db/changelog/changelog-v015.xml"></include> <!-- Справочник Кафе и меню (создание) -->
 
     <!-- Заполняем тестовыми данными)-->
     <include file="db/changelog/changelog-v100.xml"></include>

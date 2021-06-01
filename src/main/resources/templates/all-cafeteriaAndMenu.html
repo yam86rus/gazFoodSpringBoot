@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Газпром питание</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Все кафе и меню
+        </h2>
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Поиск"/>
+        </div>
+        <div class="user-wrapper">
+            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
+            <div>
+                <h4>
+                    Максим Якушев
+                </h4>
+                <small>Super admin</small>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Список кафе и меню в них</h3>
+                        <button onclick="window.location.href = 'addNewCafeteriaAndMenu'">Добавить</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <td>Название кафе</td>
+                                    <td>Название меню</td>
+                                    <td colspan="2">Операции</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="cafeteriaAndMenu : ${allCafeteriaAndMenu}">
+                                    <td th:utext="${cafeteriaAndMenu.cafeteria.name}"></td>
+                                    <td th:utext="${cafeteriaAndMenu.menuList.name}"></td>
+                                    <td><a th:href="@{'/updateCafeteriaAndMenu'+'?cafeteriaAndMenuId='+${cafeteriaAndMenu.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deleteCafeteriaAndMenu'+'?cafeteriaAndMenuId='+${cafeteriaAndMenu.id}}">Удалить</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
+

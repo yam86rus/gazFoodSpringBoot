@@ -25,6 +25,9 @@ public class MenuDirectoriesController {
     @Autowired
     private MenuService menuService;
 
+    @Autowired
+    private CafeteriaAndMenuService cafeteriaAndMenuService;
+
 
     @RequestMapping("/menuDirectories")
     public String getAllMenus(Model model) {
@@ -33,6 +36,8 @@ public class MenuDirectoriesController {
         model.addAttribute("priceCategoryCount", priceCategoryService.getCountPriceCategories());
         model.addAttribute("menuListCount", menuListService.getCountMenuList());
         model.addAttribute("menuCount", menuService.getCountMenus());
+        model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
+
         return "all-menusDirectories";
     }
 

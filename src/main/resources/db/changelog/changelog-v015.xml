@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="15" author="Yakushev">
+
+        <createTable tableName="cafeteria_and_menu">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="cafeteria_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="menuList_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="cafeteria_and_menu"
+                                 baseColumnNames="cafeteria_id"
+                                 referencedTableName="cafeterias"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_cafeteria_and_menu_cafeterias_id"
+        />
+
+        <addForeignKeyConstraint baseTableName="cafeteria_and_menu"
+                                 baseColumnNames="menuList_id"
+                                 referencedTableName="menu_list"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_cafeteria_and_menu_menu_list_id"
+        />
+
+    </changeSet>
+
+</databaseChangeLog>

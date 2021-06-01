@@ -47,6 +47,9 @@ public class DirectoryController {
     @Autowired
     private MenuService menuService;
 
+    @Autowired
+    private CafeteriaAndMenuService cafeteriaAndMenuService;
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
         model.addAttribute("cityCount", cityService.getCountCities());
@@ -62,6 +65,8 @@ public class DirectoryController {
         model.addAttribute("priceCategoryCount",priceCategoryService.getCountPriceCategories());
         model.addAttribute("menuListCount",menuListService.getCountMenuList());
         model.addAttribute("menuCount",menuService.getCountMenus());
+        model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
+
         return "all-directories";
     }
 }

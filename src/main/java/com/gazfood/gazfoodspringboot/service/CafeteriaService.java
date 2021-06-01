@@ -14,4 +14,6 @@ public interface CafeteriaService {
     void deleteCafeteria(int id);
 
     long getCountCafeterias();
+
+
 }
