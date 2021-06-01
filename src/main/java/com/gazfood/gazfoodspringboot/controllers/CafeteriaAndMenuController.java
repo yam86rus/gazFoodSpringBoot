@@ -57,7 +57,6 @@ public class CafeteriaAndMenuController {
                 .filter(distinctByKey(Menu::getMenuList))
                 .collect(Collectors.toList());
 
-        System.out.println(allMenus);
         model.addAttribute("allMenus",allMenus);
 
 
@@ -89,7 +88,6 @@ public class CafeteriaAndMenuController {
         List<Menu> allMenus = menuService.getAllMenus().stream()
                 .filter(distinctByKey(Menu::getMenuList))
                 .collect(Collectors.toList());
-
         model.addAttribute("allMenus",allMenus);
 
         return "cafeteriaAndMenu-form";

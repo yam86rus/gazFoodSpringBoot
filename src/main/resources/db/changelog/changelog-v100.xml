@@ -200,8 +200,6 @@
             <column name="description" value="Газмпром трансгаз Сургут"/>
         </insert>
 
-
-
         <insert tableName="menu_list">
             <column name="name" value="Общее меню"/>
             <column name="description" value="Данное меню предназначено для всех столовых"/>
@@ -224,7 +222,15 @@
             <column name="menuList_id" value="1"/>
         </insert>
 
-
+        <insert tableName="order_status">
+            <column name="name" value="Принят в работу"/>
+        </insert>
+        <insert tableName="order_status">
+            <column name="name" value="Подтвержден"/>
+        </insert>
+        <insert tableName="order_status">
+            <column name="name" value="Выполнен"/>
+        </insert>
 
     </changeSet>
 
