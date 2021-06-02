@@ -1,10 +1,8 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
-import com.gazfood.gazfoodspringboot.entity.Cassa;
-import com.gazfood.gazfoodspringboot.entity.Dish;
-import com.gazfood.gazfoodspringboot.entity.Partner;
-import com.gazfood.gazfoodspringboot.entity.RegisterDish;
+import com.gazfood.gazfoodspringboot.entity.*;
 import com.gazfood.gazfoodspringboot.service.DishService;
+import com.gazfood.gazfoodspringboot.service.OrdersService;
 import com.gazfood.gazfoodspringboot.service.RegisterDishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,10 +20,15 @@ public class RegistrController {
     @Autowired
     private DishService dishService;
 
+    @Autowired
+    private OrdersService ordersService;
+
 
     @RequestMapping("/registers")
     public String showAllRegisters(Model model) {
         model.addAttribute("registerDishesCount", registerDishService.getCountRegistersDish());
+        model.addAttribute("registerOrdersCount", ordersService.getCountOrders());
+
         return "all-registers";
     }
 
@@ -49,6 +52,13 @@ public class RegistrController {
     public String saveRegisterDish(RegisterDish registerDish) {
         registerDishService.saveRegisterDish(registerDish);
         return "redirect:registersDishes";
+    }
+
+    @RequestMapping("/registersOrders")
+    public String showAllOrdersRegister(Model model) {
+        List<Orders> allRegistersOrder = ordersService.getAllOrders();
+        model.addAttribute("allRegistersOrder", allRegistersOrder);
+        return "all-registerOrder";
     }
 
 

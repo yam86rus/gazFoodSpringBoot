@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="17" author="Yakushev">
+
+        <createTable tableName="orders">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="dishes_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="dishes_name" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="cafeteria_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="cafeteria_name" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="count" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="data" type="date">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
