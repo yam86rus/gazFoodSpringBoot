@@ -14,6 +14,24 @@ public class Cafeteria {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "time_of_delivery")
+    private int timeOfDelivery;
+
+    @Column(name = "stars")
+    private double stars;
+
+    @Column(name = "price")
+    private int price;
+
+    @Column(name = "kitchen")
+    private String kitchen;
+
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "products")
+    private String products;
+
     @Column(name = "address")
     private String address;
 
@@ -26,11 +44,65 @@ public class Cafeteria {
     public Cafeteria() {
     }
 
-    public Cafeteria(String name, String address, String phone, boolean active) {
+    public Cafeteria(String name, int timeOfDelivery, double stars, int price, String kitchen, String image, String products, String address, String phone, boolean active) {
         this.name = name;
+        this.timeOfDelivery = timeOfDelivery;
+        this.stars = stars;
+        this.price = price;
+        this.kitchen = kitchen;
+        this.image = image;
+        this.products = products;
         this.address = address;
         this.phone = phone;
         this.active = active;
+    }
+
+    public int getTimeOfDelivery() {
+        return timeOfDelivery;
+    }
+
+    public void setTimeOfDelivery(int timeOfDelivery) {
+        this.timeOfDelivery = timeOfDelivery;
+    }
+
+    public double getStars() {
+        return stars;
+    }
+
+    public void setStars(double stars) {
+        this.stars = stars;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(String kitchen) {
+        this.kitchen = kitchen;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getProducts() {
+        return products;
+    }
+
+    public void setProducts(String products) {
+        this.products = products;
     }
 
     public int getId() {

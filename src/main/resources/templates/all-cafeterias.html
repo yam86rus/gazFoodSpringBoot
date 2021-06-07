@@ -49,6 +49,12 @@
                                 <thead>
                                 <tr>
                                     <td>Название</td>
+                                    <td>Время доставки</td>
+                                    <td>Оценка(звезды)</td>
+                                    <td>Цена от</td>
+                                    <td>Кухня</td>
+                                    <td>Фотография</td>
+                                    <td>Продукция</td>
                                     <td>Адрес</td>
                                     <td>Телефон</td>
                                     <td>Доступен для заказа?</td>
@@ -58,6 +64,12 @@
                                 <tbody>
                                 <tr th:each="cafeteria : ${allCafeterias}">
                                     <td class="content" th:utext="${cafeteria.name}"></td>
+                                    <td class="content" th:utext="${cafeteria.timeOfDelivery}"></td>
+                                    <td class="content" th:utext="${cafeteria.stars}"></td>
+                                    <td class="content" th:utext="${cafeteria.price}"></td>
+                                    <td class="content" th:utext="${cafeteria.kitchen}"></td>
+                                    <td class="content" th:utext="${cafeteria.image}"></td>
+                                    <td class="content" th:utext="${cafeteria.products}"></td>
                                     <td class="content" th:utext="${cafeteria.address}"></td>
                                     <td class="content" th:utext="${cafeteria.phone}"></td>
                                     <td th:switch="${cafeteria.active}">

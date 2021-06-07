@@ -14,6 +14,24 @@
             <column name="name" type="varchar(100)">
                 <constraints nullable="false" unique="false"/>
             </column>
+            <column name="time_of_delivery" type="int">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="stars" type="DOUBLE">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="price" type="int">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="kitchen" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="image" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="products" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
             <column name="address" type="varchar(200)">
                 <constraints nullable="false" unique="false"/>
             </column>

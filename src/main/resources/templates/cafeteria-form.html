@@ -58,6 +58,30 @@
                         <td><input type="text" th:field="*{name}"></td>
                     </tr>
                     <tr>
+                        <td>Время доставка (мин)</td>
+                        <td><input type="number" min="0" step="1" th:field="*{timeOfDelivery}"></td>
+                    </tr>
+                    <tr>
+                        <td>Рейтинг(Звезды)</td>
+                        <td><input type="number" min="0" max="5" step="0.1"th:field="*{stars}"></td>
+                    </tr>
+                    <tr>
+                        <td>Цена от</td>
+                        <td><input type="number" min="0" step="1"th:field="*{price}"></td>
+                    </tr>
+                    <tr>
+                        <td>Кухня</td>
+                        <td><input type="text" th:field="*{kitchen}"></td>
+                    </tr>
+                    <tr>
+                        <td>Фотография</td>
+                        <td><input type="text" th:field="*{image}"></td>
+                    </tr>
+                    <tr>
+                        <td>Продукция</td>
+                        <td><input type="text" th:field="*{products}"></td>
+                    </tr>
+                    <tr>
                         <td>Адрес</td>
                         <td><input type="text" th:field="*{address}"></td>
                     </tr>
