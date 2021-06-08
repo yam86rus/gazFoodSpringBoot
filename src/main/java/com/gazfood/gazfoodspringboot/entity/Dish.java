@@ -20,9 +20,6 @@ public class Dish {
     @Column(name = "weight")
     private double weight;
 
-    @Column(name="price")
-    private double price;
-
     @ManyToOne
     @JoinColumn(name = "dishCategory_id")
     private DishCategory dishCategory;
@@ -30,11 +27,10 @@ public class Dish {
     public Dish() {
     }
 
-    public Dish(String name, String structure, double weight, double price, DishCategory dishCategory) {
+    public Dish(String name, String structure, double weight, DishCategory dishCategory) {
         this.name = name;
         this.structure = structure;
         this.weight = weight;
-        this.price = price;
         this.dishCategory = dishCategory;
     }
 
@@ -70,13 +66,7 @@ public class Dish {
         this.weight = weight;
     }
 
-    public double getPrice() {
-        return price;
-    }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public DishCategory getDishCategory() {
         return dishCategory;

@@ -217,65 +217,93 @@
             <column name="name" value="Пельмени теленок с поросем"/>
             <column name="structure" value="Настоящие самолепные пельмени из пушистого теста на деревенских желтках и сметане"/>
             <column name="weight" valueNumeric="200"/>
-            <column name="price" valueNumeric="390"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Плов"/>
             <column name="structure" value="Плов на углях из правильного риса с бараниной, пряностями и овощами на курдючном жире"/>
             <column name="weight" valueNumeric="200"/>
-            <column name="price" valueNumeric="520"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Цыпленок на вертеле"/>
             <column name="structure" value="Подается на лаваше со свежим томатом и огурцом, с маринованным луком и с шашлычным соусом"/>
             <column name="weight" valueNumeric="300"/>
-            <column name="price" valueNumeric="490"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Суп Курочка ряба"/>
             <column name="structure" value="Кура тушка, морковь, макароны, зелень, яйцо, соль, специи"/>
             <column name="weight" valueNumeric="150"/>
-            <column name="price" valueNumeric="140"/>
             <column name="dishCategory_id" valueNumeric="1"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Отбивная из поросенка"/>
             <column name="structure" value="Толстый кусок парной свинины с томатами и грибами под сырной корочкой"/>
             <column name="weight" valueNumeric="150"/>
-            <column name="price" valueNumeric="490"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Теленок в сливочном соусе"/>
             <column name="structure" value="Теленок с шампиньонами и луком обжаривается в сливочно-сметанном соусе с картофельным пюре и солеными огурчиками"/>
             <column name="weight" valueNumeric="150"/>
-            <column name="price" valueNumeric="530"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Судак запеченный"/>
             <column name="structure" value="Филе судака с картошкой, деревенской сметаной, травами и луком"/>
             <column name="weight" valueNumeric="150"/>
-            <column name="price" valueNumeric="490"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Мурманские кальмары"/>
             <column name="structure" value="Мурманские кальмары с чесночным маслом"/>
             <column name="weight" valueNumeric="150"/>
-            <column name="price" valueNumeric="420"/>
             <column name="dishCategory_id" valueNumeric="2"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Щучья уха на карасях"/>
             <column name="structure" value="Наваристая походная уха на четырех рыбах, лаврухе, перце и луке с водкой"/>
             <column name="weight" valueNumeric="150"/>
-            <column name="price" valueNumeric="380"/>
             <column name="dishCategory_id" valueNumeric="1"/>
         </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Мясная"/>
+            <column name="structure" value="Пицца соус, сыр Моцарелла, томат, куриное филе, пепперони, свинина, бекон"/>
+            <column name="weight" valueNumeric="500"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+        </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Маргарита"/>
+            <column name="structure" value="Пицца соус, сыр Моцарелла, томат"/>
+            <column name="weight" valueNumeric="500"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+        </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Пепперони"/>
+            <column name="structure" value="Пицца соус, пепперони, сыр Моцарелла"/>
+            <column name="weight" valueNumeric="500"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+        </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Семь сыров"/>
+            <column name="structure" value="Cыр моцарелла, сыр эмменталь, соус сырный, сыр горгондзола, сыр чеддер, сыр креметте, сыр фетакса, сыр пармезан"/>
+            <column name="weight" valueNumeric="500"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+        </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Том Ям"/>
+            <column name="structure" value="Креветки, куриное филе, соус Том Ям, сыр Моцарелла, шампиньоны, капуста брокколи, томат"/>
+            <column name="weight" valueNumeric="500"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+        </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Норвежская"/>
+            <column name="structure" value="Сливочный соус, соус манго-чили, сыр моцарелла, лук красный, перец болгарский, ломтики лосося, салат Айсберг"/>
+            <column name="weight" valueNumeric="500"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+        </insert>
+
 
 
         <insert tableName="price_categories">
@@ -357,10 +385,44 @@
             <column name="dishes_id" value="9"/>
             <column name="price" value="380"/>
         </insert>
+        <insert tableName="menu">
+            <column name="menuList_id" value="3"/>
+            <column name="dishes_id" value="10"/>
+            <column name="price" value="685"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menuList_id" value="3"/>
+            <column name="dishes_id" value="11"/>
+            <column name="price" value="693"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menuList_id" value="3"/>
+            <column name="dishes_id" value="12"/>
+            <column name="price" value="595"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menuList_id" value="3"/>
+            <column name="dishes_id" value="13"/>
+            <column name="price" value="785"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menuList_id" value="3"/>
+            <column name="dishes_id" value="14"/>
+            <column name="price" value="695"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menuList_id" value="3"/>
+            <column name="dishes_id" value="15"/>
+            <column name="price" value="875"/>
+        </insert>
 
         <insert tableName="cafeteria_and_menu">
             <column name="cafeteria_id" value="1"/>
             <column name="menuList_id" value="2"/>
+        </insert>
+        <insert tableName="cafeteria_and_menu">
+            <column name="cafeteria_id" value="2"/>
+            <column name="menuList_id" value="3"/>
         </insert>
 
         <insert tableName="order_status">

@@ -66,10 +66,6 @@
                         <td><input type="number" min="0" step="0.01" th:field="*{weight}"></td>
                     </tr>
                     <tr>
-                        <td>Цена</td>
-                        <td><input type="number" min="0" step="0.01" th:field="*{price}"></td>
-                    </tr>
-                    <tr>
                         <td>Категория</td>
                         <td>
                             <select th:field="*{dishCategory.id}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsEmployee'}">

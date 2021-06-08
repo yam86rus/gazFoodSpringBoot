@@ -49,8 +49,8 @@ public class DishController {
         dishService.saveDish(dish);
 
         //создаю запись в регистре свденений "Блюда"
-        RegisterDish registerDish = new RegisterDish(LocalDate.now(), dish.getPrice(), dish);
-        registerDishService.saveRegisterDish(registerDish);
+//        RegisterDish registerDish = new RegisterDish(LocalDate.now(), 666, dish);
+//        registerDishService.saveRegisterDish(registerDish);
 
         return "redirect:dishes";
     }

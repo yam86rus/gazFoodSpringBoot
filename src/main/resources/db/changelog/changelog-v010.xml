@@ -20,9 +20,6 @@
             <column name="weight" type="DOUBLE">
                 <constraints nullable="false" unique="false"/>
             </column>
-            <column name="price" type="DOUBLE">
-                <constraints nullable="false" unique="false"/>
-            </column>
             <column name="dishCategory_id" type="int">
                 <constraints nullable="false" unique="false"/>
             </column>
