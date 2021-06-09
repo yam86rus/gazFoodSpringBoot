@@ -166,7 +166,7 @@
             <column name="stars" value="4.2"/>
             <column name="price" value="1200"/>
             <column name="kitchen" value="Русская"/>
-            <column name="image" value="img/pizza-plus/preview.jpg"/>
+            <column name="image" value="img/cafeterias/preview-gusi_lebedi.jpg"/>
             <column name="products" value="pizza-plus.json"/>
             <column name="address" value="Сургут, ХМАО, ул. Индустриальная, д. 47"/>
             <column name="phone" value="8(3462)5-50-48"/>
@@ -178,7 +178,7 @@
             <column name="stars" value="3.5"/>
             <column name="price" value="1000"/>
             <column name="kitchen" value="Европейская"/>
-            <column name="image" value="img/tanuki/preview.jpg"/>
+            <column name="image" value="img/cafeterias/preview-tanuki.jpg"/>
             <column name="products" value="tanuki.json"/>
             <column name="address" value="Сургут, ХМАО, ул. Индустриальная, д. 46"/>
             <column name="phone" value="8(3462)4-50-48"/>
@@ -190,7 +190,7 @@
             <column name="stars" value="4.8"/>
             <column name="price" value="850"/>
             <column name="kitchen" value="Японская"/>
-            <column name="image" value="img/food-band/preview.jpg"/>
+            <column name="image" value="img/cafeterias/preview-food_band.jpg"/>
             <column name="products" value="food-band.json"/>
             <column name="address" value="Сургут, ХМАО, ул. Индустриальная, д. 45"/>
             <column name="phone" value="8(3462)3-50-48"/>
@@ -218,90 +218,112 @@
             <column name="structure" value="Настоящие самолепные пельмени из пушистого теста на деревенских желтках и сметане"/>
             <column name="weight" valueNumeric="200"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/dumplings.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Плов"/>
             <column name="structure" value="Плов на углях из правильного риса с бараниной, пряностями и овощами на курдючном жире"/>
             <column name="weight" valueNumeric="200"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/plov.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Цыпленок на вертеле"/>
             <column name="structure" value="Подается на лаваше со свежим томатом и огурцом, с маринованным луком и с шашлычным соусом"/>
             <column name="weight" valueNumeric="300"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/chick.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Суп Курочка ряба"/>
             <column name="structure" value="Кура тушка, морковь, макароны, зелень, яйцо, соль, специи"/>
             <column name="weight" valueNumeric="150"/>
             <column name="dishCategory_id" valueNumeric="1"/>
+            <column name="image_url" value="img/dishes/chicken-soup.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Отбивная из поросенка"/>
             <column name="structure" value="Толстый кусок парной свинины с томатами и грибами под сырной корочкой"/>
             <column name="weight" valueNumeric="150"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/pig-chop.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Теленок в сливочном соусе"/>
             <column name="structure" value="Теленок с шампиньонами и луком обжаривается в сливочно-сметанном соусе с картофельным пюре и солеными огурчиками"/>
             <column name="weight" valueNumeric="150"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/calf-sauce.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Судак запеченный"/>
             <column name="structure" value="Филе судака с картошкой, деревенской сметаной, травами и луком"/>
             <column name="weight" valueNumeric="150"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/zander.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Мурманские кальмары"/>
             <column name="structure" value="Мурманские кальмары с чесночным маслом"/>
             <column name="weight" valueNumeric="150"/>
             <column name="dishCategory_id" valueNumeric="2"/>
+            <column name="image_url" value="img/dishes/squid.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Щучья уха на карасях"/>
             <column name="structure" value="Наваристая походная уха на четырех рыбах, лаврухе, перце и луке с водкой"/>
             <column name="weight" valueNumeric="150"/>
             <column name="dishCategory_id" valueNumeric="1"/>
+            <column name="image_url" value="img/dishes/ear.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Мясная"/>
             <column name="structure" value="Пицца соус, сыр Моцарелла, томат, куриное филе, пепперони, свинина, бекон"/>
             <column name="weight" valueNumeric="500"/>
             <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/meet.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Маргарита"/>
             <column name="structure" value="Пицца соус, сыр Моцарелла, томат"/>
             <column name="weight" valueNumeric="500"/>
             <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/margarita.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Пепперони"/>
             <column name="structure" value="Пицца соус, пепперони, сыр Моцарелла"/>
             <column name="weight" valueNumeric="500"/>
             <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/pepperoni.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Семь сыров"/>
             <column name="structure" value="Cыр моцарелла, сыр эмменталь, соус сырный, сыр горгондзола, сыр чеддер, сыр креметте, сыр фетакса, сыр пармезан"/>
             <column name="weight" valueNumeric="500"/>
             <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/seven-cheeses.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Том Ям"/>
             <column name="structure" value="Креветки, куриное филе, соус Том Ям, сыр Моцарелла, шампиньоны, капуста брокколи, томат"/>
             <column name="weight" valueNumeric="500"/>
             <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/tom-yam.jpg"/>
         </insert>
         <insert tableName="dishes">
             <column name="name" value="Норвежская"/>
             <column name="structure" value="Сливочный соус, соус манго-чили, сыр моцарелла, лук красный, перец болгарский, ломтики лосося, салат Айсберг"/>
             <column name="weight" valueNumeric="500"/>
             <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/norwegian.jpg"/>
+        </insert>
+        <insert tableName="dishes">
+            <column name="name" value="Шаурма"/>
+            <column name="structure" value="Котята молодые, сыр, лук красный, перец болгарский, салат Айсберг"/>
+            <column name="weight" valueNumeric="250"/>
+            <column name="dishCategory_id" valueNumeric="5"/>
+            <column name="image_url" value="img/dishes/shaurma.jpg"/>
         </insert>
 
 

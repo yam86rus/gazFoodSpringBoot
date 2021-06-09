@@ -50,6 +50,7 @@
                                 <tr>
                                     <td>Название блюда</td>
                                     <td>Состав</td>
+                                    <td>Картинка</td>
                                     <td>Выход (гр.)</td>
                                     <td>Категории</td>
                                     <td colspan="2">Операции</td>
@@ -59,6 +60,10 @@
                                 <tr th:each="dish : ${allDishes}">
                                     <td th:utext="${dish.name}"></td>
                                     <td th:utext="${dish.structure}"></td>
+                                    <td>
+                                        <a th:href="@{${dish.imageUrl}}"><img style="max-width: 100px"
+                                                                              th:src="@{${dish.imageUrl}}" alt=""></a>
+                                    </td>
                                     <td th:utext="${dish.weight}"></td>
                                     <td th:utext="${dish.dishCategory.category}">
                                     <td><a th:href="@{'/updateDish'+'?dishId='+${dish.id}}">Изменить</a></td>

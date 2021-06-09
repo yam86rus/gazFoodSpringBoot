@@ -24,14 +24,27 @@ public class Dish {
     @JoinColumn(name = "dishCategory_id")
     private DishCategory dishCategory;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
+
     public Dish() {
     }
 
-    public Dish(String name, String structure, double weight, DishCategory dishCategory) {
+    public Dish(String name, String structure, double weight, DishCategory dishCategory, String imageUrl) {
         this.name = name;
         this.structure = structure;
         this.weight = weight;
         this.dishCategory = dishCategory;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {
