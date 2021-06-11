@@ -22,7 +22,8 @@ public class GazFoodSpringBootApplication {
                 registry.addMapping("/**")
                         .allowedMethods("GET","POST","PUT","DELETE")
                         .allowedHeaders("*")
-                        .allowedOrigins("http://localhost:63343");
+//                        .allowedOrigins("http://localhost:63343");
+                        .allowedOrigins("*");
             }
         };
     }
