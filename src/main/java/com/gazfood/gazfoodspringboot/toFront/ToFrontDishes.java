@@ -6,17 +6,28 @@ public class ToFrontDishes {
     private String description;
     private double price;
     private String image;
+    private int cafeteriaId;
+
+    public int getCafeteriaId() {
+        return cafeteriaId;
+    }
+
+    public void setCafeteriaId(int cafeteriaId) {
+        this.cafeteriaId = cafeteriaId;
+    }
 
     public ToFrontDishes() {
     }
 
-    public ToFrontDishes(int id, String name, String description, double price, String image) {
+    public ToFrontDishes(int id, String name, String description, double price, String image, int cafeteriaId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.image = image;
+        this.cafeteriaId = cafeteriaId;
     }
+
 
     public int getId() {
         return id;

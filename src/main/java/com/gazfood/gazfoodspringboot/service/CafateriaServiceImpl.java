@@ -58,7 +58,8 @@ public class CafateriaServiceImpl implements CafeteriaService {
             String description = (String) (convertObjectToList(obj)).get(2);
             double price = (double) (convertObjectToList(obj)).get(3);
             String image = (String) (convertObjectToList(obj)).get(4);
-            list2.add(new ToFrontDishes(i,name,description,price,image));
+            int cafeteria = (int) (convertObjectToList(obj)).get(5);
+            list2.add(new ToFrontDishes(i,name,description,price,image,cafeteria));
         }
 
         return list2;

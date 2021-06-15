@@ -1,5 +1,8 @@
 package com.gazfood.gazfoodspringboot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -9,28 +12,36 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @JsonIgnore
     private long id;
 
+    @JsonProperty("id")
     @Column(name = "dishes_id")
     private int dishesId;
 
+    @JsonProperty("title")
     @Column(name = "dishes_name")
     private String dishesName;
 
+    @JsonProperty("cafeteriaId")
     @Column(name = "cafeteria_id")
     private int cafeteriaId;
 
+    @JsonIgnore
     @Column(name = "cafeteria_name")
     private String cafeteriaName;
 
+    @JsonProperty("cost")
     @Column(name = "price")
     private double price;
 
+    @JsonProperty("count")
     @Column(name = "count")
     private int count;
 
+    @JsonIgnore
     @Column(name = "data")
-    private LocalDate data;
+    private LocalDate data = LocalDate.now();
 
     public Orders() {
     }

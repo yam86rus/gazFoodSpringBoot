@@ -36,6 +36,46 @@
             </div>
         </div>
     </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Список заказов</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <td>Dishes id</td>
+                                    <td>Dishes name</td>
+                                    <td>Cafeteria id</td>
+                                    <td>Price</td>
+                                    <td>Count</td>
+                                    <td>Data</td>
+                                    <td colspan="2">Операции</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="order : ${allOrders}">
+                                    <td th:utext="${order.dishesId}"></td>
+                                    <td th:utext="${order.dishesName}"></td>
+                                    <td th:utext="${order.cafeteriaId}"></td>
+                                    <td th:utext="${order.price}"></td>
+                                    <td th:utext="${order.count}"></td>
+                                    <td th:utext="${order.data}"></td>
+<!--                                    <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>-->
+<!--                                    <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>-->
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </div>
 </body>
