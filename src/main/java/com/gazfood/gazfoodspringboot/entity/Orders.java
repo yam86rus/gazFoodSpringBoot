@@ -49,7 +49,7 @@ public class Orders {
     private String user;
 
 //    @JsonProperty("tel")
-    @JsonIgnore()
+    @JsonProperty("userPhone")
     @Column(name = "phone")
     private String phone;
 
