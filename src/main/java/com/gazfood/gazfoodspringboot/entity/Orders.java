@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "orders")
@@ -27,7 +28,7 @@ public class Orders {
     @Column(name = "cafeteria_id")
     private int cafeteriaId;
 
-    @JsonIgnore
+    @JsonProperty("cafeteriaName")
     @Column(name = "cafeteria_name")
     private String cafeteriaName;
 
@@ -41,12 +42,18 @@ public class Orders {
 
     @JsonIgnore
     @Column(name = "data")
-    private LocalDate data = LocalDate.now();
+    private LocalDateTime data = LocalDateTime.now();
 
-    public Orders() {
-    }
+    @JsonProperty("userName")
+    @Column(name = "user")
+    private String user;
 
-    public Orders(int dishesId, String dishesName, int cafeteriaId, String cafeteriaName, double price, int count, LocalDate data) {
+//    @JsonProperty("tel")
+    @JsonIgnore()
+    @Column(name = "phone")
+    private String phone;
+
+    public Orders(int dishesId, String dishesName, int cafeteriaId, String cafeteriaName, double price, int count, LocalDateTime data, String user, String phone) {
         this.dishesId = dishesId;
         this.dishesName = dishesName;
         this.cafeteriaId = cafeteriaId;
@@ -54,7 +61,45 @@ public class Orders {
         this.price = price;
         this.count = count;
         this.data = data;
+        this.user = user;
+        this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "id=" + id +
+                ", dishesId=" + dishesId +
+                ", dishesName='" + dishesName + '\'' +
+                ", cafeteriaId=" + cafeteriaId +
+                ", cafeteriaName='" + cafeteriaName + '\'' +
+                ", price=" + price +
+                ", count=" + count +
+                ", data=" + data +
+                ", user='" + user + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public Orders() {
+    }
+
 
     public long getId() {
         return id;
@@ -112,11 +157,11 @@ public class Orders {
         this.count = count;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 }

@@ -29,7 +29,13 @@
             <column name="count" type="int">
                 <constraints nullable="true" unique="false"/>
             </column>
-            <column name="data" type="date">
+            <column name="data" type="datetime">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="user" type="varchar(200)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="phone" type="varchar(20)">
                 <constraints nullable="true" unique="false"/>
             </column>
         </createTable>

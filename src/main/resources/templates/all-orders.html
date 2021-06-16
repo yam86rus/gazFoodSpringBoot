@@ -48,23 +48,28 @@
                             <table width="100%">
                                 <thead>
                                 <tr>
-                                    <td>Dishes id</td>
-                                    <td>Dishes name</td>
-                                    <td>Cafeteria id</td>
-                                    <td>Price</td>
-                                    <td>Count</td>
-                                    <td>Data</td>
-                                    <td colspan="2">Операции</td>
+<!--                                    <td>Блюдо ID</td>-->
+                                    <td>Блюдо</td>
+<!--                                    <td>Кафе id</td>-->
+                                    <td>Кафе название</td>
+                                    <td>Цена</td>
+                                    <td>Количество</td>
+                                    <td>Дата и время заказа</td>
+                                    <td>Покупатель</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="order : ${allOrders}">
-                                    <td th:utext="${order.dishesId}"></td>
+<!--                                    <td th:utext="${order.dishesId}"></td>-->
                                     <td th:utext="${order.dishesName}"></td>
-                                    <td th:utext="${order.cafeteriaId}"></td>
+<!--                                    <td th:utext="${order.cafeteriaId}"></td>-->
+                                    <td th:utext="${order.cafeteriaName}"></td>
                                     <td th:utext="${order.price}"></td>
                                     <td th:utext="${order.count}"></td>
-                                    <td th:utext="${order.data}"></td>
+<!--                                    <td th:utext="${order.data}"></td>-->
+                                    <td th:text="${#temporals.format(order.data,'dd-MM-yyyy hh:mm:ss')}"></td>
+                                    <td th:utext="${order.user}"></td>
+
 <!--                                    <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>-->
 <!--                                    <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>-->
                                 </tr>

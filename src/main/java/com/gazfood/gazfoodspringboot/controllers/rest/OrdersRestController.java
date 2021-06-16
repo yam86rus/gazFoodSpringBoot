@@ -25,6 +25,7 @@ public class OrdersRestController {
             List<Orders> list = Arrays.asList( objectMapper.readValue(str.toString(), Orders[].class) );
             for (Orders order: list){
                 ordersService.saveOrders(order);
+                System.out.println(order.toString());
             }
             System.out.println(list);
         } catch (JsonProcessingException e) {
