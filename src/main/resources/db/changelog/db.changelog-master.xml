@@ -26,6 +26,7 @@
     <include file="db/changelog/changelog-v015.xml"></include> <!-- Справочник Столовые и меню (создание) -->
     <include file="db/changelog/changelog-v016.xml"></include> <!-- Справочник Статусы заказа (создание) -->
     <include file="db/changelog/changelog-v017.xml"></include> <!-- Периодический регистр Заказы (создание) -->
+    <include file="db/changelog/changelog-v018.xml"></include> <!-- Справочник Заказы (создание) -->
 
     <!-- Заполняем тестовыми данными)-->
     <include file="db/changelog/changelog-v100.xml"></include>

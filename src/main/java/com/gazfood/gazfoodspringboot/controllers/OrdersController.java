@@ -1,7 +1,7 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
-import com.gazfood.gazfoodspringboot.entity.Orders;
-import com.gazfood.gazfoodspringboot.service.OrdersService;
+import com.gazfood.gazfoodspringboot.entity.OrdersList;
+import com.gazfood.gazfoodspringboot.service.OrdersListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +13,10 @@ import java.util.List;
 public class OrdersController {
 
     @Autowired
-    private OrdersService ordersService;
+    private OrdersListService ordersListService;
     @GetMapping("/orders")
     public String getAllOrders(Model model) {
-        List<Orders> allOrders = ordersService.getAllOrders();
+        List<OrdersList> allOrders = ordersListService.getAllOrdersList();
         model.addAttribute("allOrders",allOrders);
         return "all-orders";
     }

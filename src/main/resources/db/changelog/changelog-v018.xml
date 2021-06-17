@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="18" author="Yakushev">
+
+        <createTable tableName="order_list">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="order_id" type="int">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="order_sum" type="DOUBLE">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="orders_status_id" type="int">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="order_data" type="datetime">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="confirmed_data" type="datetime">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="execute_data" type="datetime">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="order_list"
+                                 baseColumnNames="orders_status_id"
+                                 referencedTableName="order_status"
+                                 referencedColumnNames="id"
+                                 constraintName="order_list_orders_status_id"
+        />
+
+    </changeSet>
+
+</databaseChangeLog>

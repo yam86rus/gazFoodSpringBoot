@@ -48,29 +48,23 @@
                             <table width="100%">
                                 <thead>
                                 <tr>
-<!--                                    <td>Блюдо ID</td>-->
-                                    <td>Блюдо</td>
-<!--                                    <td>Кафе id</td>-->
-                                    <td>Кафе название</td>
-                                    <td>Цена</td>
-                                    <td>Количество</td>
-                                    <td>Дата и время заказа</td>
-                                    <td>Покупатель</td>
-                                    <td>Номер телефона</td>
+                                    <td>Order id</td>
+                                    <td>Order sum</td>
+                                    <td>order status id</td>
+                                    <td>order data</td>
+                                    <td>confirmed data</td>
+                                    <td>executed data</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="order : ${allOrders}">
-<!--                                    <td th:utext="${order.dishesId}"></td>-->
-                                    <td th:utext="${order.dishesName}"></td>
-<!--                                    <td th:utext="${order.cafeteriaId}"></td>-->
-                                    <td th:utext="${order.cafeteriaName}"></td>
-                                    <td th:utext="${order.price}"></td>
-                                    <td th:utext="${order.count}"></td>
-<!--                                    <td th:utext="${order.data}"></td>-->
-                                    <td th:text="${#temporals.format(order.data,'dd-MM-yyyy hh:mm:ss')}"></td>
-                                    <td th:utext="${order.user}"></td>
-                                    <td th:utext="${order.phone}"></td>
+                                    <td th:utext="${order.id}"></td>
+                                    <td th:utext="${order.ordersSum}"></td>
+                                    <td th:utext="${order.orderStatus.name}"></td>
+<!--                                    <td th:utext="${order.orderData}"></td>-->
+                                    <td th:text="${#temporals.format(order.orderData,'dd-MM-yyyy hh:mm:ss')}"></td>
+                                    <td th:text="${#temporals.format(order.confirmedData,'dd-MM-yyyy hh:mm:ss')}"></td>
+                                    <td th:text="${#temporals.format(order.executeData,'dd-MM-yyyy hh:mm:ss')}"></td>
 
 <!--                                    <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>-->
 <!--                                    <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>-->
