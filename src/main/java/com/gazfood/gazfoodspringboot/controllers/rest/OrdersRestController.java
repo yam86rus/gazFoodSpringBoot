@@ -30,21 +30,16 @@ public class OrdersRestController {
 
     @PostMapping("/orders")
     public void addNewOrder(@RequestBody String str) {
+        double summ = 0.00;
         System.out.println(str);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            List<Orders> list = Arrays.asList( objectMapper.readValue(str.toString(), Orders[].class) );
-            for (Orders order: list){
+            List<Orders> list = Arrays.asList(objectMapper.readValue(str.toString(), Orders[].class));
+            for (Orders order : list) {
                 ordersService.saveOrders(order);
-                System.out.println(order.toString());
-
-                ordersListService.saveOrdersList(new OrdersList.Builder()
-                        .withOrderSum(1000)
-                        .withOrderData(LocalDateTime.now())
-                        .withOrderStatus(new OrderStatus())
-                        .build());
-
+                summ += order.getPrice()*order.getCount();
             }
+            ordersListService.saveOrdersList(new OrdersList(2, summ, orderStatusService.getOrderStatus(1), LocalDateTime.now(), null, null));
             System.out.println(list);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
