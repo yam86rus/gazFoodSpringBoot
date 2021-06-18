@@ -31,7 +31,6 @@ public class OrdersRestController {
     @PostMapping("/orders")
     public void addNewOrder(@RequestBody String str) {
         double summ = 0.00;
-        System.out.println(str);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             List<Orders> list = Arrays.asList(objectMapper.readValue(str.toString(), Orders[].class));
@@ -40,10 +39,8 @@ public class OrdersRestController {
                 summ += order.getPrice()*order.getCount();
             }
             ordersListService.saveOrdersList(new OrdersList(2, summ, orderStatusService.getOrderStatus(1), LocalDateTime.now(), null, null));
-            System.out.println(list);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        System.out.println("Json получен и выведен в консоль");
     }
 }

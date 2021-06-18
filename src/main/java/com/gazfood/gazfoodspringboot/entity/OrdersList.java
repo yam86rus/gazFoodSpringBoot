@@ -1,5 +1,7 @@
 package com.gazfood.gazfoodspringboot.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -22,11 +24,14 @@ public class OrdersList {
     private OrderStatus orderStatus;
 
     @Column(name = "order_data")
-    private LocalDateTime orderData;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime orderData = LocalDateTime.now();
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Column(name = "confirmed_data")
     private LocalDateTime confirmedData;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Column(name = "execute_data")
     private LocalDateTime executeData;
 
@@ -124,18 +129,33 @@ public class OrdersList {
             ordersList.orderData = orderData;
             return this;
         }
+
         public Builder withOrderConfirmData(LocalDateTime confirmData) {
             ordersList.confirmedData = confirmData;
             return this;
         }
+
         public Builder withOrderExecuteData(LocalDateTime executeData) {
             ordersList.executeData = executeData;
             return this;
         }
 
-        public OrdersList build(){
+        public OrdersList build() {
             return new OrdersList();
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "OrdersList{" +
+                "id=" + id +
+                ", orderId=" + orderId +
+                ", ordersSum=" + ordersSum +
+                ", orderStatus=" + orderStatus +
+                ", orderData=" + orderData +
+                ", confirmedData=" + confirmedData +
+                ", executeData=" + executeData +
+                '}';
     }
 }

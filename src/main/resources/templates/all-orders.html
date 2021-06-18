@@ -42,18 +42,20 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Список заказов</h3>
+                        <button onclick="window.location.href = 'addNewOrdersList'">Добавить</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
                                 <tr>
-                                    <td>Order id</td>
-                                    <td>Order sum</td>
-                                    <td>order status id</td>
-                                    <td>order data</td>
-                                    <td>confirmed data</td>
-                                    <td>executed data</td>
+                                    <td>Номер заказа</td>
+                                    <td>Сумма заказа</td>
+                                    <td>Статус заказа</td>
+                                    <td>Дата поступления заказа</td>
+                                    <td>Дата подтверждения заказа</td>
+                                    <td>Дата выполнения заказа</td>
+                                    <td>Изменить статус</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -66,7 +68,7 @@
                                     <td th:text="${#temporals.format(order.confirmedData,'dd-MM-yyyy hh:mm:ss')}"></td>
                                     <td th:text="${#temporals.format(order.executeData,'dd-MM-yyyy hh:mm:ss')}"></td>
 
-<!--                                    <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>-->
+                                    <td><a th:href="@{'/updateOrdersList'+'?ordersListId='+${order.id}}">Изменить статус</a></td>
 <!--                                    <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>-->
                                 </tr>
                                 </tbody>
