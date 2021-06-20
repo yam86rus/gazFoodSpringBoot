@@ -8,6 +8,7 @@ import com.gazfood.gazfoodspringboot.entity.OrdersList;
 import com.gazfood.gazfoodspringboot.service.OrderStatusService;
 import com.gazfood.gazfoodspringboot.service.OrdersListService;
 import com.gazfood.gazfoodspringboot.service.OrdersService;
+import com.gazfood.gazfoodspringboot.service.SendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,9 @@ public class OrdersRestController {
     @Autowired
     private OrderStatusService orderStatusService;
 
+    @Autowired
+    private SendEmailService sendEmailService;
+
     @PostMapping("/orders")
     public void addNewOrder(@RequestBody String str) {
         double summ = 0.00;
@@ -36,9 +40,27 @@ public class OrdersRestController {
             List<Orders> list = Arrays.asList(objectMapper.readValue(str.toString(), Orders[].class));
             for (Orders order : list) {
                 ordersService.saveOrders(order);
-                summ += order.getPrice()*order.getCount();
+                summ += order.getPrice() * order.getCount();
             }
-            ordersListService.saveOrdersList(new OrdersList(2, summ, orderStatusService.getOrderStatus(1), LocalDateTime.now(), null, null));
+            OrdersList ordersList = new OrdersList(2,
+                    summ,
+                    orderStatusService.getOrderStatus(1),
+                    LocalDateTime.now(),
+                    null,
+                    null);
+
+            // Сохраняем заказ в БД
+            ordersListService.saveOrdersList(ordersList);
+
+            // Отправляем пиьмо с новым заказом
+            sendEmailService.sendEmail("yam_1985@mail.ru",
+                    "Получен новый заказ № "
+                            .concat(String.valueOf(ordersList.getId()))
+                            .concat(" на сумму ")
+                            .concat(String.valueOf(summ))
+                            .concat(" рублей"),
+                    "Новый заказ");
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
