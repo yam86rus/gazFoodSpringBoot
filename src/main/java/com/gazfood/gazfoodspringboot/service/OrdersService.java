@@ -17,4 +17,6 @@ public interface OrdersService {
 
     long getCountOrders();
 
+    List<Orders> findAllByOrdersListId(int id);
+
 }
