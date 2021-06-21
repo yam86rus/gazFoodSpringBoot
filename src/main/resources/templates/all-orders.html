@@ -62,7 +62,7 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="order : ${allOrders}">
-                                    <td th:utext="${order.id}"></td>
+                                    <td ><a th:utext="${order.id}" th:href="@{'/registersOrders/'+${order.id}}"></a></td>
                                     <td th:utext="${order.user}"></td>
                                     <td th:utext="${order.phoneNumber}"></td>
                                     <td th:utext="${order.ordersSum}"></td>

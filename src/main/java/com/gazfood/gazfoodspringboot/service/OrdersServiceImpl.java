@@ -44,4 +44,11 @@ public class OrdersServiceImpl implements OrdersService {
     public long getCountOrders() {
         return ordersRepository.count();
     }
+
+    @Override
+    public List<Orders> findAllByOrdersListId(int id) {
+        return ordersRepository.findAllByOrdersListId(id);
+    }
+
+
 }
