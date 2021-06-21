@@ -2,7 +2,6 @@ package com.gazfood.gazfoodspringboot.controllers.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gazfood.gazfoodspringboot.entity.OrderStatus;
 import com.gazfood.gazfoodspringboot.entity.Orders;
 import com.gazfood.gazfoodspringboot.entity.OrdersList;
 import com.gazfood.gazfoodspringboot.service.OrderStatusService;
@@ -10,7 +9,10 @@ import com.gazfood.gazfoodspringboot.service.OrdersListService;
 import com.gazfood.gazfoodspringboot.service.OrdersService;
 import com.gazfood.gazfoodspringboot.service.SendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -34,31 +36,67 @@ public class OrdersRestController {
 
     @PostMapping("/orders")
     public void addNewOrder(@RequestBody String str) {
-        double summ = 0.00;
+
+        // Общая сумма заказа в рублях
+        double sum = 0.00;
+
+        // Текст для отправки email
+        StringBuilder orderDishes = new StringBuilder();
+
         ObjectMapper objectMapper = new ObjectMapper();
         try {
+            // Получили Json c заказами и распарсили в List<Orders>
             List<Orders> list = Arrays.asList(objectMapper.readValue(str.toString(), Orders[].class));
-            for (Orders order : list) {
-                ordersService.saveOrders(order);
-                summ += order.getPrice() * order.getCount();
-            }
-            OrdersList ordersList = new OrdersList(2,
-                    summ,
-                    orderStatusService.getOrderStatus(1),
-                    LocalDateTime.now(),
-                    null,
-                    null);
+
+            // Для entity OrdersList создали новый заказ
+            OrdersList ordersList = new OrdersList();
 
             // Сохраняем заказ в БД
             ordersListService.saveOrdersList(ordersList);
+
+            // Получили id этого заказа для вставки в entity "Orders" во все поля orders_list_id
+            int orderId = ordersList.getId();
+
+            for (Orders order : list) {
+                order.setOrdersListId(orderId);
+                ordersService.saveOrders(order);
+
+                // Обновили общую сумму заказа
+                sum += order.getPrice() * order.getCount();
+
+                // Дополнили список заказанных товаров и их количество
+                orderDishes.append(order.getCafeteriaName())
+                        .append(", блюдо: \"")
+                        .append(order.getDishesName())
+                        .append("\". Количество: ")
+                        .append(order.getCount())
+                        .append("\n");
+
+            }
+            // Заполнили данные для заказа
+            ordersList.setOrdersSum(sum);
+            ordersList.setOrderStatus(orderStatusService.getOrderStatus(1));
+            ordersList.setOrderData(LocalDateTime.now());
+            ordersList.setUser(list.get(0).getUser());
+            ordersList.setPhoneNumber(list.get(0).getPhone());
+
+            // обновляем данные по заказу
+            ordersListService.saveOrdersList(ordersList);
+
 
             // Отправляем пиьмо с новым заказом
             sendEmailService.sendEmail("yam_1985@mail.ru",
                     "Получен новый заказ № "
                             .concat(String.valueOf(ordersList.getId()))
-                            .concat(" на сумму ")
-                            .concat(String.valueOf(summ))
-                            .concat(" рублей"),
+                            .concat(" на сумму: ")
+                            .concat(String.valueOf(sum))
+                            .concat(" рублей\n")
+                            .concat("Заказчик: " + ordersList.getUser())
+                            .concat("\n")
+                            .concat("Телефон: " + ordersList.getPhoneNumber())
+                            .concat("\n")
+                            .concat("\n")
+                            .concat(orderDishes.toString()),
                     "Новый заказ");
 
         } catch (JsonProcessingException e) {

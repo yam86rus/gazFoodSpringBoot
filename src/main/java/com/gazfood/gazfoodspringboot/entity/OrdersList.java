@@ -13,9 +13,6 @@ public class OrdersList {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "order_id")
-    private int orderId;
-
     @Column(name = "order_sum")
     private double ordersSum;
 
@@ -29,22 +26,30 @@ public class OrdersList {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Column(name = "confirmed_data")
-    private LocalDateTime confirmedData;
+    private LocalDateTime confirmedData = null;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Column(name = "execute_data")
-    private LocalDateTime executeData;
+    private LocalDateTime executeData = null;
+
+    @Column(name ="user")
+    private String user;
+
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+
 
     public OrdersList() {
     }
 
-    public OrdersList(int orderId, double ordersSum, OrderStatus orderStatus, LocalDateTime orderData, LocalDateTime confirmedData, LocalDateTime executeData) {
-        this.orderId = orderId;
+    public OrdersList(double ordersSum, OrderStatus orderStatus, LocalDateTime orderData, LocalDateTime confirmedData, LocalDateTime executeData, String user, String phoneNumber) {
         this.ordersSum = ordersSum;
         this.orderStatus = orderStatus;
         this.orderData = orderData;
         this.confirmedData = confirmedData;
         this.executeData = executeData;
+        this.user = user;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getId() {
@@ -55,13 +60,6 @@ public class OrdersList {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
 
     public double getOrdersSum() {
         return ordersSum;
@@ -103,6 +101,22 @@ public class OrdersList {
         this.executeData = executeData;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public static class Builder {
         private OrdersList ordersList;
 
@@ -110,10 +124,6 @@ public class OrdersList {
             ordersList = new OrdersList();
         }
 
-        public Builder withOrderId(int orderId) {
-            ordersList.orderId = orderId;
-            return this;
-        }
 
         public Builder withOrderSum(double orderSum) {
             ordersList.ordersSum = orderSum;
@@ -140,6 +150,16 @@ public class OrdersList {
             return this;
         }
 
+        public Builder withOrderUser(String user) {
+            ordersList.user= user;
+            return this;
+        }
+
+        public Builder withOrderExecuteData(String phoneNumber) {
+            ordersList.phoneNumber = phoneNumber;
+            return this;
+        }
+
         public OrdersList build() {
             return new OrdersList();
         }
@@ -150,12 +170,13 @@ public class OrdersList {
     public String toString() {
         return "OrdersList{" +
                 "id=" + id +
-                ", orderId=" + orderId +
                 ", ordersSum=" + ordersSum +
                 ", orderStatus=" + orderStatus +
                 ", orderData=" + orderData +
                 ", confirmedData=" + confirmedData +
                 ", executeData=" + executeData +
+                ", user='" + user + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

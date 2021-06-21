@@ -11,6 +11,9 @@
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
+            <column name="orders_list_id" type="int">
+                <constraints nullable="true" unique="false"/>
+            </column>
             <column name="dishes_id" type="int">
                 <constraints nullable="true" unique="false"/>
             </column>

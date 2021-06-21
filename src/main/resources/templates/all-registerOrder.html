@@ -47,24 +47,26 @@
                             <table width="100%"  id="sortable" class="table_sort">
                                 <thead>
                                 <tr>
-                                    <td>dishesId</td>
+                                    <td>Номер заказа</td>
+                                    <td>Столовая</td>
                                     <td>dishesName</td>
-                                    <td>cafeteriaId</td>
-                                    <td>cafeteriaName</td>
                                     <td>price</td>
                                     <td>количество</td>
-                                    <td>Дата</td>
+                                    <td>Дата и время заказа</td>
+                                    <td>Покупатель</td>
+                                    <td>Телефон</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="registerOrder : ${allRegistersOrder}">
-                                    <td th:utext="${registerOrder.dishesId}"></td>
-                                    <td th:utext="${registerOrder.dishesName}"></td>
-                                    <td th:utext="${registerOrder.cafeteriaId}"></td>
+                                    <td th:utext="${registerOrder.ordersListId}"></td>
                                     <td th:utext="${registerOrder.cafeteriaName}"></td>
+                                    <td th:utext="${registerOrder.dishesName}"></td>
                                     <td th:utext="${registerOrder.price}"></td>
                                     <td th:utext="${registerOrder.count}"></td>
-                                    <td th:utext="${registerOrder.data}"></td>
+                                    <td th:text="${#temporals.format(registerOrder.data,'dd.MM.yyyy hh:mm:ss')}"></td>
+                                    <td th:utext="${registerOrder.user}"></td>
+                                    <td th:utext="${registerOrder.phone}"></td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -16,6 +16,10 @@ public class Orders {
     @JsonIgnore
     private long id;
 
+    @JsonIgnore
+    @Column(name = "orders_list_id")
+    private int ordersListId;
+
     @JsonProperty("id")
     @Column(name = "dishes_id")
     private int dishesId;
@@ -48,12 +52,12 @@ public class Orders {
     @Column(name = "user")
     private String user;
 
-//    @JsonProperty("tel")
     @JsonProperty("userPhone")
     @Column(name = "phone")
     private String phone;
 
-    public Orders(int dishesId, String dishesName, int cafeteriaId, String cafeteriaName, double price, int count, LocalDateTime data, String user, String phone) {
+    public Orders(int ordersListId, int dishesId, String dishesName, int cafeteriaId, String cafeteriaName, double price, int count, LocalDateTime data, String user, String phone) {
+        this.ordersListId = ordersListId;
         this.dishesId = dishesId;
         this.dishesName = dishesName;
         this.cafeteriaId = cafeteriaId;
@@ -65,21 +69,6 @@ public class Orders {
         this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "id=" + id +
-                ", dishesId=" + dishesId +
-                ", dishesName='" + dishesName + '\'' +
-                ", cafeteriaId=" + cafeteriaId +
-                ", cafeteriaName='" + cafeteriaName + '\'' +
-                ", price=" + price +
-                ", count=" + count +
-                ", data=" + data +
-                ", user='" + user + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
 
     public String getPhone() {
         return phone;
@@ -163,5 +152,30 @@ public class Orders {
 
     public void setData(LocalDateTime data) {
         this.data = data;
+    }
+
+    public int getOrdersListId() {
+        return ordersListId;
+    }
+
+    public void setOrdersListId(int ordersListId) {
+        this.ordersListId = ordersListId;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "id=" + id +
+                ", ordersListId=" + ordersListId +
+                ", dishesId=" + dishesId +
+                ", dishesName='" + dishesName + '\'' +
+                ", cafeteriaId=" + cafeteriaId +
+                ", cafeteriaName='" + cafeteriaName + '\'' +
+                ", price=" + price +
+                ", count=" + count +
+                ", data=" + data +
+                ", user='" + user + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

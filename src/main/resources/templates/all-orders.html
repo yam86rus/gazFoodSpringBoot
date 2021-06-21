@@ -50,6 +50,8 @@
                                 <thead>
                                 <tr>
                                     <td>Номер заказа</td>
+                                    <td>Покупатель</td>
+                                    <td>Телефон</td>
                                     <td>Сумма заказа</td>
                                     <td>Статус заказа</td>
                                     <td>Дата поступления заказа</td>
@@ -61,6 +63,8 @@
                                 <tbody>
                                 <tr th:each="order : ${allOrders}">
                                     <td th:utext="${order.id}"></td>
+                                    <td th:utext="${order.user}"></td>
+                                    <td th:utext="${order.phoneNumber}"></td>
                                     <td th:utext="${order.ordersSum}"></td>
                                     <td th:utext="${order.orderStatus.name}"></td>
 <!--                                    <td th:utext="${order.orderData}"></td>-->
