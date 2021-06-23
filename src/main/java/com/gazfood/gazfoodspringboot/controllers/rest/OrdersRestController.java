@@ -35,10 +35,12 @@ public class OrdersRestController {
     private SendEmailService sendEmailService;
 
     @PostMapping("/orders")
-    public void addNewOrder(@RequestBody String str) {
+    public int addNewOrder(@RequestBody String str) {
 
         // Общая сумма заказа в рублях
         double sum = 0.00;
+// Номер заказа
+        int orderId = 0;
 
         // Текст для отправки email
         StringBuilder orderDishes = new StringBuilder();
@@ -55,7 +57,7 @@ public class OrdersRestController {
             ordersListService.saveOrdersList(ordersList);
 
             // Получили id этого заказа для вставки в entity "Orders" во все поля orders_list_id
-            int orderId = ordersList.getId();
+            orderId = ordersList.getId();
 
             for (Orders order : list) {
                 order.setOrdersListId(orderId);
@@ -85,22 +87,23 @@ public class OrdersRestController {
 
 
             // Отправляем пиьмо с новым заказом
-            sendEmailService.sendEmail("yam_1985@mail.ru",
-                    "Получен новый заказ № "
-                            .concat(String.valueOf(ordersList.getId()))
-                            .concat(" на сумму: ")
-                            .concat(String.valueOf(sum))
-                            .concat(" рублей\n")
-                            .concat("Заказчик: " + ordersList.getUser())
-                            .concat("\n")
-                            .concat("Телефон: " + ordersList.getPhoneNumber())
-                            .concat("\n")
-                            .concat("\n")
-                            .concat(orderDishes.toString()),
-                    "Новый заказ");
+//            sendEmailService.sendEmail("yam_1985@mail.ru",
+//                    "Получен новый заказ № "
+//                            .concat(String.valueOf(ordersList.getId()))
+//                            .concat(" на сумму: ")
+//                            .concat(String.valueOf(sum))
+//                            .concat(" рублей\n")
+//                            .concat("Заказчик: " + ordersList.getUser())
+//                            .concat("\n")
+//                            .concat("Телефон: " + ordersList.getPhoneNumber())
+//                            .concat("\n")
+//                            .concat("\n")
+//                            .concat(orderDishes.toString()),
+//                    "Новый заказ");
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        return orderId;
     }
 }
