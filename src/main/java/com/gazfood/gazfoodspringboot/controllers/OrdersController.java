@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class OrdersController {
@@ -22,7 +24,9 @@ public class OrdersController {
 
     @GetMapping("/orders")
     public String getAllOrders(Model model) {
-        List<OrdersList> allOrders = ordersListService.getAllOrdersList();
+        List<OrdersList> allOrders = ordersListService.getAllOrdersList()
+                .stream()
+                .sorted(Comparator.comparing(OrdersList::getId).reversed()).collect(Collectors.toList());
         model.addAttribute("allOrders", allOrders);
         return "all-orders";
     }

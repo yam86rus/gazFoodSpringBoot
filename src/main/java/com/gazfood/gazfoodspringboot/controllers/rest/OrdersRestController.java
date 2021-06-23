@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class OrdersRestController {
 
         // Общая сумма заказа в рублях
         double sum = 0.00;
-// Номер заказа
+        // Номер заказа
         int orderId = 0;
 
         // Текст для отправки email
@@ -72,6 +73,7 @@ public class OrdersRestController {
                         .append(order.getDishesName())
                         .append("\". Количество: ")
                         .append(order.getCount())
+                        .append("\n")
                         .append("\n");
 
             }
@@ -87,19 +89,25 @@ public class OrdersRestController {
 
 
             // Отправляем пиьмо с новым заказом
-//            sendEmailService.sendEmail("yam_1985@mail.ru",
-//                    "Получен новый заказ № "
-//                            .concat(String.valueOf(ordersList.getId()))
-//                            .concat(" на сумму: ")
-//                            .concat(String.valueOf(sum))
-//                            .concat(" рублей\n")
-//                            .concat("Заказчик: " + ordersList.getUser())
-//                            .concat("\n")
-//                            .concat("Телефон: " + ordersList.getPhoneNumber())
-//                            .concat("\n")
-//                            .concat("\n")
-//                            .concat(orderDishes.toString()),
-//                    "Новый заказ");
+            List<String> emailArray = new ArrayList<>();
+            emailArray.add("myakushev@gaztorg.org.ru");
+            emailArray.add("nkonovalchuk@gaztorg.org.ru");
+            emailArray.add("eremkinsv@gaztorg.org.ru");
+
+            sendEmailService.sendEmail(emailArray,
+                    "Получен новый заказ № "
+                            .concat(String.valueOf(ordersList.getId()))
+                            .concat(" на сумму: ")
+                            .concat(String.valueOf(sum))
+                            .concat(" рублей\n")
+                            .concat("Заказчик: " + ordersList.getUser())
+                            .concat("\n")
+                            .concat("Телефон: " + ordersList.getPhoneNumber())
+                            .concat("\n")
+                            .concat("\n")
+                            .concat(orderDishes.toString())
+                            .concat("\n"),
+                    "Новый заказ");
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
