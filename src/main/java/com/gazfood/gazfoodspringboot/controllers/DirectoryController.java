@@ -53,6 +53,9 @@ public class DirectoryController {
     @Autowired
     private OrderStatusService orderStatusService;
 
+    @Autowired
+    private EmailService emailService;
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model) {
         model.addAttribute("cityCount", cityService.getCountCities());
@@ -70,6 +73,7 @@ public class DirectoryController {
         model.addAttribute("menuCount",menuService.getCountMenus());
         model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
         model.addAttribute("orderStatusCount", orderStatusService.getCountOrderStatus());
+        model.addAttribute("emailsCount", emailService.getEmailCount());
 
         return "all-directories";
     }

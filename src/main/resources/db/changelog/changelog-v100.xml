@@ -457,6 +457,10 @@
             <column name="name" value="Выполнен"/>
         </insert>
 
+        <insert tableName="emails">
+            <column name="email" value="myakushev@gaztorg.org.ru"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>
