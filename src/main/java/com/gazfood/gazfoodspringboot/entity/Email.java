@@ -13,11 +13,11 @@ public class Email {
     @Column(name = "email")
     private String email;
 
-    public Email() {
-    }
-
     public Email(String email) {
         this.email = email;
+    }
+
+    public Email() {
     }
 
     public int getId() {
@@ -35,5 +35,4 @@ public class Email {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

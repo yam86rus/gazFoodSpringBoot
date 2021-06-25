@@ -2,12 +2,10 @@ package com.gazfood.gazfoodspringboot.controllers.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gazfood.gazfoodspringboot.entity.Email;
 import com.gazfood.gazfoodspringboot.entity.Orders;
 import com.gazfood.gazfoodspringboot.entity.OrdersList;
-import com.gazfood.gazfoodspringboot.service.OrderStatusService;
-import com.gazfood.gazfoodspringboot.service.OrdersListService;
-import com.gazfood.gazfoodspringboot.service.OrdersService;
-import com.gazfood.gazfoodspringboot.service.SendEmailService;
+import com.gazfood.gazfoodspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +16,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -34,6 +34,9 @@ public class OrdersRestController {
 
     @Autowired
     private SendEmailService sendEmailService;
+
+    @Autowired
+    private EmailService emailService;
 
     @PostMapping("/orders")
     public int addNewOrder(@RequestBody String str) {
@@ -88,13 +91,15 @@ public class OrdersRestController {
             ordersListService.saveOrdersList(ordersList);
 
 
-            // Отправляем пиьмо с новым заказом
-            List<String> emailArray = new ArrayList<>();
-            emailArray.add("myakushev@gaztorg.org.ru");
-            emailArray.add("nkonovalchuk@gaztorg.org.ru");
-            emailArray.add("eremkinsv@gaztorg.org.ru");
+            // Получаем список email`ов из бд для рассылки
+            List<String> listEmails = emailService.getAllEmails().stream()
+                    .map(object -> Objects.toString(object.getEmail(), null))
+                    .collect(Collectors.toList());
 
-            sendEmailService.sendEmail(emailArray,
+
+
+            // отправляем пиьмо с новым заказом по списку email`ов
+            sendEmailService.sendEmail(listEmails,
                     "Получен новый заказ № "
                             .concat(String.valueOf(ordersList.getId()))
                             .concat(" на сумму: ")

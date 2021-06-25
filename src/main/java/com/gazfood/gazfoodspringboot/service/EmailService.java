@@ -1,8 +1,6 @@
 package com.gazfood.gazfoodspringboot.service;
 
-import com.gazfood.gazfoodspringboot.entity.Dish;
 import com.gazfood.gazfoodspringboot.entity.Email;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
