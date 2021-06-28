@@ -28,6 +28,9 @@
     <include file="db/changelog/changelog-v017.xml"></include> <!-- Периодический регистр Заказы (создание) -->
     <include file="db/changelog/changelog-v018.xml"></include> <!-- Справочник Заказы (создание) -->
     <include file="db/changelog/changelog-v019.xml"></include> <!-- Справочник Email (создание) -->
+    <include file="db/changelog/changelog-v020.xml"></include> <!-- Справочник Role (создание) -->
+    <include file="db/changelog/changelog-v021.xml"></include> <!-- Справочник Users (создание) -->
+    <include file="db/changelog/changelog-v022.xml"></include> <!-- Справочник users_roles (создание) -->
 
     <!-- Заполняем тестовыми данными)-->
     <include file="db/changelog/changelog-v100.xml"></include>

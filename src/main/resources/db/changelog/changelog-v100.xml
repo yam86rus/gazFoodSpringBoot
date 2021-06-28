@@ -461,6 +461,26 @@
             <column name="email" value="myakushev@gaztorg.org.ru"/>
         </insert>
 
+        <insert tableName="roles">
+            <column name="name" value="ROLE_USER"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_ADMIN"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="user"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="user@gmail.com"/>
+        </insert>
+
+        <insert tableName="users_roles">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="2"/>
+        </insert>
+
+
+
     </changeSet>
 
 </databaseChangeLog>

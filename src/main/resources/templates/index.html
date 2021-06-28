@@ -29,10 +29,8 @@
         <div class="user-wrapper">
             <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
             <div>
-                <h4>
-                    Максим Якушев
-                </h4>
-                <small>Super admin</small>
+                <h4 th:text="${user.username}"></h4>
+                <small th:text="${user.email}"></small>
             </div>
         </div>
     </header>
