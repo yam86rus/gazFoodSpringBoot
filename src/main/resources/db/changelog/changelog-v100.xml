@@ -472,10 +472,27 @@
             <column name="username" value="user"/>
             <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
             <column name="email" value="user@gmail.com"/>
+            <column name="user_last_name" value="Иванов"/>
+            <column name="user_name" value="Иван"/>
+            <column name="user_patronymic" value="Иванович"/>
+            <column name="image_url" value="img/users/no_avatar.png"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="Maxim"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="maxim@gmail.com"/>
+            <column name="user_last_name" value="Якушев"/>
+            <column name="user_name" value="Максим"/>
+            <column name="user_patronymic" value="Юрьевич"/>
+            <column name="image_url" value="img/users/YakushevMY.png"/>
         </insert>
 
         <insert tableName="users_roles">
             <column name="user_id" value="1"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="2"/>
             <column name="role_id" value="2"/>
         </insert>
 

@@ -36,6 +36,41 @@
             </div>
         </div>
     </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Список вакансий</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Пользователь</th>
+                                    <th>email</th>
+                                    <th>Фaмилия</th>
+                                    <th>Имя</th>
+                                    <th>Отчество</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="user : ${allUsers}">
+                                    <td th:utext="${user.username}"></td>
+                                    <td th:utext="${user.email}"></td>
+                                    <td th:utext="${user.userLastName}"></td>
+                                    <td th:utext="${user.userName}"></td>
+                                    <td th:utext="${user.patronymic}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </div>
 </body>

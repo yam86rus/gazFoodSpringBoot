@@ -20,6 +20,18 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "user_last_name")
+    private String userLastName;
+
+    @Column(name = "user_name")
+    private String userName;
+
+    @Column(name = "user_patronymic")
+    private String patronymic;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @ManyToMany
     @JoinTable(name = "users_roles",
     joinColumns = @JoinColumn(name = "user_id"),
@@ -29,10 +41,14 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String email, Collection<Role> roles) {
+    public User(String username, String password, String email, String userLastName, String userName, String patronymic, String imageUrl, Collection<Role> roles) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.userLastName = userLastName;
+        this.userName = userName;
+        this.patronymic = patronymic;
+        this.imageUrl = imageUrl;
         this.roles = roles;
     }
 
@@ -74,5 +90,37 @@ public class User {
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

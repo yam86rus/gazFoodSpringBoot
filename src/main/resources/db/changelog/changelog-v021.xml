@@ -20,6 +20,18 @@
             <column name="email" type="varchar(200)">
                 <constraints nullable="false" unique="false"/>
             </column>
+            <column name="user_last_name" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="user_name" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="user_patronymic" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="image_url" type="varchar(200)">
+                <constraints nullable="false" unique="false"/>
+            </column>
         </createTable>
 
     </changeSet>

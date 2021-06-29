@@ -41,7 +41,6 @@ public class GreetingController {
         model.addAttribute("allBirthdaysInMonth", employeeService.findAllBirthday(todaydate.getMonthValue()));
 
         User user = userService.findByUsername(principal.getName());
-        System.out.println("Hello " + user.getUsername() + " " + user.getEmail());
         model.addAttribute("user", user);
         return "index";
     }

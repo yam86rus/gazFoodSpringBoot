@@ -1,8 +1,10 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
 import com.gazfood.gazfoodspringboot.entity.Cassa;
+import com.gazfood.gazfoodspringboot.entity.User;
 import com.gazfood.gazfoodspringboot.exports.CassaExcelExporter;
 import com.gazfood.gazfoodspringboot.service.CassaService;
+import com.gazfood.gazfoodspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Principal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -26,14 +29,20 @@ public class CassaController {
     @Autowired
     private CassaService cassaService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/casses")
-    private String showCassaPage(Model model) {
+    private String showCassaPage(Model model, Principal principal) {
         List<Cassa> allCasses = cassaService.getAllCassesOrder();
         model.addAttribute("allCasses", allCasses);
 
         LocalDate todaydate = LocalDate.now();
-
         model.addAttribute("todaydate", todaydate);
+
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
+
         return "all-casses";
     }
 
@@ -55,9 +64,11 @@ public class CassaController {
     }
 
     @RequestMapping("/addNewCassa")
-    public String addNewCassa(Model model) {
+    public String addNewCassa(Model model, Principal principal) {
         Cassa cassa = new Cassa();
         model.addAttribute("cassa", cassa);
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
         return "cassa-form";
     }
 
@@ -68,9 +79,11 @@ public class CassaController {
     }
 
     @RequestMapping("updateCassa")
-    public String updateCassa(@RequestParam("cassaId") int id, Model model) {
+    public String updateCassa(@RequestParam("cassaId") int id, Model model, Principal principal) {
         Cassa cassa = cassaService.getCassa(id);
         model.addAttribute("cassa", cassa);
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
         return "cassa-form";
     }
 

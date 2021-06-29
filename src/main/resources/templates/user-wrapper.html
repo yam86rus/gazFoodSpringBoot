@@ -1,0 +1,7 @@
+<div class="user-wrapper" th:fragment="user-wrapper">
+    <img th:src="${user.imageUrl}" alt=""/>
+    <div>
+        <h4 th:utext="${user.userLastName} + ' ' +  ${user.userName.toString().charAt(0)} + '. ' + ${user.patronymic.toString().charAt(0)} +'.'"></h4>
+        <small th:text="${user.email}"></small>
+    </div>
+</div>
