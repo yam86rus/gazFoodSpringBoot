@@ -1,4 +1,4 @@
-package com.gazfood.gazfoodspringboot.toFront;
+package com.gazfood.gazfoodspringboot.configs;
 
 import com.gazfood.gazfoodspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/").authenticated()
+                .antMatchers("/casses").hasRole("ADMIN")
+                .antMatchers("/employees").hasRole("USER")
+                .and()
+                    .formLogin()
+                .and()
+                    .logout().logoutSuccessUrl("/");
     }
 
     @Bean
