@@ -47,7 +47,10 @@ public class GreetingController {
 
 
     @GetMapping("/restapi")
-    public String restapi() {
+    public String restapi(Model model,Principal principal) {
+
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
         return "restapi";
     }
 

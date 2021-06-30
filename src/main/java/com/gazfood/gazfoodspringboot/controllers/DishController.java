@@ -3,15 +3,18 @@ package com.gazfood.gazfoodspringboot.controllers;
 import com.gazfood.gazfoodspringboot.entity.Dish;
 import com.gazfood.gazfoodspringboot.entity.DishCategory;
 import com.gazfood.gazfoodspringboot.entity.RegisterDish;
+import com.gazfood.gazfoodspringboot.entity.User;
 import com.gazfood.gazfoodspringboot.service.DishCategoryService;
 import com.gazfood.gazfoodspringboot.service.DishService;
 import com.gazfood.gazfoodspringboot.service.RegisterDishService;
+import com.gazfood.gazfoodspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,21 +29,30 @@ public class DishController {
     @Autowired
     private RegisterDishService registerDishService;
 
-    @RequestMapping("/dishes")
-    public String showAllDishes(Model model) {
-        List<Dish> allDishes = dishService.getAllDishes();
+    @Autowired
+    private UserService userService;
 
+    @RequestMapping("/dishes")
+    public String showAllDishes(Model model, Principal principal) {
+        List<Dish> allDishes = dishService.getAllDishes();
         model.addAttribute("allDishes", allDishes);
+
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
+
         return "all-dishes";
     }
 
     @RequestMapping("/addNewDish")
-    public String addNewDish(Model model) {
+    public String addNewDish(Model model,Principal principal) {
         Dish dish = new Dish();
         model.addAttribute("dish", dish);
 
         List<DishCategory> listDishCategories = dishCategoryService.getAllDishCategories();
         model.addAttribute("listDishCategories", listDishCategories);
+
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
         return "dish-form";
     }
 
@@ -56,11 +68,15 @@ public class DishController {
     }
 
     @RequestMapping("/updateDish")
-    public String updateDish(@RequestParam("dishId") int id, Model model) {
+    public String updateDish(@RequestParam("dishId") int id, Model model,Principal principal) {
         Dish dish = dishService.getDish(id);
         model.addAttribute("dish", dish);
+
         List<DishCategory> listDishCategories = dishCategoryService.getAllDishCategories();
         model.addAttribute("listDishCategories", listDishCategories);
+
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
         return "dish-form";
     }
 

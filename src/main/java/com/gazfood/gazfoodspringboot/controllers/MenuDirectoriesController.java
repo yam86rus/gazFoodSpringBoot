@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @Controller
 public class MenuDirectoriesController {
 
@@ -31,9 +33,12 @@ public class MenuDirectoriesController {
     @Autowired
     private OrderStatusService orderStatusService;
 
+    @Autowired
+    private UserService userService;
+
 
     @RequestMapping("/menuDirectories")
-    public String getAllMenus(Model model) {
+    public String getAllMenus(Model model, Principal principal) {
         model.addAttribute("dishCount", dishService.getCountDishes());
         model.addAttribute("dishCategoriesCount", dishCategoryService.getCountDishCategories());
         model.addAttribute("priceCategoryCount", priceCategoryService.getCountPriceCategories());
@@ -41,7 +46,7 @@ public class MenuDirectoriesController {
         model.addAttribute("menuCount", menuService.getCountMenus());
         model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
         model.addAttribute("orderStatusCount", orderStatusService.getCountOrderStatus());
-
+        model.addAttribute("user", userService.findByUsername(principal.getName()));
         return "all-menusDirectories";
     }
 

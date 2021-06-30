@@ -22,19 +22,8 @@
             </label>
             Информация о категории блюда
         </h2>
-        <div class="search-wrapper">
-            <span class="las la-search"></span>
-            <input type="search" placeholder="Поиск"/>
-        </div>
-        <div class="user-wrapper">
-            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt=""/>
-            <div>
-                <h4>
-                    Максим Якушев
-                </h4>
-                <small>Super admin</small>
-            </div>
-        </div>
+        <!--    Подключаем user-wrapper-->
+        <div th:replace="user-wrapper :: user-wrapper"></div>
     </header>
     <main>
         <div>

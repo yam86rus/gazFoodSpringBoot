@@ -1,10 +1,13 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
+import com.gazfood.gazfoodspringboot.entity.User;
 import com.gazfood.gazfoodspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.security.Principal;
 
 @Controller
 public class DirectoryController {
@@ -56,8 +59,11 @@ public class DirectoryController {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/directories")
-    public String getAllDirectories(Model model) {
+    public String getAllDirectories(Model model, Principal principal) {
         model.addAttribute("cityCount", cityService.getCountCities());
         model.addAttribute("employeeCount", employeeService.getCountEmployees());
         model.addAttribute("vacancyCount", vacancyService.getCountVacancies());
@@ -74,6 +80,8 @@ public class DirectoryController {
         model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
         model.addAttribute("orderStatusCount", orderStatusService.getCountOrderStatus());
         model.addAttribute("emailsCount", emailService.getEmailCount());
+        model.addAttribute("user", userService.findByUsername(principal.getName()));
+
 
         return "all-directories";
     }
