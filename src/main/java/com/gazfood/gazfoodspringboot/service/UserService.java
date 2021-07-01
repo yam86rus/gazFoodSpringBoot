@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserService implements UserDetailsService {
 
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -48,6 +49,10 @@ public class UserService implements UserDetailsService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public long getCountUsers(){
+        return userRepository.count();
     }
 
 }

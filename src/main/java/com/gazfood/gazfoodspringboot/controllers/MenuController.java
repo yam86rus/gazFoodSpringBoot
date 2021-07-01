@@ -85,11 +85,4 @@ public class MenuController {
         menuService.deleteMenu(id);
         return "redirect:menus";
     }
-
-
-
-
-
-
-
 }

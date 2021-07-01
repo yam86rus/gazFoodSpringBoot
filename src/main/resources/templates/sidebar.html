@@ -1,4 +1,4 @@
-<div class="sidebar" th:fragment="sidebar">
+<div xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" class="sidebar" th:fragment="sidebar">
     <div class="sidebar-brand">
        <img th:src="@{img/logo.png}" width="120px" alt="logo">
     </div>
@@ -17,31 +17,31 @@
                     <span>Сотрудники</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/casses' ? 'active':''}" th:href="@{/casses}">
                     <span class="las la-clipboard-list"></span>
                     <span>Кассовые узлы</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_ORDER')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/orders' ? 'active':''}" th:href="@{/orders}">
                     <span class="las la-shopping-bag"></span>
                     <span>Заказы в столовых</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_ORDER')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/menuDirectories' ? 'active':''}" th:href="@{/menuDirectories}">
                     <span class="las la-receipt"></span>
                     <span>Меню</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_USER')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/users' ? 'active':''}" th:href="@{/users}">
                     <span class="las la-user-circle"></span>
                     <span>Пользователи</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')">
                 <a  th:classappend="${#httpServletRequest.getRequestURI() == '/restapi' ? 'active':''}" th:href="@{/restapi}">
                     <span class="las la-clipboard-list"></span>
                     <span>REST API</span>
@@ -53,7 +53,7 @@
                     <span>Справочники</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/registers' ? 'active':''}" th:href="@{/registers}">
                     <span class="las la-clipboard-list"></span>
                     <span>Регистры</span>

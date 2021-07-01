@@ -467,6 +467,15 @@
         <insert tableName="roles">
             <column name="name" value="ROLE_ADMIN"/>
         </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_HR"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_IT"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_ORDER"/>
+        </insert>
 
         <insert tableName="users">
             <column name="username" value="user"/>
@@ -480,11 +489,38 @@
         <insert tableName="users">
             <column name="username" value="Maxim"/>
             <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
-            <column name="email" value="maxim@gmail.com"/>
+            <column name="email" value="myakushev@gaztorg.org.ru"/>
             <column name="user_last_name" value="Якушев"/>
             <column name="user_name" value="Максим"/>
             <column name="user_patronymic" value="Юрьевич"/>
             <column name="image_url" value="img/users/YakushevMY.png"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="Anna"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="kadr@gaztorg.org.ru"/>
+            <column name="user_last_name" value="Малыгина"/>
+            <column name="user_name" value="Анна"/>
+            <column name="user_patronymic" value="Евгеньевна"/>
+            <column name="image_url" value="img/users/no_avatar.png"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="Sergey"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="eremkinsv@gaztorg.org.ru"/>
+            <column name="user_last_name" value="Еремкин"/>
+            <column name="user_name" value="Сергей"/>
+            <column name="user_patronymic" value="Викторович"/>
+            <column name="image_url" value="img/users/no_avatar.png"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="Order"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="order@gaztorg.org.ru"/>
+            <column name="user_last_name" value="Петров"/>
+            <column name="user_name" value="Петр"/>
+            <column name="user_patronymic" value="Петрович"/>
+            <column name="image_url" value="img/users/no_avatar.png"/>
         </insert>
 
         <insert tableName="users_roles">
@@ -494,6 +530,18 @@
         <insert tableName="users_roles">
             <column name="user_id" value="2"/>
             <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="3"/>
+            <column name="role_id" value="3"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="4"/>
+            <column name="role_id" value="4"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="5"/>
+            <column name="role_id" value="5"/>
         </insert>
 
 

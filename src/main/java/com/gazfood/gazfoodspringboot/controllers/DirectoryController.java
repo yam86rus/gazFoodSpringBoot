@@ -62,6 +62,8 @@ public class DirectoryController {
     @Autowired
     private UserService userService;
 
+
+
     @GetMapping("/directories")
     public String getAllDirectories(Model model, Principal principal) {
         model.addAttribute("cityCount", cityService.getCountCities());
@@ -80,6 +82,7 @@ public class DirectoryController {
         model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
         model.addAttribute("orderStatusCount", orderStatusService.getCountOrderStatus());
         model.addAttribute("emailsCount", emailService.getEmailCount());
+        model.addAttribute("usersCount", userService.getCountUsers());
         model.addAttribute("user", userService.findByUsername(principal.getName()));
 
 

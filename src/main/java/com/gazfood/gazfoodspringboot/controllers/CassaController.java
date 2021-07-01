@@ -95,9 +95,11 @@ public class CassaController {
 
 
     @RequestMapping("/detailsCassa")
-    public String detailsCassa(@RequestParam("cassaId") int id, Model model) {
+    public String detailsCassa(@RequestParam("cassaId") int id, Model model,Principal principal) {
         Cassa cassa = cassaService.getCassa(id);
         model.addAttribute("cassa", cassa);
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
 
         return "cassa-form";
     }

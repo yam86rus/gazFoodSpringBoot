@@ -28,8 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/").authenticated()
-                .antMatchers("/casses").hasRole("ADMIN")
-                .antMatchers("/employees").hasRole("USER")
+                // Кассовые узлы
+                .antMatchers("/casses").hasAnyRole("ADMIN", "IT")
+                .antMatchers("/addNewCassa").hasAnyRole("ADMIN", "IT")
+                .antMatchers("/updateCassa").hasAnyRole("ADMIN", "IT")
+                .antMatchers("/saveCassa").hasAnyRole("ADMIN", "IT")
+                .antMatchers("/deleteCassa").hasAnyRole("ADMIN", "IT")
+                .antMatchers("/detailsCassa").hasAnyRole("ADMIN", "IT")
+                .antMatchers("/casses/export/excel").hasAnyRole("ADMIN", "IT")
+
                 .and()
                     .formLogin()
                 .and()

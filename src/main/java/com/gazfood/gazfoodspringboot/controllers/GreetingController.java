@@ -1,10 +1,7 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
 import com.gazfood.gazfoodspringboot.entity.User;
-import com.gazfood.gazfoodspringboot.service.CassaService;
-import com.gazfood.gazfoodspringboot.service.ContractService;
-import com.gazfood.gazfoodspringboot.service.EmployeeService;
-import com.gazfood.gazfoodspringboot.service.UserService;
+import com.gazfood.gazfoodspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +27,15 @@ public class GreetingController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrdersService ordersService;
+
     @GetMapping("")
     public String main(Model model, Principal principal) {
         model.addAttribute("employeeCount", employeeService.getCountEmployees());
         model.addAttribute("cassaCount", cassaService.getCountCasses());
+        model.addAttribute("usersCount", userService.getCountUsers());
+        model.addAttribute("ordersCount", ordersService.getCountOrders());
         model.addAttribute("firstTenContracts", contractService.getFirstTenContracts());
 
         LocalDate todaydate = LocalDate.now();
