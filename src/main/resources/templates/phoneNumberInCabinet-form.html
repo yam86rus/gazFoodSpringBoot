@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Газпром питание</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Информация о кассовом узле
+        </h2>
+        <!--    Подключаем user-wrapper-->
+        <div th:replace="user-wrapper :: user-wrapper"></div>
+    </header>
+    <main>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/updateCassa'}">
+                <h1>Редактирование кассового узла</h1>
+            </td>
+        </div>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/addNewCassa'}">
+                <h1>Создание кассового узла</h1>
+            </td>
+        </div>
+        <div>
+            <td th:if="${#httpServletRequest.getRequestURI() == '/detailsCassa'}">
+                <h1>Полная информация по кассовому узлу</h1>
+            </td>
+        </div>
+        <div>
+            <form th:action="@{/saveCassa}" th:object="${cassa}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="hidden" th:field="*{id}"></td>
+                    </tr>
+                    <tr>
+                        <td>Кассовый узел</td>
+                        <td><input type="text" th:field="*{cassaName}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Prefix</td>
+                        <td><input type="text" th:field="*{prefix}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Ammy Admin</td>
+                        <td><input type="text" th:field="*{ammyAdmin}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Any Desk</td>
+                        <td><input type="text" th:field="*{annyDesk}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Имя компьютера</td>
+                        <td><input type="text" th:field="*{computerName}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Адрес</td>
+                        <td><input type="text" th:field="*{cassaAdres}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Дата обновления</td>
+                        <td><input type="text" th:field="*{dataUpdate}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Поле для заметок</td>
+                        <td><input type="text" th:field="*{temp}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Дата окончания ФН</td>
+                        <td><input type="date" th:value="*{fnDeadlineData}" th:field="*{fnDeadlineData}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>КПП</td>
+                        <td><input type="text" th:field="*{kpp}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>РН ККТ</td>
+                        <td><input type="text" th:field="*{rnkkt}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Номер ФН</td>
+                        <td><input type="text" th:field="*{fnNumber}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>sim</td>
+                        <td><input type="text" th:field="*{mobileNumber}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>ICC</td>
+                        <td><input type="text" th:field="*{iccNumber}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td>Телефон</td>
+                        <td><input type="text" th:field="*{phoneNumber}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
+                        <td th:if="${#httpServletRequest.getRequestURI() == '/updateCassa'} or ${#httpServletRequest.getRequestURI() == '/addNewCassa'}">
+                            <button type="submit">Сохранить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
