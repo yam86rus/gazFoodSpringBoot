@@ -544,6 +544,67 @@
             <column name="role_id" value="5"/>
         </insert>
 
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="310"/>
+            <column name="socket" value="310.3"/>
+            <column name="phone_number" value="5-34-20"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="319"/>
+            <column name="socket" value="322.3"/>
+            <column name="phone_number" value="5-34-21"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.1"/>
+            <column name="phone_number" value="5-34-23"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.2"/>
+            <column name="phone_number" value="5-34-28"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.3"/>
+            <column name="phone_number" value="5-34-30"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.4"/>
+            <column name="phone_number" value="5-34-32"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.5"/>
+            <column name="phone_number" value="5-34-34"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.6"/>
+            <column name="phone_number" value="5-34-35"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.1"/>
+            <column name="phone_number" value="5-34-40"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.2"/>
+            <column name="phone_number" value="5-34-45"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.3"/>
+            <column name="phone_number" value="5-34-46"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.5"/>
+            <column name="phone_number" value="5-34-54"/>
+        </insert>
+
 
 
     </changeSet>

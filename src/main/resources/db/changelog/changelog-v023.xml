@@ -5,31 +5,23 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <changeSet id="21" author="Yakushev">
+    <changeSet id="23" author="Yakushev">
 
-        <createTable tableName="users_roles">
-            <column name="user_id" type="int">
+        <createTable tableName="phone_number_in_cabinet">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="cabinet" type="int">
                 <constraints nullable="false" unique="false"/>
             </column>
-            <column name="role_id" type="int">
-                <constraints nullable="false" unique="false"/>
+            <column name="socket" type="varchar(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="phone_number" type="varchar(100)">
+                <constraints nullable="false" unique="true"/>
             </column>
 
         </createTable>
-
-        <addForeignKeyConstraint baseTableName="users_roles"
-                                 baseColumnNames="user_id"
-                                 referencedTableName="users"
-                                 referencedColumnNames="id"
-                                 constraintName="users_roles_user_id"
-        />
-
-        <addForeignKeyConstraint baseTableName="users_roles"
-                                 baseColumnNames="role_id"
-                                 referencedTableName="roles"
-                                 referencedColumnNames="id"
-                                 constraintName="users_roles_roles_id"
-        />
 
     </changeSet>
 

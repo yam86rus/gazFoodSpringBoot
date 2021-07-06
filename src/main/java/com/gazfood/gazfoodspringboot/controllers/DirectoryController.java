@@ -62,6 +62,9 @@ public class DirectoryController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PhoneNumberInCabinetService phoneNumberInCabinetService;
+
 
 
     @GetMapping("/directories")
@@ -84,6 +87,7 @@ public class DirectoryController {
         model.addAttribute("emailsCount", emailService.getEmailCount());
         model.addAttribute("usersCount", userService.getCountUsers());
         model.addAttribute("user", userService.findByUsername(principal.getName()));
+        model.addAttribute("phoneNumberInCabinet", phoneNumberInCabinetService.getCountPhoneNumberInCabinet());
 
 
         return "all-directories";

@@ -19,7 +19,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Все города
+            Все телефоны в кабинетах
         </h2>
         <!--    Подключаем user-wrapper-->
         <div th:replace="user-wrapper :: user-wrapper"></div>
@@ -29,23 +29,27 @@
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Список городов</h3>
-                        <button onclick="window.location.href = 'addNewCity'">Добавить</button>
+                        <h3>Список телефонов в кабинетах</h3>
+                        <button onclick="window.location.href = 'addNewPhoneNumberInCabinet'">Добавить</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
                                 <tr>
-                                    <td>Название города</td>
+                                    <td>Кабинет</td>
+                                    <td>Розетка</td>
+                                    <td>Номер</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="city : ${allCities}">
-                                    <td th:utext="${city.cityName}"></td>
-                                    <td><a th:href="@{'/updateCity'+'?cityId='+${city.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteCity'+'?cityId='+${city.id}}">Удалить</a></td>
+                                <tr th:each="phone : ${allPhoneNumberInCabinet}">
+                                    <td th:utext="${phone.cabinet}"></td>
+                                    <td th:utext="${phone.socket}"></td>
+                                    <td th:utext="${phone.phoneNumber}"></td>
+                                    <td><a th:href="@{'/updatePhoneNumberInCabinet'+'?phoneNumberInCabinetId='+${phone.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deletePhoneNumberInCabinet'+'?phoneNumberInCabinetId='+${phone.id}}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>

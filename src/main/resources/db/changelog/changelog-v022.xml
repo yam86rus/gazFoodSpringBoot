@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <changeSet id="21" author="Yakushev">
+    <changeSet id="22" author="Yakushev">
 
         <createTable tableName="users_roles">
             <column name="user_id" type="int">
