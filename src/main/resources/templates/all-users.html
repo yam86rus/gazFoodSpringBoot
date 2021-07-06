@@ -21,6 +21,7 @@
                 <span class="las la-bars"></span>
             </label>
             Пользователи
+            <span class="las la-user-circle"></span>
         </h2>
         <!--    Подключаем user-wrapper-->
         <div th:replace="user-wrapper :: user-wrapper"></div>
@@ -30,7 +31,7 @@
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Список вакансий</h3>
+                        <h3>Список пользователей</h3>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -38,6 +39,7 @@
                                 <thead>
                                 <tr>
                                     <th>Пользователь</th>
+                                    <th>Аватар</th>
                                     <th>email</th>
                                     <th>Фaмилия</th>
                                     <th>Имя</th>
@@ -47,6 +49,11 @@
                                 <tbody>
                                 <tr th:each="user : ${allUsers}">
                                     <td th:utext="${user.username}"></td>
+                                    <td class="user-wrapper">
+                                        <a th:href="@{${user.imageUrl}}">
+                                            <img th:src="${user.imageUrl}" alt=""/>
+                                        </a>
+                                    </td>
                                     <td th:utext="${user.email}"></td>
                                     <td th:utext="${user.userLastName}"></td>
                                     <td th:utext="${user.userName}"></td>

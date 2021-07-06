@@ -11,16 +11,16 @@
                     <span>Рабочий стол</span>
                 </a>
             </li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
+                <a th:classappend="${#httpServletRequest.getRequestURI() == '/it' ? 'active':''}" th:href="@{/it}">
+                    <span class="las la-robot"></span>
+                    <span>IT</span>
+                </a>
+            </li>
             <li>
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/employees' ? 'active':''}" th:href="@{/employees}">
                     <span class="las la-users"></span>
                     <span>Сотрудники</span>
-                </a>
-            </li>
-            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
-                <a th:classappend="${#httpServletRequest.getRequestURI() == '/casses' ? 'active':''}" th:href="@{/casses}">
-                    <span class="las la-clipboard-list"></span>
-                    <span>Кассовые узлы</span>
                 </a>
             </li>
             <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_ORDER')">
@@ -31,7 +31,7 @@
             </li>
             <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_ORDER')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/menuDirectories' ? 'active':''}" th:href="@{/menuDirectories}">
-                    <span class="las la-receipt"></span>
+                    <span class="las la-utensils"></span>
                     <span>Меню</span>
                 </a>
             </li>
