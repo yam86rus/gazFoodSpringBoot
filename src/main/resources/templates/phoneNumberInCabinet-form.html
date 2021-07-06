@@ -44,21 +44,18 @@
                         <td><input type="hidden" th:field="*{id}"></td>
                     </tr>
                     <tr>
-                        <td>Кассовый узел</td>
+                        <td>Кабинет</td>
                         <td><input type="text" th:field="*{cabinet}"></td>
                     </tr>
                     <tr>
-                        <td>Prefix</td>
+                        <td>Розетка</td>
                         <td><input type="text" th:field="*{socket}"></td>
                     </tr>
                     <tr>
-                        <td>Ammy Admin</td>
+                        <td>Номер телефона</td>
                         <td><input type="text" th:field="*{phoneNumber}" ></td>
                     </tr>
-                    <tr>
-                        <td>Any Desk</td>
-                        <td><input type="text" th:field="*{annyDesk}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
-                    </tr>
+
 
                     <tr>
                         <td th:if="${#httpServletRequest.getRequestURI() == '/updatePhoneNumberInCabinet'} or ${#httpServletRequest.getRequestURI() == '/addNewPhoneNumberInCabinet'}">

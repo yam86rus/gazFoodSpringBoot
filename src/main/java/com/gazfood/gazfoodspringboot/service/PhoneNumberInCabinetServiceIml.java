@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class PhoneNumberInCabinetIml implements PhoneNumberInCabinetService{
+public class PhoneNumberInCabinetServiceIml implements PhoneNumberInCabinetService{
     @Autowired
     private PhoneNumberInCabinetRepository phoneNumberInCabinetRepository;
 
@@ -20,17 +21,22 @@ public class PhoneNumberInCabinetIml implements PhoneNumberInCabinetService{
 
     @Override
     public void savePhoneNumberInCabinet(PhoneNumberInCabinet phoneNumberInCabinet) {
-
+        phoneNumberInCabinetRepository.save(phoneNumberInCabinet);
     }
 
     @Override
     public PhoneNumberInCabinet getPhoneNumberInCabinet(int id) {
-        return null;
+        PhoneNumberInCabinet phoneNumberInCabinet = null;
+        Optional<PhoneNumberInCabinet> optional = phoneNumberInCabinetRepository.findById(id);
+        if (optional.isPresent()){
+            phoneNumberInCabinet = optional.get();
+        }
+        return phoneNumberInCabinet;
     }
 
     @Override
     public void deletePhoneNumberInCabinet(int id) {
-
+        phoneNumberInCabinetRepository.deleteById(id);
     }
 
     @Override
