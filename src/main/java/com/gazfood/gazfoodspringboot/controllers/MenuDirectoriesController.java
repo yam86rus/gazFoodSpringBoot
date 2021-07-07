@@ -36,6 +36,9 @@ public class MenuDirectoriesController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrdersService ordersService;
+
 
     @RequestMapping("/menuDirectories")
     public String getAllMenus(Model model, Principal principal) {
@@ -46,7 +49,9 @@ public class MenuDirectoriesController {
         model.addAttribute("menuCount", menuService.getCountMenus());
         model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
         model.addAttribute("orderStatusCount", orderStatusService.getCountOrderStatus());
+        model.addAttribute("orderCount", ordersService.getCountOrders());
         model.addAttribute("user", userService.findByUsername(principal.getName()));
+
         return "all-menusDirectories";
     }
 

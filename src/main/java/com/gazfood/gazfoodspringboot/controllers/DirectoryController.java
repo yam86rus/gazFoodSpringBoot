@@ -57,6 +57,8 @@ public class DirectoryController {
     private OrderStatusService orderStatusService;
 
     @Autowired
+    private OrdersService ordersService;
+    @Autowired
     private EmailService emailService;
 
     @Autowired
@@ -84,6 +86,7 @@ public class DirectoryController {
         model.addAttribute("menuCount",menuService.getCountMenus());
         model.addAttribute("cafeteriaAndMenuCount", cafeteriaAndMenuService.getCountCafeteriaAndMenu());
         model.addAttribute("orderStatusCount", orderStatusService.getCountOrderStatus());
+        model.addAttribute("orderCount", ordersService.getCountOrders());
         model.addAttribute("emailsCount", emailService.getEmailCount());
         model.addAttribute("usersCount", userService.getCountUsers());
         model.addAttribute("user", userService.findByUsername(principal.getName()));
