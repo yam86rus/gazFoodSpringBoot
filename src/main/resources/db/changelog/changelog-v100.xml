@@ -520,7 +520,16 @@
             <column name="user_last_name" value="Петров"/>
             <column name="user_name" value="Петр"/>
             <column name="user_patronymic" value="Петрович"/>
-            <column name="image_url" value="img/users/no_avatar.png"/>
+            <column name="image_url" value="img/users/mem.jpg"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="z"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="z@police.com"/>
+            <column name="user_last_name" value="zet"/>
+            <column name="user_name" value="zet"/>
+            <column name="user_patronymic" value="zet"/>
+            <column name="image_url" value="img/users/z.jpg"/>
         </insert>
 
         <insert tableName="users_roles">
@@ -544,11 +553,7 @@
             <column name="role_id" value="5"/>
         </insert>
 
-        <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="310"/>
-            <column name="socket" value="310.3"/>
-            <column name="phone_number" value="5-34-20"/>
-        </insert>
+
         <insert tableName="phone_number_in_cabinet">
             <column name="cabinet" value="319"/>
             <column name="socket" value="322.3"/>
@@ -603,6 +608,21 @@
             <column name="cabinet" value="321"/>
             <column name="socket" value="324.5"/>
             <column name="phone_number" value="5-34-54"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="309"/>
+            <column name="socket" value="309.1"/>
+            <column name="phone_number" value="5-38-09"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="309"/>
+            <column name="socket" value="309.3"/>
+            <column name="phone_number" value="5-39-91"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="323"/>
+            <column name="socket" value="326.1"/>
+            <column name="phone_number" value="5-34-20"/>
         </insert>
 
 

@@ -35,7 +35,7 @@ public class GreetingController {
         model.addAttribute("employeeCount", employeeService.getCountEmployees());
         model.addAttribute("cassaCount", cassaService.getCountCasses());
         model.addAttribute("usersCount", userService.getCountUsers());
-        model.addAttribute("ordersCount", ordersService.getCountOrders());
+        model.addAttribute("orderCount", ordersService.getCountOrders());
         model.addAttribute("firstTenContracts", contractService.getFirstTenContracts());
 
         LocalDate todaydate = LocalDate.now();
