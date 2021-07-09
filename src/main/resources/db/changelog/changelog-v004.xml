@@ -56,6 +56,9 @@
             <column name="phone_number" type="varchar(50)">
                 <constraints nullable="true" unique="false"/>
             </column>
+            <column name="online" type="datetime">
+                <constraints nullable="true" unique="false"/>
+            </column>
         </createTable>
 
 

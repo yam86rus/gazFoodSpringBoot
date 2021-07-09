@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,5 +52,22 @@ public class CassaServiceImpl implements CassaService {
     @Override
     public long getCountCasses() {
         return cassaRepository.count();
+    }
+
+    @Override
+    public void updateOnlineData(String str) {
+        //1.распарсить входящий стринг
+        String[] array = str.split("=");
+        //2. взять отуда имя компьютера
+        String pcName = array[0];
+        //3. если такое имя есть, то обновить строчку записав текущее время
+        Cassa newCassa = cassaRepository.findCassaByComputerName(pcName);
+        if (newCassa != null) {
+            System.out.println("Такая касса есть в БД");
+            System.out.println(newCassa);
+            newCassa.setOnline(LocalDateTime.now());
+            System.out.println(newCassa);
+            cassaRepository.save(newCassa);
+        }
     }
 }

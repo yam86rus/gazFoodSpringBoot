@@ -16,4 +16,6 @@ public interface CassaService {
     void deleteCassa(int id);
 
     long getCountCasses();
+
+    void updateOnlineData(String str);
 }

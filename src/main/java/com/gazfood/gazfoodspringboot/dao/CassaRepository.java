@@ -8,4 +8,7 @@ import java.util.List;
 public interface CassaRepository extends JpaRepository<Cassa, Integer> {
     long count();
     List<Cassa> findAllByOrderByCassaName();
+
+//    Cassa getCassaByComputerName(String pcName);
+    Cassa findCassaByComputerName(String pcName);
 }

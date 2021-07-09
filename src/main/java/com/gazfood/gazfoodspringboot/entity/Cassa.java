@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 @Entity
@@ -60,6 +61,10 @@ public class Cassa {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "online")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime online;
+
     public int getDaysToDeadLine(){
         LocalDate today = LocalDate.now();
         if (this.fnDeadlineData != null)
@@ -72,7 +77,7 @@ public class Cassa {
     public Cassa() {
     }
 
-    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, LocalDate fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber) {
+    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, LocalDate fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber, LocalDateTime online) {
         this.cassaName = cassaName;
         this.prefix = prefix;
         this.ammyAdmin = ammyAdmin;
@@ -88,6 +93,7 @@ public class Cassa {
         this.mobileNumber = mobileNumber;
         this.iccNumber = iccNumber;
         this.phoneNumber = phoneNumber;
+        this.online = online;
     }
 
     public int getId() {
@@ -216,5 +222,36 @@ public class Cassa {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public LocalDateTime getOnline() {
+        return online;
+    }
+
+    public void setOnline(LocalDateTime online) {
+        this.online = online;
+    }
+
+    @Override
+    public String toString() {
+        return "Cassa{" +
+                "id=" + id +
+                ", cassaName='" + cassaName + '\'' +
+                ", prefix='" + prefix + '\'' +
+                ", ammyAdmin='" + ammyAdmin + '\'' +
+                ", annyDesk='" + annyDesk + '\'' +
+                ", computerName='" + computerName + '\'' +
+                ", cassaAdres='" + cassaAdres + '\'' +
+                ", dataUpdate='" + dataUpdate + '\'' +
+                ", temp='" + temp + '\'' +
+                ", fnDeadlineData=" + fnDeadlineData +
+                ", kpp='" + kpp + '\'' +
+                ", rnkkt='" + rnkkt + '\'' +
+                ", fnNumber='" + fnNumber + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", iccNumber='" + iccNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", online=" + online +
+                '}';
     }
 }

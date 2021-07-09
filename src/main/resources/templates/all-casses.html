@@ -43,6 +43,7 @@
                             <table width="100%" id="sortable" class="table_sort">
                                 <thead>
                                 <tr>
+                                    <td>online</td>
                                     <td>Название кассы</td>
                                     <td>Prefix</td>
                                     <td>Ammy Admin</td>
@@ -55,6 +56,7 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="cassa : ${allCasses}">
+                                    <td th:text="${#temporals.format(cassa.online,'dd-MM-yyyy hh:mm:ss')}"></td>
                                     <td th:utext="${cassa.cassaName}"></td>
                                     <td class="content" th:utext="${cassa.prefix}"></td>
                                     <td class="content" th:utext="${cassa.ammyAdmin}"></td>
