@@ -35,7 +35,9 @@
                         <h3>Список кассовых узлов</h3>
                         <div>
                             <button onclick="window.location.href = 'addNewCassa'">Добавить</button>
-                            <button style="background: #0f9d58" onclick="window.location.href = 'casses/export/excel'">Сохранить .xlsx</button>
+                            <button style="background: #0f9d58" onclick="window.location.href = 'casses/export/excel'">
+                                Сохранить .xlsx
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -43,7 +45,9 @@
                             <table width="100%" id="sortable" class="table_sort">
                                 <thead>
                                 <tr>
+                                    <td></td>
                                     <td>online</td>
+                                    <!--                                    <td>Секунд прошло</td>-->
                                     <td>Название кассы</td>
                                     <td>Prefix</td>
                                     <td>Ammy Admin</td>
@@ -56,7 +60,18 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="cassa : ${allCasses}">
+
+                                    <td>
+                                        <!--                                        если в БД нет записи в столбике "online", то выводим серый кружок-->
+                                        <span title="Нет информации" th:if="${cassa.online} == null">&#9899;</span>
+                                        <!--                                        если в БД есть запись в столбике "online" и прошло меньше 30 секунд с последнего обращения на /api/cassaClient, то выводим зеленый кружок-->
+                                        <span th:if="${cassa.online} != null and ${cassa.getSecondsBetween()}<30">&#128994;</span>
+                                        <!--                                        если в БД есть запись в столбике "online" и прошло больше 30 секунд с последнего обращения на /api/cassaClient, то выводим красный кружок-->
+                                        <span th:if="${cassa.online} != null and ${cassa.getSecondsBetween()}>=30">&#128308;</span>
+                                    </td>
                                     <td th:text="${#temporals.format(cassa.online,'dd-MM-yyyy hh:mm:ss')}"></td>
+                                    <!-- Сколько секунд прошло-->
+                                    <!--                                    <td th:text="${cassa.getSecondsBetween()}"></td>-->
                                     <td th:utext="${cassa.cassaName}"></td>
                                     <td class="content" th:utext="${cassa.prefix}"></td>
                                     <td class="content" th:utext="${cassa.ammyAdmin}"></td>

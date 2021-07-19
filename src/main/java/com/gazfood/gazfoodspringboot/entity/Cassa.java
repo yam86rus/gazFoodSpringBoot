@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.concurrent.TimeUnit;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Table(name = "casses")
@@ -15,7 +15,7 @@ public class Cassa {
     @Column(name = "id")
     private int id;
 
-    @Column(name="cassa_name")
+    @Column(name = "cassa_name")
     private String cassaName;
 
     @Column(name = "prefix")
@@ -49,7 +49,7 @@ public class Cassa {
     @Column(name = "rnkkt")
     private String rnkkt;
 
-    @Column(name="fn_number")
+    @Column(name = "fn_number")
     private String fnNumber;
 
     @Column(name = "mob_number")
@@ -65,14 +65,25 @@ public class Cassa {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime online;
 
-    public int getDaysToDeadLine(){
+    public int getDaysToDeadLine() {
         LocalDate today = LocalDate.now();
         if (this.fnDeadlineData != null)
-        return (int) java.time.temporal.ChronoUnit.DAYS.between(today,this.fnDeadlineData);
-        else{
+            return (int) java.time.temporal.ChronoUnit.DAYS.between(today, this.fnDeadlineData);
+        else {
             return 0;
         }
     }
+
+
+    public int getSecondsBetween() {
+        LocalDateTime currentTime = LocalDateTime.now();
+        if (this.online != null) {
+            return (int) ChronoUnit.SECONDS.between(this.online, currentTime);
+        } else {
+            return 100;
+        }
+    }
+
 
     public Cassa() {
     }
