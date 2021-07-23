@@ -31,26 +31,39 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Список телефонов в кабинетах</h3>
-                        <button onclick="window.location.href = 'addNewPhoneNumberInCabinet'">Добавить</button>
+                        <div>
+                            <button onclick="window.location.href = 'addNewPhoneNumberInCabinet'">Добавить</button>
+                            <button style="background: #0f9d58" onclick="window.location.href = 'aho/export/excel'">
+                                Сохранить .xlsx
+                            </button>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table width="100%">
+                            <table width="100%" id="sortable" class="table_sort">
                                 <thead>
                                 <tr>
-                                    <td>Кабинет</td>
-                                    <td>Розетка</td>
-                                    <td>Номер</td>
+                                    <td>Номер телефона городской</td>
+                                    <td>Номер телефона газовый</td>
+                                    <td>№ кабинета</td>
+                                    <td>№ розетки</td>
+                                    <td>Место установки/отдел</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="phone : ${allPhoneNumberInCabinet}">
+                                    <td th:utext="${phone.phoneNumberCity}"></td>
+                                    <td th:utext="${phone.phoneNumber}"></td>
                                     <td th:utext="${phone.cabinet}"></td>
                                     <td th:utext="${phone.socket}"></td>
-                                    <td th:utext="${phone.phoneNumber}"></td>
-                                    <td><a th:href="@{'/updatePhoneNumberInCabinet'+'?phoneNumberInCabinetId='+${phone.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deletePhoneNumberInCabinet'+'?phoneNumberInCabinetId='+${phone.id}}">Удалить</a></td>
+                                    <td th:utext="${phone.department}"></td>
+                                    <td>
+                                        <a th:href="@{'/updatePhoneNumberInCabinet'+'?phoneNumberInCabinetId='+${phone.id}}">Изменить</a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{'/deletePhoneNumberInCabinet'+'?phoneNumberInCabinetId='+${phone.id}}">Удалить</a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -62,5 +75,6 @@
     </main>
 </div>
 </body>
+<script th:src="@{/js/all-cassa.js}"></script>
 </html>
 

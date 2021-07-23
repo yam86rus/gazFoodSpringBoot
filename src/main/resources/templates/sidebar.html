@@ -59,6 +59,12 @@
                     <span>Регистры</span>
                 </a>
             </li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_AHO')">
+                <a th:classappend="${#httpServletRequest.getRequestURI() == '/aho' ? 'active':''}" th:href="@{/aho}">
+                    <span class="las la-clipboard-list"></span>
+                    <span>АХО</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

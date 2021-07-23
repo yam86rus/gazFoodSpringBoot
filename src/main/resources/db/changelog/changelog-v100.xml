@@ -476,6 +476,9 @@
         <insert tableName="roles">
             <column name="name" value="ROLE_ORDER"/>
         </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_AHO"/>
+        </insert>
 
         <insert tableName="users">
             <column name="username" value="user"/>
@@ -531,6 +534,15 @@
             <column name="user_patronymic" value="zet"/>
             <column name="image_url" value="img/users/z.jpg"/>
         </insert>
+        <insert tableName="users">
+            <column name="username" value="Ivan"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="ivsaenkov@gaztorg.org.ru"/>
+            <column name="user_last_name" value="Саенков"/>
+            <column name="user_name" value="Иван"/>
+            <column name="user_patronymic" value="Васильевич"/>
+            <column name="image_url" value="img/users/no_avatar.png"/>
+        </insert>
 
         <insert tableName="users_roles">
             <column name="user_id" value="1"/>
@@ -552,80 +564,243 @@
             <column name="user_id" value="5"/>
             <column name="role_id" value="5"/>
         </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="7"/>
+            <column name="role_id" value="6"/>
+        </insert>
 
 
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="319"/>
-            <column name="socket" value="322.3"/>
-            <column name="phone_number" value="5-34-21"/>
+            <column name="cabinet" value="302"/>
+            <column name="socket" value="302.2"/>
+            <column name="phone_number" value="5-34-48"/>
+            <column name="phone_number_city" value="8-(346)-275-34-48"/>
+            <column name="department" value="Ведущий специалист по кадрам и социальной работе"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="320"/>
-            <column name="socket" value="323.1"/>
-            <column name="phone_number" value="5-34-23"/>
+            <column name="cabinet" value="303"/>
+            <column name="socket" value="303.2"/>
+            <column name="phone_number" value="5-35-19"/>
+            <column name="phone_number_city" value="8-(346)-275-35-19"/>
+            <column name="department" value="УКГ (глав/бух)"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="320"/>
-            <column name="socket" value="323.2"/>
-            <column name="phone_number" value="5-34-28"/>
+            <column name="cabinet" value="304"/>
+            <column name="socket" value="304.2"/>
+            <column name="phone_number" value="5-33-42"/>
+            <column name="phone_number_city" value="8-(346)-275-33-42"/>
+            <column name="department" value="Ведущий юрисконсульт"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="320"/>
-            <column name="socket" value="323.3"/>
-            <column name="phone_number" value="5-34-30"/>
+            <column name="cabinet" value="304"/>
+            <column name="socket" value="304.1"/>
+            <column name="phone_number" value="5-38-96"/>
+            <column name="phone_number_city" value="8-(346)-275-38-96"/>
+            <column name="department" value="Юрисконсульт 1/2 категории"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="320"/>
-            <column name="socket" value="323.4"/>
-            <column name="phone_number" value="5-34-32"/>
+            <column name="cabinet" value="305"/>
+            <column name="socket" value="305.2"/>
+            <column name="phone_number" value="5-35-47"/>
+            <column name="phone_number_city" value="8-(346)-275-35-47"/>
+            <column name="department" value="ИУС"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="320"/>
-            <column name="socket" value="323.5"/>
+            <column name="cabinet" value="306"/>
+            <column name="socket" value="306.5"/>
+            <column name="phone_number" value="5-35-37"/>
+            <column name="phone_number_city" value="8-(346)-275-35-37"/>
+            <column name="department" value="УКГ"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="306"/>
+            <column name="socket" value="306.4"/>
+            <column name="phone_number" value="5-38-04"/>
+            <column name="phone_number_city" value="8-(346)-275-38-04"/>
+            <column name="department" value="УКГ"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="306"/>
+            <column name="socket" value="306.6"/>
             <column name="phone_number" value="5-34-34"/>
+            <column name="phone_number_city" value="8-(346)-275-34-34"/>
+            <column name="department" value="УКГ"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="320"/>
-            <column name="socket" value="323.6"/>
-            <column name="phone_number" value="5-34-35"/>
+            <column name="cabinet" value="307"/>
+            <column name="socket" value="307.5"/>
+            <column name="phone_number" value="5-34-81"/>
+            <column name="phone_number_city" value="8-(346)-275-34-81"/>
+            <column name="department" value="СООПиТ (ведущий технолог)"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="321"/>
-            <column name="socket" value="324.1"/>
-            <column name="phone_number" value="5-34-40"/>
+            <column name="cabinet" value="307"/>
+            <column name="socket" value="307.2"/>
+            <column name="phone_number" value="5-38-10"/>
+            <column name="phone_number_city" value="8-(346)-275-38-10"/>
+            <column name="department" value="СООПиТ"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="321"/>
-            <column name="socket" value="324.2"/>
-            <column name="phone_number" value="5-34-45"/>
-        </insert>
-        <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="321"/>
-            <column name="socket" value="324.3"/>
-            <column name="phone_number" value="5-34-46"/>
-        </insert>
-        <insert tableName="phone_number_in_cabinet">
-            <column name="cabinet" value="321"/>
-            <column name="socket" value="324.5"/>
-            <column name="phone_number" value="5-34-54"/>
+            <column name="cabinet" value="308"/>
+            <column name="socket" value="308.3"/>
+            <column name="phone_number" value="5-38-27"/>
+            <column name="phone_number_city" value="8-(346)-275-38-27"/>
+            <column name="department" value="СООПиТ (начальник отдела)"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
             <column name="cabinet" value="309"/>
-            <column name="socket" value="309.1"/>
-            <column name="phone_number" value="5-38-09"/>
+            <column name="socket" value="309.2"/>
+            <column name="phone_number" value="5-34-98"/>
+            <column name="phone_number_city" value="8-(346)-275-34-98"/>
+            <column name="department" value="Участок по хранению и реализации материально-технических ресурсов (начальник участка)"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
             <column name="cabinet" value="309"/>
             <column name="socket" value="309.3"/>
             <column name="phone_number" value="5-39-91"/>
+            <column name="phone_number_city" value="8-(346)-275-39-91"/>
+            <column name="department" value="АТУ (начальник участка)"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="309"/>
+            <column name="socket" value="309.1"/>
+            <column name="phone_number" value="5-38-09"/>
+            <column name="phone_number_city" value="8-(346)-275-38-09"/>
+            <column name="department" value="Ведущий инженер по охране труда"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="319"/>
+            <column name="socket" value="322.3"/>
+            <column name="phone_number" value="5-34-21"/>
+            <column name="phone_number_city" value="8-(346)-275-34-21"/>
+            <column name="department" value="Советник руководителя по СКЗ"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.3"/>
+            <column name="phone_number" value="5-34-30"/>
+            <column name="phone_number_city" value="8-(346)-275-34-30"/>
+            <column name="department" value="Хозяйственный отдел инженер 1 категории по АХД"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.4"/>
+            <column name="phone_number" value="5-34-32"/>
+            <column name="phone_number_city" value="8-(346)-275-34-32"/>
+            <column name="department" value="Хозяйственный отдел инженер 1 категории по АХД"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.6"/>
+            <column name="phone_number" value="5-34-35"/>
+            <column name="phone_number_city" value="8-(346)-275-34-35"/>
+            <column name="department" value="Санитарный врач"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="320"/>
+            <column name="socket" value="323.1"/>
+            <column name="phone_number" value="5-34-23"/>
+            <column name="phone_number_city" value="8-(346)-275-34-23"/>
+            <column name="department" value="Санитарный врач"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.1"/>
+            <column name="phone_number" value="5-34-40"/>
+            <column name="phone_number_city" value="8-(346)-275-34-40"/>
+            <column name="department" value="ТЭП и ОТиЗ (Ведущий экономист /экономист 1 категории) "/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.2"/>
+            <column name="phone_number" value="5-34-45"/>
+            <column name="phone_number_city" value="8-(346)-275-34-45"/>
+            <column name="department" value="УКГ (рассчетный)"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.3"/>
+            <column name="phone_number" value="5-34-46"/>
+            <column name="phone_number_city" value="8-(346)-275-34-46"/>
+            <column name="department" value="ТЭП и ОТиЗ экономист по труду/инженер по организации и нормированию труда"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="321"/>
+            <column name="socket" value="324.5"/>
+            <column name="phone_number" value="5-34-54"/>
+            <column name="phone_number_city" value="8-(346)-275-34-54"/>
+            <column name="department" value="Начальник планово-экономического отдела "/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="322"/>
+            <column name="socket" value="325.1"/>
+            <column name="phone_number" value="5-38-76"/>
+            <column name="phone_number_city" value="8-(346)-275-38-76"/>
+            <column name="department" value="ТЭП и ОТиЗ"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="322"/>
+            <column name="socket" value="322.1.4"/>
+            <column name="phone_number" value="5-35-78"/>
+            <column name="phone_number_city" value="8-(346)-275-35-78"/>
+            <column name="department" value="ТЭП и ОТиЗ"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="323"/>
+            <column name="socket" value="326.4"/>
+            <column name="phone_number" value="5-35-74"/>
+            <column name="phone_number_city" value="8-(346)-275-35-74"/>
+            <column name="department" value="Секретарь руководителя"/>
         </insert>
         <insert tableName="phone_number_in_cabinet">
             <column name="cabinet" value="323"/>
             <column name="socket" value="326.1"/>
             <column name="phone_number" value="5-34-20"/>
+            <column name="phone_number_city" value="8-(346)-275-34-20"/>
+            <column name="department" value="Секретарь руководителя (факс)"/>
         </insert>
-
-
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="324"/>
+            <column name="socket" value="326.3"/>
+            <column name="phone_number" value="5-35-14"/>
+            <column name="phone_number_city" value="8-(346)-275-35-14"/>
+            <column name="department" value="Начальник управлению"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="325"/>
+            <column name="socket" value="328.4"/>
+            <column name="phone_number" value="5-35-90"/>
+            <column name="phone_number_city" value="8-(346)-275-35-90"/>
+            <column name="department" value="Заместитель начальника управления"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="326"/>
+            <column name="socket" value="б/н"/>
+            <column name="phone_number" value="5-34-92"/>
+            <column name="phone_number_city" value="8-(346)-275-34-92"/>
+            <column name="department" value="Участок по хранению и реализации материально-технических ресурсов (товароведы)"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="326"/>
+            <column name="socket" value="329.4"/>
+            <column name="phone_number" value="5-37-20"/>
+            <column name="phone_number_city" value="8-(346)-275-37-20"/>
+            <column name="department" value="СООПиТ (экономисты)"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="326"/>
+            <column name="socket" value="329.7.b"/>
+            <column name="phone_number" value="5-36-90"/>
+            <column name="phone_number_city" value="8-(346)-275-36-90"/>
+            <column name="department" value="Участок по хранению и реализации материально-технических ресурсов (ведущий товаровед)"/>
+        </insert>
+        <insert tableName="phone_number_in_cabinet">
+            <column name="cabinet" value="326"/>
+            <column name="socket" value="329.6"/>
+            <column name="phone_number" value="5-34-28"/>
+            <column name="phone_number_city" value="8-(346)-275-34-28"/>
+            <column name="department" value="СООПиТ Экономист/профком"/>
+        </insert>
 
     </changeSet>
 

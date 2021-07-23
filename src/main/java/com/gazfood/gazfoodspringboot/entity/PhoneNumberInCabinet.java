@@ -19,13 +19,37 @@ public class PhoneNumberInCabinet {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "phone_number_city")
+    private String phoneNumberCity;
+
+    @Column(name = "department")
+    private String department;
+
     public PhoneNumberInCabinet() {
     }
 
-    public PhoneNumberInCabinet(int cabinet, String socket, String phoneNumber) {
+    public PhoneNumberInCabinet(int cabinet, String socket, String phoneNumber, String phoneNumberCity, String department) {
         this.cabinet = cabinet;
         this.socket = socket;
         this.phoneNumber = phoneNumber;
+        this.phoneNumberCity = phoneNumberCity;
+        this.department = department;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getPhoneNumberCity() {
+        return phoneNumberCity;
+    }
+
+    public void setPhoneNumberCity(String phoneNumberCity) {
+        this.phoneNumberCity = phoneNumberCity;
     }
 
     public int getId() {

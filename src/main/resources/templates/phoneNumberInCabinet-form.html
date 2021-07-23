@@ -44,19 +44,25 @@
                         <td><input type="hidden" th:field="*{id}"></td>
                     </tr>
                     <tr>
-                        <td>Кабинет</td>
+                        <td>Номер телефона городской</td>
+                        <td><input type="text" th:field="*{phoneNumberCity}" ></td>
+                    </tr>
+                    <tr>
+                        <td>Номер телефона газовый</td>
+                        <td><input type="text" th:field="*{phoneNumber}" ></td>
+                    </tr>
+                    <tr>
+                        <td>№ Кабинета</td>
                         <td><input type="text" th:field="*{cabinet}"></td>
                     </tr>
                     <tr>
-                        <td>Розетка</td>
+                        <td>№ розетки</td>
                         <td><input type="text" th:field="*{socket}"></td>
                     </tr>
                     <tr>
-                        <td>Номер телефона</td>
-                        <td><input type="text" th:field="*{phoneNumber}" ></td>
+                        <td>Место установки/отдел</td>
+                        <td><input type="text" th:field="*{department}"></td>
                     </tr>
-
-
                     <tr>
                         <td th:if="${#httpServletRequest.getRequestURI() == '/updatePhoneNumberInCabinet'} or ${#httpServletRequest.getRequestURI() == '/addNewPhoneNumberInCabinet'}">
                             <button type="submit">Сохранить</button>
