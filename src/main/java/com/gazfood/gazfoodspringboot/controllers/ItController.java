@@ -1,6 +1,7 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
 import com.gazfood.gazfoodspringboot.entity.User;
+import com.gazfood.gazfoodspringboot.service.CafeteriaService;
 import com.gazfood.gazfoodspringboot.service.CassaService;
 import com.gazfood.gazfoodspringboot.service.PhoneNumberInCabinetService;
 import com.gazfood.gazfoodspringboot.service.UserService;
@@ -20,13 +21,16 @@ public class ItController {
     private CassaService cassaService;
 
     @Autowired
+    private CafeteriaService cafeteriaService;
+
+    @Autowired
     private PhoneNumberInCabinetService phoneNumberInCabinetService;
 
     @RequestMapping("/it")
     public String showAllIt(Model model, Principal principal){
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
-
+        model.addAttribute("cafeteriaCount", cafeteriaService.getCountCafeterias());
         model.addAttribute("cassaCount", cassaService.getCountCasses());
         model.addAttribute("phoneNumberInCabinet", phoneNumberInCabinetService.getCountPhoneNumberInCabinet());
         return "all-it";

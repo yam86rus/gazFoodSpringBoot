@@ -479,6 +479,9 @@
         <insert tableName="roles">
             <column name="name" value="ROLE_AHO"/>
         </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_BUFET"/>
+        </insert>
 
         <insert tableName="users">
             <column name="username" value="user"/>
@@ -543,6 +546,15 @@
             <column name="user_patronymic" value="Васильевич"/>
             <column name="image_url" value="img/users/no_avatar.png"/>
         </insert>
+        <insert tableName="users">
+            <column name="username" value="bufet"/>
+            <column name="password" value="$2y$12$nrAaxxbhsS/yZjFGXdzlzua4MOy6uaDjvWMdBniOlL0amOMQtafY2"/>
+            <column name="email" value="bufet@gaztorg.org.ru"/>
+            <column name="user_last_name" value="буфет"/>
+            <column name="user_name" value="буфет"/>
+            <column name="user_patronymic" value="буфет"/>
+            <column name="image_url" value="img/users/no_avatar.png"/>
+        </insert>
 
         <insert tableName="users_roles">
             <column name="user_id" value="1"/>
@@ -567,6 +579,10 @@
         <insert tableName="users_roles">
             <column name="user_id" value="7"/>
             <column name="role_id" value="6"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="8"/>
+            <column name="role_id" value="7"/>
         </insert>
 
 

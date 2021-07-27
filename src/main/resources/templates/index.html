@@ -33,7 +33,10 @@
 
     </header>
     <main>
-        <div class="cards">
+        <h3>Добро пожаловать на корпоративный портал ООО «Газпром питание»</h3>
+        <h4>филиал «Сургутское управление по организации общественного питания»</h4>
+        <div class="cards" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
+
 
             <!--    Подключаем card-employee-->
             <div th:replace="card-employees :: card-employees"></div>
@@ -47,14 +50,16 @@
             <!--    Подключаем card-users-->
             <div th:replace="card-users :: card-users"></div>
 
+
         </div>
 
         <div class="recent-grid">
-            <div class="projects">
+            <div class="projects" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <div class="card">
                     <div class="card-header">
                         <h3>Договора и оплаты</h3>
-                        <button onclick="window.location.href = 'contracts'">Посмотреть все<span class="las la-arrow-right"></span></button>
+                        <button onclick="window.location.href = 'contracts'">Посмотреть все<span
+                                class="las la-arrow-right"></span></button>
                     </div>
                     <div class="card-body">
                         <!--    Подключаем table-contracts-->
@@ -64,11 +69,11 @@
                 </div>
 
             </div>
-            <div class="customers">
+            <div class="customers" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <div class="card">
                     <div class="card-header">
                         <h3>Дни рождения сотрудников</h3>
-<!--                        <button>Посмотреть все <span class="las la-arrow-right"></span></button>-->
+                        <!--                        <button>Посмотреть все <span class="las la-arrow-right"></span></button>-->
                     </div>
                 </div>
                 <div class="card-body">
@@ -82,11 +87,11 @@
                             </div>
                         </div>
                         <div class="contact">
-<!--                            <span th:utext="${employee.birthday.toString().substring(8)} + ' -е ' + ${employee.birthday.getMonth()}"></span>-->
+                            <!--                            <span th:utext="${employee.birthday.toString().substring(8)} + ' -е ' + ${employee.birthday.getMonth()}"></span>-->
                             <span th:text="${#temporals.format(employee.birthday, 'dd MMMM', new java.util.Locale('ru'))}"></span>
-<!--                            <span class="las la-user-circle"></span>-->
-<!--                            <span class="las la-comment"></span>-->
-<!--                            <span class="las la-phone"></span>-->
+                            <!--                            <span class="las la-user-circle"></span>-->
+                            <!--                            <span class="las la-comment"></span>-->
+                            <!--                            <span class="las la-phone"></span>-->
                         </div>
                     </div>
 

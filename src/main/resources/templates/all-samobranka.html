@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
 </head>
 <body>
 <input type="checkbox" id="nav-toggle">
@@ -19,28 +20,24 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            IT
+            Скатерь самобранка 2.0
+            <span class="las la-user-circle"></span>
         </h2>
         <!--    Подключаем user-wrapper-->
         <div th:replace="user-wrapper :: user-wrapper"></div>
     </header>
     <main>
-        <div class="cards">
-            <!--    Подключаем card-casses-->
-            <div th:replace="card-casses :: card-casses"></div>
-
-            <!--    Подключаем card-phoneNumberInCabinet-->
-            <div th:replace="card-phoneNumberInCabinet :: card-phoneNumberInCabinet"></div>
-
-            <!--    Подключаем card-cafeterias-->
-            <div th:replace="card-cafaterias :: card-cafeterias"></div>
-
-
-
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Скатерь самобранка</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </main>
+
 </div>
 </body>
 </html>
-

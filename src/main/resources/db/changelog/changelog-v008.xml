@@ -41,6 +41,18 @@
             <column name="active" type="BIT(1)">
 <!--                <constraints nullable="true" unique="false"/>-->
             </column>
+            <column name="email" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="employee" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="anyDesk" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="amyAdmin" type="varchar(50)">
+                <constraints nullable="true" unique="false"/>
+            </column>
         </createTable>
 
 

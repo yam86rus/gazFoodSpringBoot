@@ -41,10 +41,22 @@ public class Cafeteria {
     @Column(name = "active")
     private boolean active;
 
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "employee")
+    private String employee;
+
+    @Column(name = "anyDesk")
+    private String anyDesk;
+
+    @Column(name = "amyAdmin")
+    private String amyAdmin;
+
     public Cafeteria() {
     }
 
-    public Cafeteria(String name, int timeOfDelivery, double stars, int price, String kitchen, String image, String products, String address, String phone, boolean active) {
+    public Cafeteria(String name, int timeOfDelivery, double stars, int price, String kitchen, String image, String products, String address, String phone, boolean active, String email, String employee, String anyDesk, String amyAdmin) {
         this.name = name;
         this.timeOfDelivery = timeOfDelivery;
         this.stars = stars;
@@ -55,6 +67,10 @@ public class Cafeteria {
         this.address = address;
         this.phone = phone;
         this.active = active;
+        this.email = email;
+        this.employee = employee;
+        this.anyDesk = anyDesk;
+        this.amyAdmin = amyAdmin;
     }
 
     public int getTimeOfDelivery() {
@@ -144,5 +160,37 @@ public class Cafeteria {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
+
+    public String getAnyDesk() {
+        return anyDesk;
+    }
+
+    public void setAnyDesk(String anyDesk) {
+        this.anyDesk = anyDesk;
+    }
+
+    public String getAmyAdmin() {
+        return amyAdmin;
+    }
+
+    public void setAmyAdmin(String amyAdmin) {
+        this.amyAdmin = amyAdmin;
     }
 }

@@ -17,7 +17,7 @@
                     <span>IT</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/employees' ? 'active':''}" th:href="@{/employees}">
                     <span class="las la-users"></span>
                     <span>Сотрудники</span>
@@ -47,7 +47,7 @@
                     <span>REST API</span>
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/directories' ? 'active':''}" th:href="@{/directories}">
                     <span class="las la-clipboard-list"></span>
                     <span>Справочники</span>
@@ -63,6 +63,18 @@
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/aho' ? 'active':''}" th:href="@{/aho}">
                     <span class="las la-clipboard-list"></span>
                     <span>АХО</span>
+                </a>
+            </li>
+            <li sec:authorize="hasAnyRole('ROLE_BUFET','ROLE_ADMIN','ROLE_IT')">
+                <a th:classappend="${#httpServletRequest.getRequestURI() == '/instructions' ? 'active':''}" th:href="@{/instructions}">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Инструкции</span>
+                </a>
+            </li>
+            <li sec:authorize="hasAnyRole('ROLE_BUFET','ROLE_ADMIN','ROLE_IT')">
+                <a th:classappend="${#httpServletRequest.getRequestURI() == '/samobranka' ? 'active':''}" th:href="@{/samobranka}">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Самобранка 2.0</span>
                 </a>
             </li>
         </ul>
