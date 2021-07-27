@@ -65,6 +65,9 @@ public class Cassa {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime online;
 
+    @Column(name = "license")
+    private String license;
+
     public int getDaysToDeadLine() {
         LocalDate today = LocalDate.now();
         if (this.fnDeadlineData != null)
@@ -88,7 +91,7 @@ public class Cassa {
     public Cassa() {
     }
 
-    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, LocalDate fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber, LocalDateTime online) {
+    public Cassa(String cassaName, String prefix, String ammyAdmin, String annyDesk, String computerName, String cassaAdres, String dataUpdate, String temp, LocalDate fnDeadlineData, String kpp, String rnkkt, String fnNumber, String mobileNumber, String iccNumber, String phoneNumber, LocalDateTime online, String license) {
         this.cassaName = cassaName;
         this.prefix = prefix;
         this.ammyAdmin = ammyAdmin;
@@ -105,6 +108,7 @@ public class Cassa {
         this.iccNumber = iccNumber;
         this.phoneNumber = phoneNumber;
         this.online = online;
+        this.license = license;
     }
 
     public int getId() {
@@ -243,6 +247,15 @@ public class Cassa {
         this.online = online;
     }
 
+
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
     @Override
     public String toString() {
         return "Cassa{" +
@@ -263,6 +276,7 @@ public class Cassa {
                 ", iccNumber='" + iccNumber + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", online=" + online +
+                ", license='" + license + '\'' +
                 '}';
     }
 }

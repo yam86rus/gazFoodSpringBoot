@@ -51,7 +51,8 @@ public class CassaExcelExporter {
         createCell(row, 12, "Мобильный номер", style);
         createCell(row, 13, "ICC", style);
         createCell(row, 14, "Газовый", style);
-        createCell(row, 15, "Для заметок", style);
+        createCell(row, 15, "Лицензия", style);
+        createCell(row, 16, "Для заметок", style);
 
     }
 
@@ -110,7 +111,7 @@ public class CassaExcelExporter {
             if (cassa.getDataUpdate() != null) {
                 createCell(row, columnCount++, cassa.getDataUpdate(), style);
             } else {
-                createCell(row, columnCount++, "нет дынных", style);
+                createCell(row, columnCount++, "нет данных", style);
             }
 
             createCell(row, columnCount++, cassa.getKpp(), style);
@@ -119,6 +120,11 @@ public class CassaExcelExporter {
             createCell(row, columnCount++, cassa.getMobileNumber(), style);
             createCell(row, columnCount++, cassa.getIccNumber(), style);
             createCell(row, columnCount++, cassa.getPhoneNumber(), style);
+            if (cassa.getLicense() != null) {
+                createCell(row, columnCount++, cassa.getLicense(), style);
+            } else {
+                createCell(row, columnCount++, "нет данных", style);
+            }
             createCell(row, columnCount++, cassa.getTemp(), style);
 
         }

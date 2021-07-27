@@ -108,6 +108,10 @@
                         <td><input type="text" th:field="*{phoneNumber}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
                     </tr>
                     <tr>
+                        <td>Лицензия</td>
+                        <td><input type="text" th:field="*{license}" th:disabled="${#httpServletRequest.getRequestURI() == '/detailsCassa'}"></td>
+                    </tr>
+                    <tr>
                         <td th:if="${#httpServletRequest.getRequestURI() == '/updateCassa'} or ${#httpServletRequest.getRequestURI() == '/addNewCassa'}">
                             <button type="submit">Сохранить</button>
                         </td>

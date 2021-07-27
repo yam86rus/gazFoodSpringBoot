@@ -59,6 +59,9 @@
             <column name="online" type="datetime">
                 <constraints nullable="true" unique="false"/>
             </column>
+            <column name="license" type="varchar(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
         </createTable>
 
 
