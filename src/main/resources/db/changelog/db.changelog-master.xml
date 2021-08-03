@@ -32,6 +32,7 @@
     <include file="db/changelog/changelog-v021.xml"></include> <!-- Справочник Users (создание) -->
     <include file="db/changelog/changelog-v022.xml"></include> <!-- Справочник users_roles (создание) -->
     <include file="db/changelog/changelog-v023.xml"></include> <!-- Справочник Phone number in Cabinet (создание) -->
+    <include file="db/changelog/changelog-v024.xml"></include> <!-- Справочник Recept (создание) -->
 
     <!-- Заполняем тестовыми данными)-->
     <include file="db/changelog/changelog-v100.xml"></include>

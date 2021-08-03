@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Газпром питание</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Все рецептуры
+        </h2>
+        <!--    Подключаем user-wrapper-->
+        <div th:replace="user-wrapper :: user-wrapper"></div>
+    </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Список Рецептур</h3>
+                        <button onclick="window.location.href = 'addNewRecept'">Добавить</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <td>Код наименования номенклатуры в 1С</td>
+                                    <td>Нормативный документ</td>
+                                    <td>Наименование</td>
+                                    <td>Выход блюда</td>
+                                    <td>Цена по себестоимости, руб</td>
+                                    <td>Цена продажная, руб</td>
+                                    <td colspan="2">Операции</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="recept : ${allRecept}">
+                                    <td th:utext="${recept.code}"></td>
+                                    <td th:utext="${recept.document}"></td>
+                                    <td th:utext="${recept.name}"></td>
+                                    <td th:utext="${recept.exit}"></td>
+                                    <td th:utext="${recept.priceSebestoimost}"></td>
+                                    <td th:utext="${recept.priceProdaja}"></td>
+                                    <td><a th:href="@{'/updateRecept'+'?receptId='+${recept.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deleteRecept'+'?receptId='+${recept.id}}">Удалить</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
+
