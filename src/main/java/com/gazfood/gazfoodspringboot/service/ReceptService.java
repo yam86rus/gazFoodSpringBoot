@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ReceptService {
     List<Recept> getAllRecept();
+
     long getCountRecept();
 
     void saveRecept(Recept recept);

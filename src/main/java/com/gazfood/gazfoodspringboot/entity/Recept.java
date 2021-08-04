@@ -10,34 +10,35 @@ public class Recept {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "code")
+    @Column(name = "recept_code")
     private String code;
 
-    @Column(name = "document")
+    @Column(name = "recept_document")
     private String document;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "recept_name")
+    private String receptName;
 
-    @Column(name = "exit")
+    @Column(name = "recept_exit")
     private String exit;
 
     @Column(name = "price_sebestoimost")
     private double priceSebestoimost;
 
+
     @Column(name = "price_prodaja")
     private double priceProdaja;
 
-    public Recept(String code, String document, String name, String exit, double priceSebestoimost, double priceProdaja) {
+    public Recept() {
+    }
+
+    public Recept(String code, String document, String receptName, String exit, double priceSebestoimost, double priceProdaja) {
         this.code = code;
         this.document = document;
-        this.name = name;
+        this.receptName = receptName;
         this.exit = exit;
         this.priceSebestoimost = priceSebestoimost;
         this.priceProdaja = priceProdaja;
-    }
-
-    public Recept() {
     }
 
     public int getId() {
@@ -64,12 +65,12 @@ public class Recept {
         this.document = document;
     }
 
-    public String getName() {
-        return name;
+    public String getReceptName() {
+        return receptName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setReceptName(String receptName) {
+        this.receptName = receptName;
     }
 
     public String getExit() {
@@ -94,18 +95,5 @@ public class Recept {
 
     public void setPriceProdaja(double priceProdaja) {
         this.priceProdaja = priceProdaja;
-    }
-
-    @Override
-    public String toString() {
-        return "Recept{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", document='" + document + '\'' +
-                ", name='" + name + '\'' +
-                ", exit='" + exit + '\'' +
-                ", priceSebestoimost=" + priceSebestoimost +
-                ", priceProdaja=" + priceProdaja +
-                '}';
     }
 }

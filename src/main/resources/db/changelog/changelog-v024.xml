@@ -11,23 +11,23 @@
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="code" type="varchar(100)">
+            <column name="recept_code" type="varchar(100)">
                 <constraints nullable="false" unique="false"/>
             </column>
-            <column name="document" type="varchar(100)">
+            <column name="recept_document" type="varchar(100)">
                 <constraints nullable="true" unique="false"/>
             </column>
-            <column name="name" type="varchar(300)">
-                <constraints nullable="false" unique="false"/>
+            <column name="recept_name" type="varchar(300)">
+                <constraints nullable="true" unique="false"/>
             </column>
-            <column name="exit" type="varchar(100)">
-                <constraints nullable="false" unique="false"/>
+            <column name="recept_exit" type="varchar(100)">
+                <constraints nullable="true" unique="false"/>
             </column>
             <column name="price_sebestoimost" type="DOUBLE">
-                <constraints nullable="false" unique="false"/>
+                <constraints nullable="true" unique="false"/>
             </column>
             <column name="price_prodaja" type="DOUBLE">
-                <constraints nullable="false" unique="false"/>
+                <constraints nullable="true" unique="false"/>
             </column>
 
         </createTable>
