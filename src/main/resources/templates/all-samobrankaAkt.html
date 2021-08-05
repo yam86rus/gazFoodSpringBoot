@@ -7,7 +7,6 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
 </head>
 <body>
 <input type="checkbox" id="nav-toggle">
@@ -20,8 +19,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Скатерь самобранка 2.0
-            <span class="las la-user-circle"></span>
+            Самобранка "Сервис обработки актов реализации из 1С Рарус"
         </h2>
         <!--    Подключаем user-wrapper-->
         <div th:replace="user-wrapper :: user-wrapper"></div>
@@ -31,21 +29,19 @@
             <div class="projects">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Скатерь самобранка</h3>
+                        <h3>Меню</h3>
+                        <button onclick="window.location.href = 'checkAkt'">Обработать Акты</button>
+
                     </div>
                 </div>
+                <p>Необходимо в папку на диске C:/demo/ переместить необходимые для обработки акты</p>
+                <p>Далее нажать на кнопку "Обработать Акты"</p>
+                <p>После этого будут обработаны все акты, находящиеся в папке С:/demo и в столбик "цены" будет проставлена стоимость указанная в рецептуре</p>
             </div>
         </div>
-        <div class="cards">
-            <!--    Подключаем card-recepts-->
-            <div th:replace="card-recepts :: card-recepts"></div>
-            <!--    Подключаем card-service-samobrankaAkt-->
-            <div th:replace="card-service-samobrankaAkt :: card-service-samobrankaAkt"></div>
-
-
-        </div>
     </main>
-
 </div>
 </body>
+<script th:src="@{/js/all-cassa.js}"></script>
 </html>
+

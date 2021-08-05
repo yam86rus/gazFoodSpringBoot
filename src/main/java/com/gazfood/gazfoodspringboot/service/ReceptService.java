@@ -2,6 +2,8 @@ package com.gazfood.gazfoodspringboot.service;
 
 import com.gazfood.gazfoodspringboot.entity.Recept;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface ReceptService {
@@ -14,6 +16,8 @@ public interface ReceptService {
     Recept getRecept(int id);
 
     void deleteRecept(int id);
+
+    void checkAct() throws IOException;
 
 
 

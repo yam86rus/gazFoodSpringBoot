@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
@@ -73,6 +74,22 @@ public class SamobrankaController {
     public String deteleRecept(@RequestParam("receptId") int id) {
         receptService.deleteRecept(id);
         return "redirect:recept";
+    }
+
+    @RequestMapping("/samobrankaAkt")
+    public String obrabotkaAktov(Model model,Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
+        model.addAttribute("receptService",receptService);
+        return "all-samobrankaAkt";
+    }
+
+    @RequestMapping("/checkAkt")
+    public String checkAct(Model model,Principal principal) throws IOException {
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
+        receptService.checkAct();
+        return "redirect:samobrankaAkt";
     }
 
 
