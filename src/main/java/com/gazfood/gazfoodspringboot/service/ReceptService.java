@@ -17,7 +17,7 @@ public interface ReceptService {
 
     void deleteRecept(int id);
 
-    void checkAct() throws IOException;
+    void checkAct();
 
 
 

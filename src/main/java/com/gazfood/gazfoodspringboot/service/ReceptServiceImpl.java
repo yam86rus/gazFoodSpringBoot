@@ -6,16 +6,18 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.awt.SystemColor.text;
 
 @Service
 public class ReceptServiceImpl implements ReceptService {
@@ -42,7 +44,7 @@ public class ReceptServiceImpl implements ReceptService {
     public Recept getRecept(int id) {
         Recept recept = null;
         Optional<Recept> optional = receptRepository.findById(id);
-        if(optional.isPresent()){
+        if (optional.isPresent()) {
             recept = optional.get();
         }
         return recept;
@@ -54,169 +56,259 @@ public class ReceptServiceImpl implements ReceptService {
     }
 
     @Override
-    public void checkAct() throws IOException {
-        System.out.println("Начата обработка актов");
-        //Данные для хранения номера столбца и номера строки ячейки со значением "Код"
-        String codeValue = "Код";
-        int codeColumnIndex = 0;
-        int codeRowIndex = 0;
+    public void checkAct() {
+        // Определяем каталог в котором лежат акты
+        String myPath = "C:/demo/";
+        File filePath = new File(myPath);
 
-        //Данные для хранения номера столбца и номера строки ячейки со значением "наименование"
-        String nameValue = "наименование";
-        int nameColumnIndex = 0;
-        int nameRowIndex = 0;
+        // Получаем список всех файлов в этом каталоге
+        List<File> list1 = Arrays.stream(filePath.listFiles()).collect(Collectors.toList());
 
-        //Данные для хранения номера столбца и номера строки ячейки со значением "по учётным ценам производителя"
-        String priceNameValue = "по учётным ценам производителя";
-        int priceNameColumnIndex = 0;
-        int priceNameRowIndex = 0;
+        // List для хранения только xls файлов
+        List<File> list2 = new ArrayList<>();
 
-        //Данные для хранения номера столбца и номера строки ячейки со значением "цена руб. коп."
-        String priceRubValue = "цена руб. коп.";
-        int priceRubColumnIndex = 0;
-        int priceRubRowIndex = 0;
+        // Проверяем расширение файлов и заполняем
+        for (int i = 0; i < list1.size(); i++) {
+            String fileName = list1.get(i).getName();
+            if (fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length()).equals("xls")) {
+                list2.add(list1.get(i));
+            } else {
+                System.out.println("не xls");
+            }
+        }
 
-        //Данные для хранения номера столбца и номера строки ячейки со значением "Номер по порядку"
-        String numbersName = "Номер по порядку";
-        int numbersNameColumnIndex = 0;
-        int numbersNameRowIndex = 0;
+        // Сюда будем записывать данные для отчета о выполненных операциях
+        List<String> reportList = new ArrayList<>();
 
-        // Начало и конец строчек для поиска
-        int startRow = 0;
-        int startRowValue = 0;
-        int endRow = 0;
-        String endRowName = "Итого собственная продукция:";
+        // Для каждого файла осуществляем обработку Акта
+        for (File fileName : list2) {
 
-        File file = new File("C:/demo/Акт о реализации.xls");
 
-        // Читаем xls файл
-        FileInputStream inputStream = new FileInputStream(file);
 
-        // Получаем workbook
-        HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
+            System.out.println("Начата обработка актов для файла " + fileName.getName());
+            //Данные для хранения номера столбца и номера строки ячейки со значением "Код"
+            String codeValue = "Код";
+            int codeColumnIndex = 0;
+            int codeRowIndex = 0;
 
-        // Получаем первую закладку
-        HSSFSheet sheet = workbook.getSheetAt(0);
+            //Данные для хранения номера столбца и номера строки ячейки со значением "наименование"
+            String nameValue = "наименование";
+            int nameColumnIndex = 0;
+            int nameRowIndex = 0;
 
-        // Проходим по всем строкам
-        Iterator<Row> rowIterator = sheet.iterator();
+            //Данные для хранения номера столбца и номера строки ячейки со значением "по учётным ценам производителя"
+            String priceNameValue = "по учётным ценам производителя";
+            int priceNameColumnIndex = 0;
+            int priceNameRowIndex = 0;
 
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            // Проходим по всем ячейкам в строке
-            Iterator<Cell> cellIterator = row.cellIterator();
+            //Данные для хранения номера столбца и номера строки ячейки со значением "цена руб. коп."
+            String priceRubValue = "цена руб. коп.";
+            int priceRubColumnIndex = 0;
+            int priceRubRowIndex = 0;
 
-            while (cellIterator.hasNext()) {
-                Cell cell = cellIterator.next();
-                CellType cellType = cell.getCellType();
+            //Данные для хранения номера столбца и номера строки ячейки со значением "Номер по порядку"
+            String numbersName = "Номер по порядку";
+            int numbersNameColumnIndex = 0;
+            int numbersNameRowIndex = 0;
 
-                switch (cellType) {
-                    case _NONE:
-                        System.out.print("");
-                        System.out.print("\t");
-                        break;
-                    case BOOLEAN:
-                        System.out.print(cell.getBooleanCellValue());
-                        System.out.print("\t");
-                        break;
-                    case BLANK:
-                        System.out.print("");
-                        System.out.print("\t");
-                        break;
-                    case FORMULA:
-                        // Если есть формула
+            // Начало и конец строчек для поиска
+            int startRow = 0;
+            int startRowValue = 0;
+            int endRow = 0;
+            String endRowName = "Итого собственная продукция:";
+
+
+            File file = new File(fileName.getPath());
+
+            // Читаем xls файл
+            FileInputStream inputStream = null;
+            try {
+                inputStream = new FileInputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            // Получаем workbook
+            HSSFWorkbook workbook = null;
+            try {
+                workbook = new HSSFWorkbook(inputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // Получаем первую закладку
+            HSSFSheet sheet = workbook.getSheetAt(0);
+
+            // Проходим по всем строкам
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                // Проходим по всем ячейкам в строке
+                Iterator<Cell> cellIterator = row.cellIterator();
+
+                while (cellIterator.hasNext()) {
+                    Cell cell = cellIterator.next();
+                    CellType cellType = cell.getCellType();
+
+                    switch (cellType) {
+                        case _NONE:
+//                            System.out.print("");
+//                            System.out.print("\t");
+                            break;
+                        case BOOLEAN:
+//                            System.out.print(cell.getBooleanCellValue());
+//                            System.out.print("\t");
+                            break;
+                        case BLANK:
+//                            System.out.print("");
+//                            System.out.print("\t");
+                            break;
+                        case FORMULA:
+                            // Если есть формула
 //                        System.out.print(cell.getCellFormula());
-                        System.out.print("\t");
+//                            System.out.print("\t");
 
-                        FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
-                        // Печать значения из формулы
-                        System.out.print(evaluator.evaluate(cell).getNumberValue());
-                        break;
+//                            FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+                            // Печать значения из формулы
+//                            System.out.print(evaluator.evaluate(cell).getNumberValue());
+                            break;
 
-                    case STRING:
-                        System.out.print(cell.getStringCellValue());
-                        System.out.print("\t");
-                        // Множественные проверки
-                        // если первым идет столбик "наименование", а за ним столбик "Код", то сохраняем их координаты.
-                        if (cell.getStringCellValue().equals(nameValue)) {
-                            nameColumnIndex = cell.getColumnIndex();
-                            nameRowIndex = cell.getRowIndex();
+                        case STRING:
+//                            System.out.print(cell.getStringCellValue());
+//                            System.out.print("\t");
+                            // Множественные проверки
+                            // если первым идет столбик "наименование", а за ним столбик "Код", то сохраняем их координаты.
+                            if (cell.getStringCellValue().equals(nameValue)) {
+                                nameColumnIndex = cell.getColumnIndex();
+                                nameRowIndex = cell.getRowIndex();
 
-                        }
-                        if (cell.getStringCellValue().equals(codeValue) & cell.getRowIndex() == nameRowIndex) {
-                            codeColumnIndex = cell.getColumnIndex();
-                            codeRowIndex = cell.getRowIndex();
+                            }
+                            if (cell.getStringCellValue().equals(codeValue) & cell.getRowIndex() == nameRowIndex) {
+                                codeColumnIndex = cell.getColumnIndex();
+                                codeRowIndex = cell.getRowIndex();
 
-                        }
+                            }
 
-                        if (cell.getStringCellValue().equals(priceNameValue) & cell.getRowIndex() == codeRowIndex) {
-                            priceNameColumnIndex = cell.getColumnIndex();
-                            priceNameRowIndex = cell.getRowIndex();
-                        }
+                            if (cell.getStringCellValue().equals(priceNameValue) & cell.getRowIndex() == codeRowIndex) {
+                                priceNameColumnIndex = cell.getColumnIndex();
+                                priceNameRowIndex = cell.getRowIndex();
+                            }
 
-                        if (cell.getStringCellValue().equals(priceRubValue) & cell.getColumnIndex() == priceNameColumnIndex) {
-                            priceRubColumnIndex = cell.getColumnIndex();
-                            priceRubRowIndex = cell.getRowIndex();
-                        }
+                            if (cell.getStringCellValue().equals(priceRubValue) & cell.getColumnIndex() == priceNameColumnIndex) {
+                                priceRubColumnIndex = cell.getColumnIndex();
+                                priceRubRowIndex = cell.getRowIndex();
+                            }
 
-                        // ищем "Номер по порядку"
-                        if (cell.getStringCellValue().equals(numbersName)) {
-                            numbersNameColumnIndex = cell.getColumnIndex();
-                            numbersNameRowIndex = cell.getRowIndex();
-                        }
+                            // ищем "Номер по порядку"
+                            if (cell.getStringCellValue().equals(numbersName)) {
+                                numbersNameColumnIndex = cell.getColumnIndex();
+                                numbersNameRowIndex = cell.getRowIndex();
+                            }
 
-                        // ищем "Итого собственная продукция:" и конец
-                        if (cell.getStringCellValue().equals(endRowName)) {
-                            endRow = cell.getRowIndex()+1;
-                        }
+                            // ищем "Итого собственная продукция:" и конец
+                            if (cell.getStringCellValue().equals(endRowName)) {
+                                endRow = cell.getRowIndex() + 1;
+                            }
 
 
 //
-                        break;
-                    case NUMERIC:
-                        System.out.print(cell.getNumericCellValue());
-                        System.out.print("\t");
+                            break;
+                        case NUMERIC:
+//                            System.out.print(cell.getNumericCellValue());
+//                            System.out.print("\t");
 
-                        // ищем старт
-                        if(cell.getColumnIndex()==numbersNameColumnIndex & startRow==0) {
-                            startRow = cell.getRowIndex()+1;
-                        }
+                            // ищем старт
+                            if (cell.getColumnIndex() == numbersNameColumnIndex & startRow == 0) {
+                                startRow = cell.getRowIndex() + 1;
+                            }
 
-                        break;
-                    case ERROR:
-                        System.out.print("!");
-                        System.out.print("\t");
-                        break;
+                            break;
+                        case ERROR:
+//                            System.out.print("!");
+//                            System.out.print("\t");
+                            break;
+                    }
+
                 }
-
+//                System.out.println("");
             }
-            System.out.println("");
-        }
 
-        System.out.println(" *** **** ***");
-        System.out.println(nameValue + " column: " + nameColumnIndex + " row: " + nameRowIndex);
-        System.out.println(codeValue + " column: " + codeColumnIndex + " row: " + codeRowIndex);
-        System.out.println(priceNameValue + " column: " + priceNameColumnIndex + " row: " + priceNameRowIndex);
-        System.out.println(priceRubValue + " column: " + priceRubColumnIndex + " row: " + priceRubRowIndex);
-        System.out.println(numbersName + " column: " + numbersNameColumnIndex + " row: " + numbersNameRowIndex);
-        System.out.println("startRow: " + startRow);
-        System.out.println("endRow: " + endRow);
-        System.out.println("///////////////////////");
-        Cell cell = null;
-        for (int i=startRow; i<endRow-1;i++){
+            Cell cell = null;
+            for (int i = startRow; i < endRow - 1; i++) {
 //            System.out.println(sheet.getRow(i).getCell(priceNameColumnIndex));
-            cell = sheet.getRow(i).getCell(priceNameColumnIndex);
-            cell.setCellValue(123);
+                cell = sheet.getRow(i).getCell(priceNameColumnIndex);
+                cell.setCellValue(123);
+            }
+
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // Записываем файл
+            FileOutputStream out = null;
+            try {
+                out = new FileOutputStream(file);
+            } catch (FileNotFoundException e) {
+                reportList.add(fileName.getName() + " ошибка " + e);
+            }
+
+            try {
+                workbook.write(out);
+                reportList.add(fileName.getName() + " успешно обработан");
+            } catch (IOException e) {
+                reportList.add(fileName.getName() + " ошибка " + e);
+            }
+
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Закончена обработка актов " + fileName.getName());
         }
 
-        inputStream.close();
+        System.out.println(reportList);
 
-        // Записываем файл
-        FileOutputStream out = new FileOutputStream(file);
-        workbook.write(out);
-        out.close();
-        System.out.println("Закончена обработка актов");
+        File fileReporTxt = new File(myPath + "Отчет.txt");
+
+        // Создание файла
+        try {
+            fileReporTxt.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Создание объекта FileWriter
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(fileReporTxt);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Запись содержимого в файл
+        for (String str: reportList){
+            try {
+                writer.write(str +"\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        try {
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
-
-
 }

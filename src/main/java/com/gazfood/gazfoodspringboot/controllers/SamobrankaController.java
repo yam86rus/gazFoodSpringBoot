@@ -85,7 +85,7 @@ public class SamobrankaController {
     }
 
     @RequestMapping("/checkAkt")
-    public String checkAct(Model model,Principal principal) throws IOException {
+    public String checkAct(Model model,Principal principal)  {
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
         receptService.checkAct();

@@ -80,7 +80,7 @@
 
                     <div class="customer" th:each="employee : ${allBirthdaysInMonth}">
                         <div class="info">
-                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">
+<!--                            <img th:src="@{img/img-2.jpg}" width="40px" height="40px" alt="">-->
                             <div>
                                 <h4 th:utext="${employee.surname} +' '+ ${employee.name}"></h4>
                                 <small th:utext="${employee.position}"></small>
