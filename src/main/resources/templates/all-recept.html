@@ -48,7 +48,7 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="recept : ${allRecept}">
-                                    <td th:utext="${recept.code}"></td>
+                                    <td class="content" th:utext="${recept.code}"></td>
                                     <td th:utext="${recept.document}"></td>
                                     <td th:utext="${recept.receptName}"></td>
                                     <td th:utext="${recept.exit}"></td>

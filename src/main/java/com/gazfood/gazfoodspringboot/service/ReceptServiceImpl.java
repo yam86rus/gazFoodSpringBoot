@@ -10,14 +10,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.nio.channels.Channel;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.awt.SystemColor.text;
 
 @Service
 public class ReceptServiceImpl implements ReceptService {
@@ -67,22 +64,25 @@ public class ReceptServiceImpl implements ReceptService {
         // List для хранения только xls файлов
         List<File> list2 = new ArrayList<>();
 
-        // Проверяем расширение файлов и заполняем
-        for (int i = 0; i < list1.size(); i++) {
-            String fileName = list1.get(i).getName();
-            if (fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length()).equals("xls")) {
-                list2.add(list1.get(i));
-            } else {
-                System.out.println("не xls");
-            }
-        }
-
         // Сюда будем записывать данные для отчета о выполненных операциях
         List<String> reportList = new ArrayList<>();
 
+        // Проверяем расширение файлов, доступность на запись и заполняем
+        for (int i = 0; i < list1.size(); i++) {
+            String fileName = list1.get(i).getName();
+            if (fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length()).equals("xls") & isFileClosed(list1.get(i))) {
+                list2.add(list1.get(i));
+            } else {
+                reportList.add("Файл " + fileName + " открыт пользователем и не может быть обработан.");
+            }
+            if (!fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length()).equals("xls")) {
+                reportList.add("У файла " + fileName + " расширение не .xls");
+            }
+        }
+
+
         // Для каждого файла осуществляем обработку Акта
         for (File fileName : list2) {
-
 
 
             System.out.println("Начата обработка актов для файла " + fileName.getName());
@@ -238,7 +238,16 @@ public class ReceptServiceImpl implements ReceptService {
             for (int i = startRow; i < endRow - 1; i++) {
 //            System.out.println(sheet.getRow(i).getCell(priceNameColumnIndex));
                 cell = sheet.getRow(i).getCell(priceNameColumnIndex);
-                cell.setCellValue(123);
+
+                double result;
+
+                if (findFirstByCode(sheet.getRow(i).getCell(codeColumnIndex).getStringCellValue()) !=null) {
+                    result = findFirstByCode(sheet.getRow(i).getCell(codeColumnIndex).getStringCellValue()).getPriceSebestoimost();
+                } else {
+                    result = 0.00;
+                }
+
+                cell.setCellValue(result);
             }
 
             try {
@@ -290,9 +299,9 @@ public class ReceptServiceImpl implements ReceptService {
         }
 
         // Запись содержимого в файл
-        for (String str: reportList){
+        for (String str : reportList) {
             try {
-                writer.write(str +"\n");
+                writer.write(str + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -311,4 +320,38 @@ public class ReceptServiceImpl implements ReceptService {
 
 
     }
+
+    @Override
+    public boolean isFileClosed(File file) {
+        boolean closed;
+        Channel channel = null;
+        try {
+            channel = new RandomAccessFile(file, "rw").getChannel();
+            closed = true;
+        } catch (Exception ex) {
+            closed = false;
+        } finally {
+            if (channel != null) {
+                try {
+                    channel.close();
+                } catch (IOException ex) {
+                    // exception handling
+                }
+            }
+        }
+        return closed;
+    }
+
+    @Override
+    public List<Recept> findAllByCode(String recept_code) {
+        return receptRepository.findAllByCode(recept_code);
+    }
+
+    @Override
+    public Recept findFirstByCode(String recept_code) {
+        return receptRepository.findFirstByCode(recept_code);
+    }
+
 }
+
+
