@@ -1,18 +1,26 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
+import com.gazfood.gazfoodspringboot.entity.PhoneNumberInCabinet;
 import com.gazfood.gazfoodspringboot.entity.Recept;
 import com.gazfood.gazfoodspringboot.entity.User;
+import com.gazfood.gazfoodspringboot.exports.PhoneNumberInCabinetExcelExporter;
+import com.gazfood.gazfoodspringboot.exports.ReceptExcelExporter;
 import com.gazfood.gazfoodspringboot.service.ReceptService;
 import com.gazfood.gazfoodspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -90,6 +98,22 @@ public class SamobrankaController {
         model.addAttribute("user", user);
         receptService.checkAct();
         return "redirect:samobrankaAkt";
+    }
+
+    @GetMapping("samobranka/export/excel")
+    private void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=PhoneNumber_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Recept> ListRecept = receptService.getAllRecept();
+        ReceptExcelExporter receptExcelExporter = new ReceptExcelExporter(ListRecept);
+        receptExcelExporter.export(response);
+
     }
 
 
