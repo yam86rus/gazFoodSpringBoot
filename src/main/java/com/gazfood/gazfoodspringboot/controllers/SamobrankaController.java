@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.security.Principal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -107,7 +108,7 @@ public class SamobrankaController {
         String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=PhoneNumber_" + currentDateTime + ".xlsx";
+        String headerValue = "attachment; filename=Recept_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
         List<Recept> ListRecept = receptService.getAllRecept();

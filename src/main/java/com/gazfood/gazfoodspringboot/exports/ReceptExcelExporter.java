@@ -37,6 +37,7 @@ public class ReceptExcelExporter {
         font.setFontHeight(16);
         style.setFont(font);
 
+
         createCell(row, 0, "Код наименования номенклатуры в 1С", style);
         createCell(row, 1, "Нормативный документ", style);
         createCell(row, 2, "Наименование", style);
@@ -47,7 +48,7 @@ public class ReceptExcelExporter {
     }
 
     private void createCell(Row row, int columnCount, Object value, CellStyle style) {
-        sheet.autoSizeColumn(columnCount);
+//        sheet.autoSizeColumn(columnCount); // Ужас как тормозило выгрузку!!!
         Cell cell = row.createCell(columnCount);
         if (value.toString() != null) {
             if (value instanceof Integer) {
@@ -76,41 +77,41 @@ public class ReceptExcelExporter {
         font.setFontHeight(14);
         style.setFont(font);
 
-        for (Recept recept : listRecepts) {
+        for (int i = 0; i < listRecepts.size(); i++) {
+
+
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
 
-            createCell(row, columnCount++, rowCount - 1, style);
-
-            if (recept.getReceptName() != null) {
-                createCell(row, columnCount++, recept.getReceptName(), style);
+            if (listRecepts.get(i).getReceptName() != null) {
+                createCell(row, columnCount++, listRecepts.get(i).getCode(), style);
             } else {
                 createCell(row, columnCount++, "нет данных", style);
             }
 
-            if (recept.getDocument() != null) {
-                createCell(row, columnCount++, recept.getDocument(), style);
+            if (listRecepts.get(i).getDocument() != null) {
+                createCell(row, columnCount++, listRecepts.get(i).getDocument(), style);
             } else {
                 createCell(row, columnCount++, "нет данных", style);
             }
 
-            if (recept.getReceptName() != null) {
-                createCell(row, columnCount++, recept.getReceptName(), style);
+            if (listRecepts.get(i).getReceptName() != null) {
+                createCell(row, columnCount++, listRecepts.get(i).getReceptName(), style);
             } else {
                 createCell(row, columnCount++, "нет данных", style);
             }
 
-            if (recept.getExit() != null) {
-                createCell(row, columnCount++, recept.getExit(), style);
+            if (listRecepts.get(i).getExit() != null) {
+                createCell(row, columnCount++, listRecepts.get(i).getExit(), style);
 
             } else {
                 createCell(row, columnCount++, "нет данных", style);
             }
 
-            createCell(row, columnCount++, recept.getPriceSebestoimost(), style);
+            createCell(row, columnCount++, listRecepts.get(i).getPriceSebestoimost(), style);
 
-            createCell(row, columnCount++, recept.getPriceProdaja(), style);
+            createCell(row, columnCount++, listRecepts.get(i).getPriceProdaja(), style);
 
 
         }
@@ -123,7 +124,6 @@ public class ReceptExcelExporter {
         ServletOutputStream outputStream = response.getOutputStream();
         workbook.write(outputStream);
         workbook.close();
-
         outputStream.close();
     }
 }
