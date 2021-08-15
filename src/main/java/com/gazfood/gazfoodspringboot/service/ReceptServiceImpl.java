@@ -111,6 +111,10 @@ public class ReceptServiceImpl implements ReceptService {
             int numbersNameColumnIndex = 0;
             int numbersNameRowIndex = 0;
 
+            //Данные для хранения номера начала и конца столбиков с цифрами "1", "2", "3"..
+            int startColumn = 0;
+            int endColumn = 0;
+
             // Начало и конец строчек для поиска
             int startRow = 0;
             int startRowValue = 0;
@@ -190,11 +194,13 @@ public class ReceptServiceImpl implements ReceptService {
 
                             }
 
+                            // "По учетным ценам производителя"
                             if (cell.getStringCellValue().equals(priceNameValue) & cell.getRowIndex() == codeRowIndex) {
                                 priceNameColumnIndex = cell.getColumnIndex();
                                 priceNameRowIndex = cell.getRowIndex();
                             }
 
+                            // "цена руб. коп."
                             if (cell.getStringCellValue().equals(priceRubValue) & cell.getColumnIndex() == priceNameColumnIndex) {
                                 priceRubColumnIndex = cell.getColumnIndex();
                                 priceRubRowIndex = cell.getRowIndex();
@@ -204,6 +210,16 @@ public class ReceptServiceImpl implements ReceptService {
                             if (cell.getStringCellValue().equals(numbersName)) {
                                 numbersNameColumnIndex = cell.getColumnIndex();
                                 numbersNameRowIndex = cell.getRowIndex();
+                            }
+
+                            // ищем "1" из сточки "1", "2", "3"..
+                                startColumn = numbersNameColumnIndex;
+
+                            // ищем последнюю цифру из строчки "1", "2", "3"..
+                            if(cell.getRowIndex()>numbersNameRowIndex &
+                            cell.getColumnIndex()>startColumn &
+                            cell.getColumnIndex()>endColumn){
+                                endColumn = cell.getColumnIndex();
                             }
 
                             // ищем "Итого собственная продукция:" и конец
@@ -234,6 +250,9 @@ public class ReceptServiceImpl implements ReceptService {
 //                System.out.println("");
             }
 
+            System.out.println("Столбик с цифрой 1 " + startColumn);
+            System.out.println("Столбик с последней " + endColumn);
+            System.out.println("строчки для них " + (startRow-1));
             Cell cell = null;
             for (int i = startRow; i < endRow - 1; i++) {
 //            System.out.println(sheet.getRow(i).getCell(priceNameColumnIndex));
@@ -241,7 +260,7 @@ public class ReceptServiceImpl implements ReceptService {
 
                 double result;
 
-                if (findFirstByCode(sheet.getRow(i).getCell(codeColumnIndex).getStringCellValue()) !=null) {
+                if (findFirstByCode(sheet.getRow(i).getCell(codeColumnIndex).getStringCellValue()) != null) {
                     result = findFirstByCode(sheet.getRow(i).getCell(codeColumnIndex).getStringCellValue()).getPriceSebestoimost();
                 } else {
                     result = 0.00;
