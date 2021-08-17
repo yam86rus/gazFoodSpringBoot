@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Газпром питание</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Инвентаризация
+        </h2>
+        <!--    Подключаем user-wrapper-->
+        <div th:replace="user-wrapper :: user-wrapper"></div>
+    </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Инвентаризация</h3>
+                        <button onclick="window.location.href = 'addNewInventory'">Добавить</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <td>Наименование</td>
+                                    <td>Инвентарный номер</td>
+                                    <td>Место размещения</td>
+                                    <td>Количество</td>
+                                    <td>Цена</td>
+                                    <td>Дата получения</td>
+                                    <td>Ответственное лицо</td>
+                                    <td>Адрес</td>
+                                    <td colspan="2">Операции</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="inventory : ${allInventory}">
+                                    <td th:utext="${inventory.inventoryName}"></td>
+                                    <td th:utext="${inventory.inventoryNumber}"></td>
+                                    <td th:utext="${inventory.place}"></td>
+                                    <td th:utext="${inventory.count}"></td>
+                                    <td th:utext="${inventory.price}"></td>
+                                    <td th:utext="${inventory.inventoryDate}"></td>
+                                    <td th:utext="${inventory.responsible}"></td>
+                                    <td th:utext="${inventory.address}"></td>
+                                    <td><a th:href="@{'/updateInventory'+'?inventoryId='+${inventory.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/deleteInventory'+'?inventoryId='+${inventory.id}}">Удалить</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+</body>
+</html>

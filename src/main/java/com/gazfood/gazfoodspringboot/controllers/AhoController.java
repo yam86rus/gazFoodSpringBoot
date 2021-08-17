@@ -1,12 +1,15 @@
 package com.gazfood.gazfoodspringboot.controllers;
 
 import com.gazfood.gazfoodspringboot.entity.Cassa;
+import com.gazfood.gazfoodspringboot.entity.Inventory;
 import com.gazfood.gazfoodspringboot.entity.PhoneNumberInCabinet;
 import com.gazfood.gazfoodspringboot.entity.User;
 import com.gazfood.gazfoodspringboot.exports.CassaExcelExporter;
 import com.gazfood.gazfoodspringboot.exports.PhoneNumberInCabinetExcelExporter;
+import com.gazfood.gazfoodspringboot.service.InventoryService;
 import com.gazfood.gazfoodspringboot.service.PhoneNumberInCabinetService;
 import com.gazfood.gazfoodspringboot.service.UserService;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,12 +32,16 @@ public class AhoController {
     @Autowired
     private PhoneNumberInCabinetService phoneNumberInCabinetService;
 
+    @Autowired
+    private InventoryService inventoryService;
+
     @RequestMapping("/aho")
     public String showAllAho(Model model, Principal principal) {
 
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
         model.addAttribute("phoneNumberInCabinet", phoneNumberInCabinetService.getCountPhoneNumberInCabinet());
+        model.addAttribute("countInventory", inventoryService.getCountInventory());
         return "all-aho";
     }
 
@@ -53,4 +60,17 @@ public class AhoController {
         PhoneNumberInCabinetExcelExporter phoneNumberInCabinetExcelExporter = new PhoneNumberInCabinetExcelExporter(ListPhoneNumber);
         phoneNumberInCabinetExcelExporter.export(response);
     }
+
+    @RequestMapping("/aho/allInventory")
+    private String showAllInventory(Model model, Principal principal){
+        List<Inventory> allInventory = inventoryService.getAllInventory();
+        model.addAttribute("allInventory", allInventory);
+
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user", user);
+
+        return "all-inventory";
+    }
+
+
 }
