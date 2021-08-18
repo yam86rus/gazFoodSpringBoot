@@ -59,8 +59,8 @@
                                     <td th:utext="${inventory.inventoryDate}"></td>
                                     <td th:utext="${inventory.responsible}"></td>
                                     <td th:utext="${inventory.address}"></td>
-                                    <td><a th:href="@{'/updateInventory'+'?inventoryId='+${inventory.id}}">Изменить</a></td>
-                                    <td><a th:href="@{'/deleteInventory'+'?inventoryId='+${inventory.id}}">Удалить</a></td>
+                                    <td><a th:href="@{'/aho/updateInventory'+'?inventoryId='+${inventory.id}}">Изменить</a></td>
+                                    <td><a th:href="@{'/aho/deleteInventory'+'?inventoryId='+${inventory.id}}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
