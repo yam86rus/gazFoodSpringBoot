@@ -3,6 +3,7 @@ package com.gazfood.gazfoodspringboot.controllers;
 import com.gazfood.gazfoodspringboot.entity.Inventory;
 import com.gazfood.gazfoodspringboot.entity.PhoneNumberInCabinet;
 import com.gazfood.gazfoodspringboot.entity.User;
+import com.gazfood.gazfoodspringboot.exports.InventoryExporter;
 import com.gazfood.gazfoodspringboot.exports.PhoneNumberInCabinetExcelExporter;
 import com.gazfood.gazfoodspringboot.service.InventoryService;
 import com.gazfood.gazfoodspringboot.service.PhoneNumberInCabinetService;
@@ -60,6 +61,24 @@ public class AhoController {
         phoneNumberInCabinetExcelExporter.export(response);
     }
 
+    @GetMapping("aho/export/excel2")
+    private void exportToExcel2(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=Inventarizacia_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Inventory> ListInventory = inventoryService.getAllInventory();
+
+        InventoryExporter inventoryExporter = new InventoryExporter(ListInventory);
+        inventoryExporter.export(response);
+    }
+
+
+
     @RequestMapping("/aho/allInventory")
     private String showAllInventory(Model model, Principal principal) {
         List<Inventory> allInventory = inventoryService.getAllInventory();
@@ -105,8 +124,6 @@ public class AhoController {
         inventory.setEditingDate(LocalDate.now());
         inventory.setEditingPerson(user.getUserLastName() + " " + user.getUserName() + " " + user.getPatronymic());
         model.addAttribute("inventory", inventory);
-
-
 
         return "inventory-form";
 

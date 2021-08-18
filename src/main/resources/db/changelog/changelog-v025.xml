@@ -26,7 +26,7 @@
             <column name="price" type="DOUBLE">
                 <constraints nullable="true" unique="false"/>
             </column>
-            <column name="inventory_date" type="datetime">
+            <column name="inventory_date" type="date">
                 <constraints nullable="true" unique="false"/>
             </column>
             <column name="responsible" type="varchar(200)">
@@ -38,7 +38,7 @@
             <column name="editing_person" type="varchar(200)">
                 <constraints nullable="true" unique="false"/>
             </column>
-            <column name="editing_date" type="datetime">
+            <column name="editing_date" type="date">
                 <constraints nullable="true" unique="false"/>
             </column>
 
