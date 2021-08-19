@@ -7,6 +7,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -115,6 +116,9 @@ public class ReceptServiceImpl implements ReceptService {
             int startColumn = 0;
             int endColumn = 0;
 
+            // Данные для хранения номера столбца "сумма руб. коп.", который идет после "цена руб. коп."
+            int summaRubCop = 0;
+
             // Начало и конец строчек для поиска
             int startRow = 0;
             int startRowValue = 0;
@@ -206,6 +210,11 @@ public class ReceptServiceImpl implements ReceptService {
                                 priceRubRowIndex = cell.getRowIndex();
                             }
 
+                            // "сумма руб. коп."
+                            if (cell.getStringCellValue().equals("сумма руб. коп.") & cell.getColumnIndex() > priceRubColumnIndex) {
+                                summaRubCop = cell.getColumnIndex();
+                            }
+
                             // ищем "Номер по порядку"
                             if (cell.getStringCellValue().equals(numbersName)) {
                                 numbersNameColumnIndex = cell.getColumnIndex();
@@ -213,12 +222,12 @@ public class ReceptServiceImpl implements ReceptService {
                             }
 
                             // ищем "1" из сточки "1", "2", "3"..
-                                startColumn = numbersNameColumnIndex;
+                            startColumn = numbersNameColumnIndex;
 
                             // ищем последнюю цифру из строчки "1", "2", "3"..
-                            if(cell.getRowIndex()>numbersNameRowIndex &
-                            cell.getColumnIndex()>startColumn &
-                            cell.getColumnIndex()>endColumn){
+                            if (cell.getRowIndex() > numbersNameRowIndex &
+                                    cell.getColumnIndex() > startColumn &
+                                    cell.getColumnIndex() > endColumn) {
                                 endColumn = cell.getColumnIndex();
                             }
 
@@ -252,8 +261,18 @@ public class ReceptServiceImpl implements ReceptService {
 
             System.out.println("Столбик с цифрой 1 " + startColumn);
             System.out.println("Столбик с последней " + endColumn);
-            System.out.println("строчки для них " + (startRow-1));
+            System.out.println("строчки для них " + (startRow - 1));
+            System.out.println("Последняя строчка" + endRow);
+            System.out.println("цена руб. коп. " + codeColumnIndex);
+            System.out.println("summaRubCop" + summaRubCop);
             Cell cell = null;
+
+            //TODO пройтись только по нужным ячейкам
+            //Пробуем разъединить объединенные ячейки (вообще все разъединяет :) )
+//            for (int n = 0; n < sheet.getNumMergedRegions(); n++) {
+//                sheet.removeMergedRegion(n);
+//            }
+
             for (int i = startRow; i < endRow - 1; i++) {
 //            System.out.println(sheet.getRow(i).getCell(priceNameColumnIndex));
                 cell = sheet.getRow(i).getCell(priceNameColumnIndex);
@@ -265,7 +284,15 @@ public class ReceptServiceImpl implements ReceptService {
                 } else {
                     result = 0.00;
                 }
+                // объединяем ячейки c первой по последнюю
+                try {
+                    sheet.addMergedRegion(new CellRangeAddress(i, i, priceNameColumnIndex, summaRubCop - 1));
+                } catch (Exception e) {
+                    System.out.println("Ошибка при объединении с первой по последнюю");
+                }
 
+
+                // записываем данные в ячейку
                 cell.setCellValue(result);
             }
 
