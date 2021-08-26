@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
@@ -32,7 +36,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3>Список сотрудников</h3>
-                                <button onclick="window.location.href = 'addNewEmployee'">Добавить</button>
+                                <button sec:authorize="hasRole('ROLE_ADMIN')" onclick="window.location.href = 'addNewEmployee'">Добавить</button>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -42,8 +46,7 @@
                                             <td>ФИО</td>
                                             <td>Должность</td>
                                             <td>Отдел</td>
-                                            <td></td>
-                                            <td colspan="2">Операции</td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')" colspan="2">Операции</td>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -51,8 +54,8 @@
                                             <td><a th:href="@{'/detailsEmployee'+'?empId='+${employee.id}}" th:utext="${employee.surname} +' '+ ${employee.name} +' '+ ${employee.patronymic}"></a></td>
                                             <td th:utext="${employee.position}"></td>
                                             <td th:utext="${employee.department}"></td>
-                                            <td><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
-                                            <td><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{'/updateEmployee'+'?empId='+${employee.id}}">Изменить</a></td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{'/deleteEmployee'+'?empId='+${employee.id}}">Удалить</a></td>
                                         </tr>
                                         </tbody>
                                     </table>

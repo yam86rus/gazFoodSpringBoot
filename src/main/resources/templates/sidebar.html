@@ -17,7 +17,7 @@
                     <span>IT</span>
                 </a>
             </li>
-            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_USER')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/employees' ? 'active':''}" th:href="@{/employees}">
                     <span class="las la-users"></span>
                     <span>Сотрудники</span>
@@ -35,7 +35,7 @@
                     <span>Меню</span>
                 </a>
             </li>
-            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT','ROLE_USER')">
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_IT')">
                 <a th:classappend="${#httpServletRequest.getRequestURI() == '/users' ? 'active':''}" th:href="@{/users}">
                     <span class="las la-user-circle"></span>
                     <span>Пользователи</span>
