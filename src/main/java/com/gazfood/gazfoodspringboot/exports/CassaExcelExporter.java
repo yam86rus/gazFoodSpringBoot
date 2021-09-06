@@ -57,7 +57,7 @@ public class CassaExcelExporter {
     }
 
     private void createCell(Row row, int columnCount, Object value, CellStyle style) {
-        sheet.autoSizeColumn(columnCount);
+//        sheet.autoSizeColumn(columnCount);
         Cell cell = row.createCell(columnCount);
         if (value.toString() != null) {
             if (value instanceof Integer) {
@@ -66,7 +66,7 @@ public class CassaExcelExporter {
                 cell.setCellValue((Boolean) value);
             } else if (value instanceof Date) {
                 cell.setCellValue((Date) value);
-            } else if (value instanceof Long){
+            } else if (value instanceof Long) {
                 cell.setCellValue((Long) value);
             } else {
                 cell.setCellValue((String) value);
@@ -118,7 +118,12 @@ public class CassaExcelExporter {
             createCell(row, columnCount++, cassa.getRnkkt(), style);
             createCell(row, columnCount++, cassa.getFnNumber(), style);
             createCell(row, columnCount++, cassa.getMobileNumber(), style);
-            createCell(row, columnCount++, cassa.getIccNumber(), style);
+
+            if (cassa.getIccNumber() != null) {
+                createCell(row, columnCount++, cassa.getIccNumber(), style);
+            } else {
+                createCell(row, columnCount++, "нет данных", style);
+            }
             createCell(row, columnCount++, cassa.getPhoneNumber(), style);
             if (cassa.getLicense() != null) {
                 createCell(row, columnCount++, cassa.getLicense(), style);
