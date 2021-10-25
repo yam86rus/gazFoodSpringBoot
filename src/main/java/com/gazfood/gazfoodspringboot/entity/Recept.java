@@ -25,20 +25,27 @@ public class Recept {
     @Column(name = "price_sebestoimost")
     private double priceSebestoimost;
 
-
     @Column(name = "price_prodaja")
     private double priceProdaja;
+
+    @Column(name = "price_prodaja_op")
+    private double priceProdajaOp;
+
+    @Column(name = "price_prodaja_rp")
+    private double priceProdajaRp;
 
     public Recept() {
     }
 
-    public Recept(String code, String document, String receptName, String exit, double priceSebestoimost, double priceProdaja) {
+    public Recept(String code, String document, String receptName, String exit, double priceSebestoimost, double priceProdaja, double priceProdajaOp, double priceProdajaRp) {
         this.code = code;
         this.document = document;
         this.receptName = receptName;
         this.exit = exit;
         this.priceSebestoimost = priceSebestoimost;
         this.priceProdaja = priceProdaja;
+        this.priceProdajaOp = priceProdajaOp;
+        this.priceProdajaRp = priceProdajaRp;
     }
 
     public int getId() {
@@ -95,5 +102,21 @@ public class Recept {
 
     public void setPriceProdaja(double priceProdaja) {
         this.priceProdaja = priceProdaja;
+    }
+
+    public double getPriceProdajaOp() {
+        return priceProdajaOp;
+    }
+
+    public void setPriceProdajaOp(double priceProdajaOp) {
+        this.priceProdajaOp = priceProdajaOp;
+    }
+
+    public double getPriceProdajaRp() {
+        return priceProdajaRp;
+    }
+
+    public void setPriceProdajaRp(double priceProdajaRp) {
+        this.priceProdajaRp = priceProdajaRp;
     }
 }

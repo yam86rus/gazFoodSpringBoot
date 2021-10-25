@@ -44,6 +44,8 @@ public class ReceptExcelExporter {
         createCell(row, 3, "Выход блюда", style);
         createCell(row, 4, "Цена по себестоимости", style);
         createCell(row, 5, "Цена продажная", style);
+        createCell(row, 6, "Цена продажная ОП", style);
+        createCell(row, 7, "Цена продажная РП", style);
 
     }
 
@@ -109,9 +111,13 @@ public class ReceptExcelExporter {
                 createCell(row, columnCount++, "нет данных", style);
             }
 
+
+
             createCell(row, columnCount++, listRecepts.get(i).getPriceSebestoimost(), style);
 
             createCell(row, columnCount++, listRecepts.get(i).getPriceProdaja(), style);
+            createCell(row, columnCount++, listRecepts.get(i).getPriceProdajaOp(), style);
+            createCell(row, columnCount++, listRecepts.get(i).getPriceProdajaRp(), style);
 
 
         }

@@ -46,6 +46,8 @@
                                     <td>Выход блюда</td>
                                     <td>Цена по себестоимости, руб</td>
                                     <td>Цена продажная, руб</td>
+                                    <td>Цена продажная ОП, руб</td>
+                                    <td>Цена продажная РП, руб</td>
                                     <td colspan="2">Операции</td>
                                 </tr>
                                 </thead>
@@ -57,6 +59,8 @@
                                     <td th:utext="${recept.exit}"></td>
                                     <td th:utext="${recept.priceSebestoimost}"></td>
                                     <td th:utext="${recept.priceProdaja}"></td>
+                                    <td th:utext="${recept.priceProdajaOp}"></td>
+                                    <td th:utext="${recept.priceProdajaRp}"></td>
                                     <td><a th:href="@{'/updateRecept'+'?receptId='+${recept.id}}">Изменить</a></td>
                                     <td><a th:href="@{'/deleteRecept'+'?receptId='+${recept.id}}">Удалить</a></td>
                                 </tr>
