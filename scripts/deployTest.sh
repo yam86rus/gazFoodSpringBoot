@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Деплой прилоежения в тест
+# Деплой приложения в тест
 
 echo 'Start maven clean...'
 cd /home/maxim/IdeaProjects/gazFoodSpringBoot
-mvn clean package
+mvn clean
 
 echo 'Start maven package...'
 mvn package
