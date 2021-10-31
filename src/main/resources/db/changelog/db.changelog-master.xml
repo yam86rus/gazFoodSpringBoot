@@ -35,7 +35,8 @@
     <include file="db/changelog/changelog-v024.xml"></include> <!-- Справочник Recept (создание) -->
     <include file="db/changelog/changelog-v025.xml"></include> <!-- Справочник inventory (создание) -->
     <include file="db/changelog/changelog-v026.xml"></include> <!-- Справочник Recept (модификация добавил два столбца) -->
-    <include file="db/changelog/changelog-v026.xml"></include> <!-- Одна единственная учетка админа (добавление)-->
+    <include file="db/changelog/changelog-v027.xml"></include> <!-- Одна единственная учетка админа (добавление)-->
+    <include file="db/changelog/changelog-v028.xml"></include> <!-- Единицы измерения (создание)-->
 
     <!-- Заполняем тестовыми данными)-->
 <!--    <include file="db/changelog/changelog-v100.xml"></include>-->
