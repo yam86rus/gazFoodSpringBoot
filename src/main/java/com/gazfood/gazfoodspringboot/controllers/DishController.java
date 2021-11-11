@@ -60,9 +60,9 @@ public class DishController {
     public String saveDish(Dish dish) {
         dishService.saveDish(dish);
 
-        //создаю запись в регистре свденений "Блюда"
-//        RegisterDish registerDish = new RegisterDish(LocalDate.now(), 666, dish);
-//        registerDishService.saveRegisterDish(registerDish);
+        // создаю запись в регистре свденений "Блюда"
+        // RegisterDish registerDish = new RegisterDish(LocalDate.now(), 666, dish);
+        // registerDishService.saveRegisterDish(registerDish);
 
         return "redirect:dishes";
     }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>Газпром питание</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+<input type="checkbox" id="nav-toggle">
+<!--    Подключаем sidebar-->
+<div th:replace="sidebar :: sidebar"></div>
+
+<div class="main-content">
+    <header>
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Загрузка изображений
+            <span class=" las la-code-branch"></span>
+        </h2>
+        <!--    Подключаем user-wrapper-->
+        <div th:replace="user-wrapper :: user-wrapper"></div>
+
+    </header>
+    <main>
+        <div class="recent-grid" style="margin-top: 0; grid-template-columns: 100% auto">
+            <div class="projects">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Загрузка изображений для меню</h3>
+                        <div>Файл успешно добавлен</div>
+                        <span th:utext="${fileName}"></span>
+                        <button onclick="window.location.href = 'upload'">Добавить еще</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
