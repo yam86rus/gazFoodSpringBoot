@@ -4,6 +4,7 @@ import com.gazfood.gazfoodspringboot.entity.User;
 import com.gazfood.gazfoodspringboot.service.UserService;
 import com.gazfood.gazfoodspringboot.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,9 @@ public class UploadFileController {
     @Autowired
     private UserService userService;
 
+    @Value("${upload.path}")
+    private String uploadPath;
+
     @RequestMapping(value = "/upload",method = RequestMethod.GET)
     public String upload(Model model, Principal principal){
         User user = userService.findByUsername(principal.getName());
@@ -35,11 +39,12 @@ public class UploadFileController {
 
         String contentType = file.getContentType (); // Тип файла изображения
         String fileName = FileUtil.getFileName (file.getOriginalFilename ()); // Имя изображения
-        String filePath = "C:\\upload\\";
+        String filePath = uploadPath;
         try {
             // Вызываем класс обработки файлов FileUtil для обработки файла и записи файла в указанное место
             FileUtil.uploadFile(file.getBytes(),filePath,fileName);
             model.addAttribute("fileName",fileName);
+            model.addAttribute("filePath",filePath);
             return "upload_success";
 
         } catch (Exception e) {
