@@ -11,8 +11,21 @@ public class MvcConfig implements WebMvcConfigurer {
     @Value("${upload.path}")
     private String uploadPath;
 
+    @Value("${dishes.path}")
+    private String dishesPath;
+
+    @Value("${avatars.path}")
+    private String avatarsPath;
+
+    @Value("${cafeterias.path}")
+    private String cafeteriasPath;
+
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/img/**").addResourceLocations("file://" + uploadPath + "/");
+        registry.addResourceHandler("/uploadPath/**").addResourceLocations("file://" + uploadPath + "/")
+                .addResourceLocations("/dishes/**").addResourceLocations("file://" + dishesPath + "/")
+                .addResourceLocations("/avatars/**").addResourceLocations("file://" + avatarsPath + "/")
+                .addResourceLocations("/cafeterias/**").addResourceLocations("file://" + cafeteriasPath + "/");
     }
 }

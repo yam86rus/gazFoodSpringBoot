@@ -25,26 +25,36 @@ public class UploadFileController {
     @Value("${upload.path}")
     private String uploadPath;
 
-    @RequestMapping(value = "/upload",method = RequestMethod.GET)
-    public String upload(Model model, Principal principal){
+    @Value("${dishes.path}")
+    private String dishesPath;
+
+    @Value("${avatars.path}")
+    private String avatarsPath;
+
+    @Value("${cafeterias.path}")
+    private String cafeteriasPath;
+
+
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String upload(Model model, Principal principal) {
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
         return "/upload";
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request, Model model, Principal principal){
+    public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request, Model model, Principal principal) {
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
 
-        String contentType = file.getContentType (); // Тип файла изображения
-        String fileName = FileUtil.getFileName (file.getOriginalFilename ()); // Имя изображения
-        String filePath = uploadPath;
+        String contentType = file.getContentType(); // Тип файла изображения
+        String fileName = FileUtil.getFileName(file.getOriginalFilename()); // Имя изображения
+        String filePath = dishesPath + "/";
         try {
             // Вызываем класс обработки файлов FileUtil для обработки файла и записи файла в указанное место
-            FileUtil.uploadFile(file.getBytes(),filePath,fileName);
-            model.addAttribute("fileName",fileName);
-            model.addAttribute("filePath",filePath);
+            FileUtil.uploadFile(file.getBytes(), filePath, fileName); // загружаем в /pathUpload/
+            model.addAttribute("fileName", fileName);
+            model.addAttribute("filePath", filePath);
             return "upload_success";
 
         } catch (Exception e) {
