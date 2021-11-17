@@ -53,6 +53,9 @@
                                         <a th:href="@{${dish.imageUrl}}"><img style="max-width: 100px"
                                                                               th:src="@{${dish.imageUrl}}" alt=""></a>
                                     </td>
+                                    <td>
+                                        <img th:src="@{'/uploadPath/'+${dish.imageUrl}}">
+                                    </td>
                                     <td th:utext="${dish.weight}"></td>
                                     <td th:utext="${dish.dishCategory.category}">
                                     <td><a th:href="@{'/updateDish'+'?dishId='+${dish.id}}">Изменить</a></td>
