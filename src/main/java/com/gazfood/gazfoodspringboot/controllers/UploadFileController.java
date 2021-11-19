@@ -39,7 +39,7 @@ public class UploadFileController {
     public String upload(Model model, Principal principal) {
         User user = userService.findByUsername(principal.getName());
         model.addAttribute("user", user);
-        return "/upload";
+        return "upload";
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
